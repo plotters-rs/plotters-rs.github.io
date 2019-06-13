@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `plotters` crate."><meta name="keywords" content="rust, rustlang, rust-lang, plotters"><title>plotters - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../dark.css"><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script src="../storage.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="shortcut icon" href="../favicon.ico"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../plotters/index.html'><img src='../rust-logo.png' alt='logo' width='100'></a><p class='location'>Crate plotters</p><div class="sidebar-elems"><a id='all-types' href='all.html'><p>See all plotters's items</p></a><div class="block items"><ul><li><a href="#modules">Modules</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'plotters', ty: 'mod', relpath: '../'};</script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/plotters/lib.rs.html#1-521' title='goto source code'>[src]</a></span><span class='in-band'>Crate <a class="mod" href=''>plotters</a></span></h1><div class='docblock'><h1 id="plotters---rust-drawing-library-for-visualization---" class="section-header"><a href="#plotters---rust-drawing-library-for-visualization---">Plotters - Rust Drawing Library for Visualization  🦀 📈🚀</a></h1>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `plotters` crate."><meta name="keywords" content="rust, rustlang, rust-lang, plotters"><title>plotters - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../dark.css"><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script src="../storage.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="shortcut icon" href="../favicon.ico"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../plotters/index.html'><img src='../rust-logo.png' alt='logo' width='100'></a><p class='location'>Crate plotters</p><div class="sidebar-elems"><a id='all-types' href='all.html'><p>See all plotters's items</p></a><div class="block items"><ul><li><a href="#modules">Modules</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'plotters', ty: 'mod', relpath: '../'};</script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/plotters/lib.rs.html#1-520' title='goto source code'>[src]</a></span><span class='in-band'>Crate <a class="mod" href=''>plotters</a></span></h1><div class='docblock'><h1 id="plotters---rust-drawing-library-for-visualization---" class="section-header"><a href="#plotters---rust-drawing-library-for-visualization---">Plotters - Rust Drawing Library for Visualization  🦀 📈🚀</a></h1>
 <p><a href="https://crates.io/crates/plotters">
 <img style="display: inline!important" src="https://img.shields.io/crates/v/plotters.svg"></img>
 </a>
@@ -7,16 +7,18 @@
 </a>
 <a href="https://plumberserver.com/plotters-docs/plotters">
 <img style="display: inline! important" src="https://img.shields.io/badge/docs-development-lightgrey.svg"></img>
-</a></p>
-<p><a href="https://travis-ci.org/38/plotters">
+</a>
+<a href="https://travis-ci.org/38/plotters">
 <img style="display: inline! important" src="https://travis-ci.org/38/plotters.svg?branch=master"></img>
 </a></p>
 <p>Plotters is drawing library designed for rendering figures, plots, and charts, in pure rust. Plotters supports various types of backends,
 including bitmap, vector graph, piston window and WebAssembly.</p>
-<p>Now an interactive Jupyter notebook is avaiable, check the static HTML version and follow the instruction to have a try! <a href="https://plumberserver.com/plotters-docs/evcxr-jupyter-integration.html">link</a></p>
+<ul>
+<li>You can try Plotters with Jupyter notebook, or view <a href="https://plotters-rs.github.io/plotters-doc-data/evcxr-jupyter-integration.html">here</a> for the static HTML version.</li>
+</ul>
 <h2 id="gallery" class="section-header"><a href="#gallery">Gallery</a></h2><div class="galleryItem">
-    <a href="https://raw.githubusercontent.com/38/plotters-doc-data/master/sample.png">
-        <img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/sample.png" class="galleryItem"></img>
+    <a href="https://plotters-rs.github.io/plotters-doc-data/sample.png">
+        <img src="https://plotters-rs.github.io/plotters-doc-data/sample.png" class="galleryItem"></img>
     </a>
     <div class="galleryText">
         Multiple Plot
@@ -24,8 +26,8 @@ including bitmap, vector graph, piston window and WebAssembly.</p>
     </div>
 </div>
 <div class="galleryItem">
-    <a href="https://raw.githubusercontent.com/38/plotters-doc-data/master/stock.png">
-        <img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/stock.png" class="galleryItem"></img>
+    <a href="https://plotters-rs.github.io/plotters-doc-data/stock.png">
+        <img src="https://plotters-rs.github.io/plotters-doc-data/stock.png" class="galleryItem"></img>
     </a>
     <div class="galleryText">
         Candlestick Plot
@@ -33,8 +35,8 @@ including bitmap, vector graph, piston window and WebAssembly.</p>
     </div>
 </div>
 <div class="galleryItem">
-    <a href="https://raw.githubusercontent.com/38/plotters-doc-data/master/histogram.png">
-        <img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/histogram.png" class="galleryItem"></img>
+    <a href="https://plotters-rs.github.io/plotters-doc-data/histogram.png">
+        <img src="https://plotters-rs.github.io/plotters-doc-data/histogram.png" class="galleryItem"></img>
     </a>
     <div class="galleryText">
        Histogram
@@ -42,16 +44,16 @@ including bitmap, vector graph, piston window and WebAssembly.</p>
     </div>
 </div>
 <div class="galleryItem">
-    <a href="https://raw.githubusercontent.com/38/plotters-doc-data/master/0.png">
-        <img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/0.png" class="galleryItem"></img>
+    <a href="https://plotters-rs.github.io/plotters-doc-data/0.png">
+        <img src="https://plotters-rs.github.io/plotters-doc-data/0.png" class="galleryItem"></img>
     </a>
     <div class="galleryText">
         Simple Chart
     </div>
 </div>
 <div class="galleryItem">
-    <a href="https://raw.githubusercontent.com/38/plotters-doc-data/master/mandelbrot.png">
-        <img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/mandelbrot.png" class="galleryItem"></img>
+    <a href="https://plotters-rs.github.io/plotters-doc-data/mandelbrot.png">
+        <img src="https://plotters-rs.github.io/plotters-doc-data/mandelbrot.png" class="galleryItem"></img>
     </a>
     <div class="galleryText">
         Mandelbrot set
@@ -59,16 +61,16 @@ including bitmap, vector graph, piston window and WebAssembly.</p>
     </div>
 </div>
 <div class="galleryItem">
-    <a href="https://raw.githubusercontent.com/38/plotters-doc-data/master/evcxr_animation.gif">
-        <img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/evcxr_animation.gif" class="galleryItem"></img>
+    <a href="https://plotters-rs.github.io/plotters-doc-data/evcxr_animation.gif">
+        <img src="https://plotters-rs.github.io/plotters-doc-data/evcxr_animation.gif" class="galleryItem"></img>
     </a>
     <div class="galleryText">
         Jupyter Support
     </div>
 </div>
 <div class="galleryItem">
-    <a href="https://raw.githubusercontent.com/38/plotters-doc-data/master/plotters-piston.gif">
-        <img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/plotters-piston.gif" class="galleryItem"></img>
+    <a href="https://plotters-rs.github.io/plotters-doc-data/plotters-piston.gif">
+        <img src="https://plotters-rs.github.io/plotters-doc-data/plotters-piston.gif" class="galleryItem"></img>
     </a>
     <div class="galleryText">
         Realtime Rendering
@@ -76,8 +78,8 @@ including bitmap, vector graph, piston window and WebAssembly.</p>
     </div>
 </div>
 <div class="galleryItem">
-    <a href="https://raw.githubusercontent.com/38/plotters-doc-data/master/normal-dist.png">
-        <img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/normal-dist.png" class="galleryItem"></img>
+    <a href="https://plotters-rs.github.io/plotters-doc-data/normal-dist.png">
+        <img src="https://plotters-rs.github.io/plotters-doc-data/normal-dist.png" class="galleryItem"></img>
     </a>
     <div class="galleryText">
         Histogram with Scatter
@@ -129,7 +131,7 @@ plotters = &quot;^0.2.1&quot;
         .<span class="ident">build_ranged</span>(<span class="op">-</span><span class="number">1f32</span>..<span class="number">1f32</span>, <span class="op">-</span><span class="number">0.1f32</span>..<span class="number">1f32</span>)<span class="question-mark">?</span>;
 
     <span class="ident">chart</span>.<span class="ident">configure_mesh</span>().<span class="ident">draw</span>()<span class="question-mark">?</span>;
- 
+
     <span class="ident">chart</span>.<span class="ident">draw_series</span>(<span class="ident">LineSeries</span>::<span class="ident">new</span>(
         (<span class="op">-</span><span class="number">50</span>..=<span class="number">50</span>).<span class="ident">map</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="ident">x</span> <span class="kw">as</span> <span class="ident">f32</span> <span class="op">/</span> <span class="number">50.0</span>).<span class="ident">map</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> (<span class="ident">x</span>, <span class="ident">x</span> <span class="op">*</span> <span class="ident">x</span>)),
         <span class="kw-2">&amp;</span><span class="ident">Red</span>,
@@ -144,7 +146,7 @@ plotters = &quot;^0.2.1&quot;
 
     <span class="prelude-val">Ok</span>(())
 }</pre></div>
-<p><img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/0.png" alt="" /></p>
+<p><img src="https://plotters-rs.github.io/plotters-doc-data/0.png" alt="" /></p>
 <h2 id="trying-with-jupyter-evcxr-kernel-interactively" class="section-header"><a href="#trying-with-jupyter-evcxr-kernel-interactively">Trying with Jupyter evcxr Kernel Interactively</a></h2>
 <p>Plotters now supports integrate with <code>evcxr</code> and is able to interactively drawing plots in Jupyter Notebook.
 The feature <code>evcxr</code> should be enabled when including Plotters to Jupyter Notebook.</p>
@@ -179,7 +181,7 @@ let figure = evcxr_figure((640, 480), |root| {
 });
 figure
 </code></pre>
-<p><img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/evcxr_animation.gif" width="450px"></img></p>
+<p><img src="https://plotters-rs.github.io/plotters-doc-data/evcxr_animation.gif" width="450px"></img></p>
 <h2 id="interactive-tutorial-with-jupyter-notebook" class="section-header"><a href="#interactive-tutorial-with-jupyter-notebook">Interactive Tutorial with Jupyter Notebook</a></h2>
 <p><em>This tutorial is now working in progress and isn't complete</em></p>
 <p>Thanks to the evcxr, now we have an interactive tutorial for Plotters!
@@ -240,7 +242,7 @@ But Plotter is aimed to be a platform that is fully extendable to support any ot
     <span class="ident">backend</span>.<span class="ident">draw_rect</span>((<span class="number">50</span>, <span class="number">50</span>), (<span class="number">200</span>, <span class="number">150</span>), <span class="kw-2">&amp;</span><span class="ident">Red</span>, <span class="bool-val">true</span>)<span class="question-mark">?</span>;
     <span class="prelude-val">Ok</span>(())
 }</pre></div>
-<p><img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/1.png" alt="" /></p>
+<p><img src="https://plotters-rs.github.io/plotters-doc-data/1.png" alt="" /></p>
 <h3 id="drawing-area" class="section-header"><a href="#drawing-area">Drawing Area</a></h3>
 <p>Plotters uses a concept called drawing area for layout purpose.
 Plotters support multiple integrating into a single image.
@@ -260,7 +262,7 @@ This is done by creating sub-drawing-areas.</p>
     }
     <span class="prelude-val">Ok</span>(())
 }</pre></div>
-<p><img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/2.png" alt="" /></p>
+<p><img src="https://plotters-rs.github.io/plotters-doc-data/2.png" alt="" /></p>
 <h3 id="elements" class="section-header"><a href="#elements">Elements</a></h3>
 <p>In Plotters, elements are build blocks of figures. All elements are able to draw on a drawing area.
 There are different types of built-in elements, like lines, texts, circles, etc.
@@ -281,7 +283,7 @@ You can also define your own element in the application code.</p>
     ))<span class="question-mark">?</span>;
     <span class="prelude-val">Ok</span>(())
 }</pre></div>
-<p><img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/3.png" alt="" /></p>
+<p><img src="https://plotters-rs.github.io/plotters-doc-data/3.png" alt="" /></p>
 <h3 id="composable-elements" class="section-header"><a href="#composable-elements">Composable Elements</a></h3>
 <p>Besides the built-in elements, elements can be composed into a logic group we called composed elements.
 When composing new elements, the upper-left corner is given in the target coordinate, and a new pixel-based
@@ -313,7 +315,7 @@ coordinate which has the upper-left corner defined as <code>(0,0)</code> is used
     <span class="ident">root</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="ident">dot_and_label</span>(<span class="number">0.8</span>, <span class="number">0.8</span>))<span class="question-mark">?</span>;
     <span class="prelude-val">Ok</span>(())
 }</pre></div>
-<p><img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/4.png" alt="" /></p>
+<p><img src="https://plotters-rs.github.io/plotters-doc-data/4.png" alt="" /></p>
 <h3 id="chart-context" class="section-header"><a href="#chart-context">Chart Context</a></h3>
 <p>In order to draw a chart, Plotters need a data object built on top of the drawing area called <code>ChartContext</code>.
 The chart context defines even higher level constructs compare to the drawing area.
@@ -364,7 +366,7 @@ of the chart context object.</p>
     ))<span class="question-mark">?</span>;
     <span class="prelude-val">Ok</span>(())
 }</pre></div>
-<p><img src="https://raw.githubusercontent.com/38/plotters-doc-data/master/5.png" alt="" /></p>
+<p><img src="https://plotters-rs.github.io/plotters-doc-data/5.png" alt="" /></p>
 <h2 id="misc" class="section-header"><a href="#misc">Misc</a></h2><h3 id="development-version" class="section-header"><a href="#development-version">Development Version</a></h3>
 <p>To use the latest development version, pull https://github.com/38/plotters.git. In <code>Cargo.toml</code></p>
 <pre><code class="language-toml">[dependencies]

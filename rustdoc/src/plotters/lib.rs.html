@@ -518,11 +518,10 @@
 <span id="518">518</span>
 <span id="519">519</span>
 <span id="520">520</span>
-<span id="521">521</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">/*!
 
-# Plotters - Rust Drawing Library for Visualization  🦀 📈🚀 
+# Plotters - Rust Drawing Library for Visualization  🦀 📈🚀
 
 &lt;a href=&quot;https://crates.io/crates/plotters&quot;&gt;
     &lt;img style=&quot;display: inline!important&quot; src=&quot;https://img.shields.io/crates/v/plotters.svg&quot;&gt;&lt;/img&gt;
@@ -531,23 +530,22 @@
     &lt;img style=&quot;display: inline!important&quot; src=&quot;https://docs.rs/plotters/badge.svg&quot;&gt;&lt;/img&gt;
 &lt;/a&gt;
 &lt;a href=&quot;https://plumberserver.com/plotters-docs/plotters&quot;&gt;
-	&lt;img style=&quot;display: inline! important&quot; src=&quot;https://img.shields.io/badge/docs-development-lightgrey.svg&quot;&gt;&lt;/img&gt;
+    &lt;img style=&quot;display: inline! important&quot; src=&quot;https://img.shields.io/badge/docs-development-lightgrey.svg&quot;&gt;&lt;/img&gt;
 &lt;/a&gt;
-
 &lt;a href=&quot;https://travis-ci.org/38/plotters&quot;&gt;
-	&lt;img style=&quot;display: inline! important&quot; src=&quot;https://travis-ci.org/38/plotters.svg?branch=master&quot;&gt;&lt;/img&gt;
+    &lt;img style=&quot;display: inline! important&quot; src=&quot;https://travis-ci.org/38/plotters.svg?branch=master&quot;&gt;&lt;/img&gt;
 &lt;/a&gt;
 
-Plotters is drawing library designed for rendering figures, plots, and charts, in pure rust. Plotters supports various types of backends, 
-including bitmap, vector graph, piston window and WebAssembly. 
+Plotters is drawing library designed for rendering figures, plots, and charts, in pure rust. Plotters supports various types of backends,
+including bitmap, vector graph, piston window and WebAssembly.
 
-Now an interactive Jupyter notebook is avaiable, check the static HTML version and follow the instruction to have a try! [link](https://plumberserver.com/plotters-docs/evcxr-jupyter-integration.html)
+- You can try Plotters with Jupyter notebook, or view [here](https://plotters-rs.github.io/plotters-doc-data/evcxr-jupyter-integration.html) for the static HTML version.
 
 ## Gallery
 
 &lt;div class=&quot;galleryItem&quot;&gt;
-    &lt;a href=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/sample.png&quot;&gt;
-        &lt;img src=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/sample.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
+    &lt;a href=&quot;https://plotters-rs.github.io/plotters-doc-data/sample.png&quot;&gt;
+        &lt;img src=&quot;https://plotters-rs.github.io/plotters-doc-data/sample.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
     &lt;/a&gt;
     &lt;div class=&quot;galleryText&quot;&gt;
         Multiple Plot
@@ -556,8 +554,8 @@ Now an interactive Jupyter notebook is avaiable, check the static HTML version a
 &lt;/div&gt;
 
 &lt;div class=&quot;galleryItem&quot;&gt;
-    &lt;a href=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/stock.png&quot;&gt;
-        &lt;img src=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/stock.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
+    &lt;a href=&quot;https://plotters-rs.github.io/plotters-doc-data/stock.png&quot;&gt;
+        &lt;img src=&quot;https://plotters-rs.github.io/plotters-doc-data/stock.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
     &lt;/a&gt;
     &lt;div class=&quot;galleryText&quot;&gt;
         Candlestick Plot
@@ -566,8 +564,8 @@ Now an interactive Jupyter notebook is avaiable, check the static HTML version a
 &lt;/div&gt;
 
 &lt;div class=&quot;galleryItem&quot;&gt;
-    &lt;a href=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/histogram.png&quot;&gt;
-        &lt;img src=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/histogram.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
+    &lt;a href=&quot;https://plotters-rs.github.io/plotters-doc-data/histogram.png&quot;&gt;
+        &lt;img src=&quot;https://plotters-rs.github.io/plotters-doc-data/histogram.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
     &lt;/a&gt;
     &lt;div class=&quot;galleryText&quot;&gt;
        Histogram
@@ -576,8 +574,8 @@ Now an interactive Jupyter notebook is avaiable, check the static HTML version a
 &lt;/div&gt;
 
 &lt;div class=&quot;galleryItem&quot;&gt;
-    &lt;a href=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/0.png&quot;&gt;
-        &lt;img src=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/0.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
+    &lt;a href=&quot;https://plotters-rs.github.io/plotters-doc-data/0.png&quot;&gt;
+        &lt;img src=&quot;https://plotters-rs.github.io/plotters-doc-data/0.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
     &lt;/a&gt;
     &lt;div class=&quot;galleryText&quot;&gt;
         Simple Chart
@@ -585,8 +583,8 @@ Now an interactive Jupyter notebook is avaiable, check the static HTML version a
 &lt;/div&gt;
 
 &lt;div class=&quot;galleryItem&quot;&gt;
-    &lt;a href=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/mandelbrot.png&quot;&gt;
-        &lt;img src=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/mandelbrot.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
+    &lt;a href=&quot;https://plotters-rs.github.io/plotters-doc-data/mandelbrot.png&quot;&gt;
+        &lt;img src=&quot;https://plotters-rs.github.io/plotters-doc-data/mandelbrot.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
     &lt;/a&gt;
     &lt;div class=&quot;galleryText&quot;&gt;
         Mandelbrot set
@@ -596,8 +594,8 @@ Now an interactive Jupyter notebook is avaiable, check the static HTML version a
 
 
 &lt;div class=&quot;galleryItem&quot;&gt;
-    &lt;a href=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/evcxr_animation.gif&quot;&gt;
-        &lt;img src=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/evcxr_animation.gif&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
+    &lt;a href=&quot;https://plotters-rs.github.io/plotters-doc-data/evcxr_animation.gif&quot;&gt;
+        &lt;img src=&quot;https://plotters-rs.github.io/plotters-doc-data/evcxr_animation.gif&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
     &lt;/a&gt;
     &lt;div class=&quot;galleryText&quot;&gt;
         Jupyter Support
@@ -605,21 +603,21 @@ Now an interactive Jupyter notebook is avaiable, check the static HTML version a
 &lt;/div&gt;
 
 &lt;div class=&quot;galleryItem&quot;&gt;
-    &lt;a href=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/plotters-piston.gif&quot;&gt;
-        &lt;img src=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/plotters-piston.gif&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
+    &lt;a href=&quot;https://plotters-rs.github.io/plotters-doc-data/plotters-piston.gif&quot;&gt;
+        &lt;img src=&quot;https://plotters-rs.github.io/plotters-doc-data/plotters-piston.gif&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
     &lt;/a&gt;
     &lt;div class=&quot;galleryText&quot;&gt;
-		Realtime Rendering
-		&lt;a href=&quot;https://github.com/38/plotters/tree/master/examples/piston-demo&quot;&gt;[code]&lt;/a&gt;
+        Realtime Rendering
+        &lt;a href=&quot;https://github.com/38/plotters/tree/master/examples/piston-demo&quot;&gt;[code]&lt;/a&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;galleryItem&quot;&gt;
-    &lt;a href=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/normal-dist.png&quot;&gt;
-        &lt;img src=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/normal-dist.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
+    &lt;a href=&quot;https://plotters-rs.github.io/plotters-doc-data/normal-dist.png&quot;&gt;
+        &lt;img src=&quot;https://plotters-rs.github.io/plotters-doc-data/normal-dist.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
     &lt;/a&gt;
     &lt;div class=&quot;galleryText&quot;&gt;
-		Histogram with Scatter
+        Histogram with Scatter
         &lt;a href=&quot;https://github.com/38/plotters/blob/master/examples/normal-dist.rs&quot;&gt;[code]&lt;/a&gt;
     &lt;/div&gt;
 &lt;/div&gt;
@@ -666,7 +664,7 @@ fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
         .build_ranged(-1f32..1f32, -0.1f32..1f32)?;
 
     chart.configure_mesh().draw()?;
- 
+
     chart.draw_series(LineSeries::new(
         (-50..=50).map(|x| x as f32 / 50.0).map(|x| (x, x * x)),
         &amp;Red,
@@ -683,7 +681,7 @@ fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
 }
 ```
 
-![](https://raw.githubusercontent.com/38/plotters-doc-data/master/0.png)
+![](https://plotters-rs.github.io/plotters-doc-data/0.png)
 
 
 ## Trying with Jupyter evcxr Kernel Interactively
@@ -725,14 +723,14 @@ let figure = evcxr_figure((640, 480), |root| {
 figure
 ```
 
-&lt;img src=&quot;https://raw.githubusercontent.com/38/plotters-doc-data/master/evcxr_animation.gif&quot; width=&quot;450px&quot;&gt;&lt;/img&gt;
+&lt;img src=&quot;https://plotters-rs.github.io/plotters-doc-data/evcxr_animation.gif&quot; width=&quot;450px&quot;&gt;&lt;/img&gt;
 
 ## Interactive Tutorial with Jupyter Notebook
 
 *This tutorial is now working in progress and isn&#39;t complete*
 
 Thanks to the evcxr, now we have an interactive tutorial for Plotters!
-To use the interactive notebook, you must have Jupyter and evcxr installed on your computer. 
+To use the interactive notebook, you must have Jupyter and evcxr installed on your computer.
 Follow the instruction on [this page](https://github.com/google/evcxr/tree/master/evcxr_jupyter) below to install it.
 
 After that, you should be able to start your Jupyer server locally and load the tutorial!
@@ -756,23 +754,23 @@ But Rust is one of the best languages fits the need.
 Plotting in Rust can be as easy as most of the high-level programming languages. The Rust based plotting library
 can be very easy to use.
 
-* **Fast** If you need rendering a figure with trillions of data points, 
-Rust is a good choice. Rust&#39;s performance allows you to combine data processing step 
+* **Fast** If you need rendering a figure with trillions of data points,
+Rust is a good choice. Rust&#39;s performance allows you to combine data processing step
 and rendering step into a single application. When plotting in high-level programming languages,
-e.g. Javascript or Python, data points must be downsampled before feeding into the plotting 
-program because of the performance considerations. Rust is fast enough to do the data processing and visualization 
-within a single program. You can also integrate the 
+e.g. Javascript or Python, data points must be downsampled before feeding into the plotting
+program because of the performance considerations. Rust is fast enough to do the data processing and visualization
+within a single program. You can also integrate the
 figure rendering code into your application handling a huge amount of data and visualize it in real-time.
 
-* **WebAssembly Support** Rust is one of few the language with the best WASM support. Plotting in Rust could be 
+* **WebAssembly Support** Rust is one of few the language with the best WASM support. Plotting in Rust could be
 very useful for visualization on a web page and would have a huge performance improvement comparing to Javascript.
 
 ## Plotting on HTML5 canvas with WASM Backend
 
-Plotters currently supports backend that uses the HTML5 canvas. To use the WASM support, you can simply use 
+Plotters currently supports backend that uses the HTML5 canvas. To use the WASM support, you can simply use
 `CanvasBackend` instead of other backend and all other API remains the same!
 
-There&#39;s a small demo for Plotters + WASM under `examples/wasm-demo` directory of this repo. 
+There&#39;s a small demo for Plotters + WASM under `examples/wasm-demo` directory of this repo.
 To play with the deployed version, follow this [link](https://plumberserver.com/plotters-wasm-demo/index.html).
 
 
@@ -803,7 +801,7 @@ fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
 }
 ```
 
-![](https://raw.githubusercontent.com/38/plotters-doc-data/master/1.png)
+![](https://plotters-rs.github.io/plotters-doc-data/1.png)
 
 ### Drawing Area
 Plotters uses a concept called drawing area for layout purpose.
@@ -827,7 +825,7 @@ fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
 }
 ```
 
-![](https://raw.githubusercontent.com/38/plotters-doc-data/master/2.png)
+![](https://plotters-rs.github.io/plotters-doc-data/2.png)
 
 ### Elements
 
@@ -854,12 +852,12 @@ fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
 }
 ```
 
-![](https://raw.githubusercontent.com/38/plotters-doc-data/master/3.png)
+![](https://plotters-rs.github.io/plotters-doc-data/3.png)
 
 ### Composable Elements
 
 Besides the built-in elements, elements can be composed into a logic group we called composed elements.
-When composing new elements, the upper-left corner is given in the target coordinate, and a new pixel-based 
+When composing new elements, the upper-left corner is given in the target coordinate, and a new pixel-based
 coordinate which has the upper-left corner defined as `(0,0)` is used for further element composition purpose.
 
 For example, we can have an element which includes a dot and its coordinate.
@@ -891,7 +889,7 @@ fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
 }
 ```
 
-![](https://raw.githubusercontent.com/38/plotters-doc-data/master/4.png)
+![](https://plotters-rs.github.io/plotters-doc-data/4.png)
 
 ### Chart Context
 
@@ -946,7 +944,7 @@ fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
 }
 ```
 
-![](https://raw.githubusercontent.com/38/plotters-doc-data/master/5.png)
+![](https://plotters-rs.github.io/plotters-doc-data/5.png)
 
 ## Misc
 
