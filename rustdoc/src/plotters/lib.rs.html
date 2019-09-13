@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../plotters/index.html'><img src='../../rust-logo.png' alt='logo' width='100'></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../plotters/index.html'><div class='logo-container'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -518,6 +518,72 @@
 <span id="518">518</span>
 <span id="519">519</span>
 <span id="520">520</span>
+<span id="521">521</span>
+<span id="522">522</span>
+<span id="523">523</span>
+<span id="524">524</span>
+<span id="525">525</span>
+<span id="526">526</span>
+<span id="527">527</span>
+<span id="528">528</span>
+<span id="529">529</span>
+<span id="530">530</span>
+<span id="531">531</span>
+<span id="532">532</span>
+<span id="533">533</span>
+<span id="534">534</span>
+<span id="535">535</span>
+<span id="536">536</span>
+<span id="537">537</span>
+<span id="538">538</span>
+<span id="539">539</span>
+<span id="540">540</span>
+<span id="541">541</span>
+<span id="542">542</span>
+<span id="543">543</span>
+<span id="544">544</span>
+<span id="545">545</span>
+<span id="546">546</span>
+<span id="547">547</span>
+<span id="548">548</span>
+<span id="549">549</span>
+<span id="550">550</span>
+<span id="551">551</span>
+<span id="552">552</span>
+<span id="553">553</span>
+<span id="554">554</span>
+<span id="555">555</span>
+<span id="556">556</span>
+<span id="557">557</span>
+<span id="558">558</span>
+<span id="559">559</span>
+<span id="560">560</span>
+<span id="561">561</span>
+<span id="562">562</span>
+<span id="563">563</span>
+<span id="564">564</span>
+<span id="565">565</span>
+<span id="566">566</span>
+<span id="567">567</span>
+<span id="568">568</span>
+<span id="569">569</span>
+<span id="570">570</span>
+<span id="571">571</span>
+<span id="572">572</span>
+<span id="573">573</span>
+<span id="574">574</span>
+<span id="575">575</span>
+<span id="576">576</span>
+<span id="577">577</span>
+<span id="578">578</span>
+<span id="579">579</span>
+<span id="580">580</span>
+<span id="581">581</span>
+<span id="582">582</span>
+<span id="583">583</span>
+<span id="584">584</span>
+<span id="585">585</span>
+<span id="586">586</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">/*!
 
@@ -622,6 +688,56 @@ including bitmap, vector graph, piston window and WebAssembly.
     &lt;/div&gt;
 &lt;/div&gt;
 
+&lt;div class=&quot;galleryItem&quot;&gt;
+    &lt;a href=&quot;https://plotters-rs.github.io/plotters-doc-data/twoscale.png&quot;&gt;
+        &lt;img src=&quot;https://plotters-rs.github.io/plotters-doc-data/twoscale.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;galleryText&quot;&gt;
+        Dual Y-Axis Example
+        &lt;a href=&quot;https://github.com/38/plotters/blob/master/examples/two-scales.rs&quot;&gt;[code]&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;galleryItem&quot;&gt;
+    &lt;a href=&quot;https://plotters-rs.github.io/plotters-doc-data/matshow.png&quot;&gt;
+        &lt;img src=&quot;https://plotters-rs.github.io/plotters-doc-data/matshow.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;galleryText&quot;&gt;
+        The matplotlib Matshow Example
+        &lt;a href=&quot;https://github.com/38/plotters/blob/master/examples/matshow.rs&quot;&gt;[code]&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;galleryItem&quot;&gt;
+    &lt;a href=&quot;https://plotters-rs.github.io/plotters-doc-data/sierpinski.png&quot;&gt;
+        &lt;img src=&quot;https://plotters-rs.github.io/plotters-doc-data/sierpinski.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;galleryText&quot;&gt;
+        The Sierpinski Carpet
+        &lt;a href=&quot;https://github.com/38/plotters/blob/master/examples/sierpinski.rs&quot;&gt;[code]&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;galleryItem&quot;&gt;
+    &lt;a href=&quot;https://plotters-rs.github.io/plotters-doc-data/normal-dist2.png&quot;&gt;
+        &lt;img src=&quot;https://plotters-rs.github.io/plotters-doc-data/normal-dist2.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;galleryText&quot;&gt;
+        The 1D Gussian Distribution
+        &lt;a href=&quot;https://github.com/38/plotters/blob/master/examples/nomal-dist2.rs&quot;&gt;[code]&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;galleryItem&quot;&gt;
+    &lt;a href=&quot;https://plotters-rs.github.io/plotters-doc-data/errorbar.png&quot;&gt;
+        &lt;img src=&quot;https://plotters-rs.github.io/plotters-doc-data/errorbar.png&quot; class=&quot;galleryItem&quot;&gt;&lt;/img&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;galleryText&quot;&gt;
+        The 1D Gussian Distribution
+        &lt;a href=&quot;https://github.com/38/plotters/blob/master/examples/errorbar.rs&quot;&gt;[code]&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
 
 ## Table of Contents
   * [Gallery](#gallery)
@@ -645,8 +761,8 @@ including bitmap, vector graph, piston window and WebAssembly.
 
 To use Plotters, you can simply add Plotters into your `Cargo.toml`
 ```toml
-[depedencies]
-plotters = &quot;^0.2.1&quot;
+[dependencies]
+plotters = &quot;^0.2.5&quot;
 ```
 
 And the following code draws a quadratic function. `src/main.rs`,
@@ -655,7 +771,7 @@ And the following code draws a quadratic function. `src/main.rs`,
 use plotters::prelude::*;
 fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
     let root = BitMapBackend::new(&quot;plotters-doc-data/0.png&quot;, (640, 480)).into_drawing_area();
-    root.fill(&amp;White)?;
+    root.fill(&amp;WHITE)?;
     let mut chart = ChartBuilder::on(&amp;root)
         .caption(&quot;y=x^2&quot;, (&quot;Arial&quot;, 50).into_font())
         .margin(5)
@@ -665,16 +781,18 @@ fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
 
     chart.configure_mesh().draw()?;
 
-    chart.draw_series(LineSeries::new(
-        (-50..=50).map(|x| x as f32 / 50.0).map(|x| (x, x * x)),
-        &amp;Red,
-    ))?
+    chart
+        .draw_series(LineSeries::new(
+            (-50..=50).map(|x| x as f32 / 50.0).map(|x| (x, x * x)),
+            &amp;RED,
+        ))?
         .label(&quot;y = x^2&quot;)
-        .legend(|(x,y)| Path::new(vec![(x,y), (x + 20,y)], &amp;Red));
+        .legend(|(x, y)| Path::new(vec![(x, y), (x + 20, y)], &amp;RED));
 
-    chart.configure_series_labels()
-        .background_style(&amp;White.mix(0.8))
-        .border_style(&amp;Black)
+    chart
+        .configure_series_labels()
+        .background_style(&amp;WHITE.mix(0.8))
+        .border_style(&amp;BLACK)
         .draw()?;
 
     Ok(())
@@ -697,7 +815,7 @@ extern crate plotters;
 use plotters::prelude::*;
 
 let figure = evcxr_figure((640, 480), |root| {
-    root.fill(&amp;White);
+    root.fill(&amp;WHITE);
     let mut chart = ChartBuilder::on(&amp;root)
         .caption(&quot;y=x^2&quot;, (&quot;Arial&quot;, 50).into_font())
         .margin(5)
@@ -709,14 +827,14 @@ let figure = evcxr_figure((640, 480), |root| {
 
     chart.draw_series(LineSeries::new(
         (-50..=50).map(|x| x as f32 / 50.0).map(|x| (x, x * x)),
-        &amp;Red,
+        &amp;RED,
     )).unwrap()
         .label(&quot;y = x^2&quot;)
-        .legend(|(x,y)| Path::new(vec![(x,y), (x + 20,y)], &amp;Red));
+        .legend(|(x,y)| Path::new(vec![(x,y), (x + 20,y)], &amp;RED));
 
     chart.configure_series_labels()
-        .background_style(&amp;White.mix(0.8))
-        .border_style(&amp;Black)
+        .background_style(&amp;WHITE.mix(0.8))
+        .border_style(&amp;BLACK)
         .draw()?;
     Ok(())
 });
@@ -796,7 +914,7 @@ fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
     let mut backend = BitMapBackend::new(&quot;plotters-doc-data/1.png&quot;, (300, 200));
     // And if we want SVG backend
     // let backend = SVGBackend::new(&quot;output.svg&quot;, (800, 600));
-    backend.draw_rect((50, 50), (200, 150), &amp;Red, true)?;
+    backend.draw_rect((50, 50), (200, 150), &amp;RED, true)?;
     Ok(())
 }
 ```
@@ -841,12 +959,12 @@ To learn more about the element system, please read the [element module document
 use plotters::prelude::*;
 fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
     let root = BitMapBackend::new(&quot;plotters-doc-data/3.png&quot;, (300, 200)).into_drawing_area();
-    root.fill(&amp;White)?;
+    root.fill(&amp;WHITE)?;
     // Draw an circle on the drawing area
     root.draw(&amp;Circle::new(
         (100, 100),
         50,
-        Into::&lt;ShapeStyle&gt;::into(&amp;Green).filled(),
+        Into::&lt;ShapeStyle&gt;::into(&amp;GREEN).filled(),
     ))?;
     Ok(())
 }
@@ -878,8 +996,12 @@ fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
 
     let dot_and_label = |x: f32, y: f32| {
         return EmptyElement::at((x, y))
-            + Circle::new((0, 0), 3, ShapeStyle::from(&amp;Black).filled())
-            + Text::new(format!(&quot;({:.2},{:.2})&quot;, x, y), (10, 0), (&quot;Arial&quot;, 15.0).into_font());
+            + Circle::new((0, 0), 3, ShapeStyle::from(&amp;BLACK).filled())
+            + Text::new(
+                format!(&quot;({:.2},{:.2})&quot;, x, y),
+                (10, 0),
+                (&quot;Arial&quot;, 15.0).into_font(),
+            );
     };
 
     root.draw(&amp;dot_and_label(0.5, 0.6))?;
@@ -902,12 +1024,12 @@ of the chart context object.
 use plotters::prelude::*;
 fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
     let root = BitMapBackend::new(&quot;plotters-doc-data/5.png&quot;, (640, 480)).into_drawing_area();
-    root.fill(&amp;White);
+    root.fill(&amp;WHITE);
     let root = root.margin(10, 10, 10, 10);
     // After this point, we should be able to draw construct a chart context
     let mut chart = ChartBuilder::on(&amp;root)
         // Set the caption of the chart
-        .caption(&quot;This is our first plot&quot;, (&quot;Arial&quot;,40).into_font())
+        .caption(&quot;This is our first plot&quot;, (&quot;Arial&quot;, 40).into_font())
         // Set the size of the label region
         .x_label_area_size(20)
         .y_label_area_size(40)
@@ -927,13 +1049,13 @@ fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
     // And we can draw something in the drawing area
     chart.draw_series(LineSeries::new(
         vec![(0.0, 0.0), (5.0, 5.0), (8.0, 7.0)],
-        &amp;Red,
+        &amp;RED,
     ))?;
     // Similarly, we can draw point series
     chart.draw_series(PointSeries::of_element(
         vec![(0.0, 0.0), (5.0, 5.0), (8.0, 7.0)],
         5,
-        &amp;Red,
+        &amp;RED,
         &amp;|c, s, st| {
             return EmptyElement::at(c)    // We want to construct a composed element on-the-fly
             + Circle::new((0,0),s,st.filled()) // At this point, the new pixel coordinate is established
@@ -971,6 +1093,9 @@ For example, the following dependency description would avoid compiling with bit
 plotters = { git = &quot;https://github.com/38/plotters.git&quot;, default_features = false, features = [&quot;svg&quot;] }
 ```
 
+The library also allows consumers to make use of the [`Palette`](https://crates.io/crates/palette/) crate&#39;s color types by default.
+This behaviour can also be turned off by setting `default_features = false`.
+
 
 &lt;style&gt;
     img {
@@ -1005,28 +1130,35 @@ plotters = { git = &quot;https://github.com/38/plotters.git&quot;, default_featu
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">test</span>)]</span>
 <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">drawing</span>::<span class="ident">create_mocked_drawing_area</span>;
 
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;palette_ext&quot;</span>)]</span>
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">palette</span>;
+
 <span class="doccomment">/// The module imports the most commonly used types and modules in Plotters</span>
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">prelude</span> {
-    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">chart</span>::{<span class="ident">ChartBuilder</span>, <span class="ident">ChartContext</span>};
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">chart</span>::{<span class="ident">ChartBuilder</span>, <span class="ident">ChartContext</span>, <span class="ident">LabelAreaPosition</span>, <span class="ident">SeriesLabelPosition</span>};
     <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">coord</span>::{
-        <span class="ident">CoordTranslate</span>, <span class="ident">LogCoord</span>, <span class="ident">LogRange</span>, <span class="ident">LogScalable</span>, <span class="ident">Ranged</span>, <span class="ident">RangedCoord</span>, <span class="ident">RangedCoordf32</span>,
-        <span class="ident">RangedCoordf64</span>, <span class="ident">RangedCoordi32</span>, <span class="ident">RangedCoordi64</span>, <span class="ident">RangedCoordu32</span>, <span class="ident">RangedCoordu64</span>,
+        <span class="ident">CoordTranslate</span>, <span class="ident">IntoCentric</span>, <span class="ident">IntoPartialAxis</span>, <span class="ident">LogCoord</span>, <span class="ident">LogRange</span>, <span class="ident">LogScalable</span>, <span class="ident">Ranged</span>,
+        <span class="ident">RangedCoord</span>, <span class="ident">RangedCoordf32</span>, <span class="ident">RangedCoordf64</span>, <span class="ident">RangedCoordi32</span>, <span class="ident">RangedCoordi64</span>,
+        <span class="ident">RangedCoordu32</span>, <span class="ident">RangedCoordu64</span>,
     };
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;chrono&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">coord</span>::{<span class="ident">RangedDate</span>, <span class="ident">RangedDateTime</span>};
 
+    <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;make_partial_axis&quot;</span>)]</span>
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">coord</span>::<span class="ident">make_partial_axis</span>;
+
     <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">drawing</span>::<span class="kw-2">*</span>;
     <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">series</span>::{<span class="ident">Histogram</span>, <span class="ident">LineSeries</span>, <span class="ident">PointSeries</span>};
     <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">style</span>::{
-        <span class="ident">Black</span>, <span class="ident">Blue</span>, <span class="ident">Color</span>, <span class="ident">Cyan</span>, <span class="ident">FontDesc</span>, <span class="ident">FontTransform</span>, <span class="ident">Green</span>, <span class="ident">HSLColor</span>, <span class="ident">IntoFont</span>, <span class="ident">Magenta</span>,
-        <span class="ident">Palette</span>, <span class="ident">Palette100</span>, <span class="ident">Palette99</span>, <span class="ident">Palette9999</span>, <span class="ident">PaletteColor</span>, <span class="ident">RGBColor</span>, <span class="ident">Red</span>, <span class="ident">ShapeStyle</span>,
-        <span class="ident">SimpleColor</span>, <span class="ident">TextStyle</span>, <span class="ident">Transparent</span>, <span class="ident">White</span>, <span class="ident">Yellow</span>,
+        <span class="ident">Color</span>, <span class="ident">FontDesc</span>, <span class="ident">FontTransform</span>, <span class="ident">HSLColor</span>, <span class="ident">IntoFont</span>, <span class="ident">Palette</span>, <span class="ident">Palette100</span>, <span class="ident">Palette99</span>,
+        <span class="ident">Palette9999</span>, <span class="ident">PaletteColor</span>, <span class="ident">RGBColor</span>, <span class="ident">ShapeStyle</span>, <span class="ident">SimpleColor</span>, <span class="ident">TextStyle</span>,
     };
+    <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">style</span>::{<span class="ident">BLACK</span>, <span class="ident">BLUE</span>, <span class="ident">CYAN</span>, <span class="ident">GREEN</span>, <span class="ident">MAGENTA</span>, <span class="ident">RED</span>, <span class="ident">TRANSPARENT</span>, <span class="ident">WHITE</span>, <span class="ident">YELLOW</span>};
 
     <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">element</span>::{
-        <span class="ident">CandleStick</span>, <span class="ident">Circle</span>, <span class="ident">Cross</span>, <span class="ident">DynElement</span>, <span class="ident">EmptyElement</span>, <span class="ident">IntoDynElement</span>, <span class="ident">MultiLineText</span>, <span class="ident">Path</span>,
-        <span class="ident">Pixel</span>, <span class="ident">Rectangle</span>, <span class="ident">Text</span>,
+        <span class="ident">CandleStick</span>, <span class="ident">Circle</span>, <span class="ident">Cross</span>, <span class="ident">DynElement</span>, <span class="ident">EmptyElement</span>, <span class="ident">ErrorBar</span>, <span class="ident">IntoDynElement</span>,
+        <span class="ident">MultiLineText</span>, <span class="ident">Path</span>, <span class="ident">Pixel</span>, <span class="ident">Rectangle</span>, <span class="ident">Text</span>,
     };
 
     <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">type_alias_bounds</span>)]</span>
@@ -1034,7 +1166,7 @@ plotters = { git = &quot;https://github.com/38/plotters.git&quot;, default_featu
     <span class="doccomment">/// - `T`: The return type</span>
     <span class="doccomment">/// - `D`: The drawing backend type</span>
     <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">DrawResult</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">D</span>: <span class="ident">DrawingBackend</span><span class="op">&gt;</span> <span class="op">=</span>
-        <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="kw">crate</span>::<span class="ident">drawing</span>::<span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">D</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span>;
+        <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="kw">crate</span>::<span class="ident">drawing</span>::<span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">D</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span>;
 
     <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;evcxr&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">evcxr</span>::<span class="ident">evcxr_figure</span>;

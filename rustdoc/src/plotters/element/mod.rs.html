@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `src/element/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css"><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script src="../../../storage.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="shortcut icon" href="../../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../../plotters/index.html'><img src='../../../rust-logo.png' alt='logo' width='100'></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `src/element/mod.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>mod.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../dark.css"><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script src="../../../storage.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="shortcut icon" href="../../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../../plotters/index.html'><div class='logo-container'><img src='../../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../../settings.html"><img src="../../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -271,6 +271,9 @@
 <span id="271">271</span>
 <span id="272">272</span>
 <span id="273">273</span>
+<span id="274">274</span>
+<span id="275">275</span>
+<span id="276">276</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">/*!
     Defines the drawing elements, the high-level drawing unit in Plotters drawing system
@@ -318,8 +321,8 @@
             backend: &amp;mut DB
         ) -&gt; Result&lt;(), DrawingErrorKind&lt;DB::ErrorType&gt;&gt; {
             let pos = pos.next().unwrap();
-            backend.draw_rect(pos, (pos.0 + 10, pos.1 + 12), &amp;Red.to_rgba(), false)?;
-            backend.draw_text(&quot;X&quot;, &amp;(&quot;Arial&quot;, 20).into(), pos, &amp;Red.to_rgba())
+            backend.draw_rect(pos, (pos.0 + 10, pos.1 + 12), &amp;RED.to_rgba(), false)?;
+            backend.draw_text(&quot;X&quot;, &amp;(&quot;Arial&quot;, 20).into(), pos, &amp;RED.to_rgba())
         }
     }
 
@@ -351,8 +354,8 @@
         ).into_drawing_area();
         let font:FontDesc = (&quot;Arial&quot;, 20).into();
         root.draw(&amp;(EmptyElement::at((200, 200))
-                + Text::new(&quot;X&quot;, (0, 0), &amp;&quot;Arial&quot;.into_font().resize(20.0).color(&amp;Red))
-                + Rectangle::new([(0,0), (10, 12)], &amp;Red)
+                + Text::new(&quot;X&quot;, (0, 0), &amp;&quot;Arial&quot;.into_font().resize(20.0).color(&amp;RED))
+                + Rectangle::new([(0,0), (10, 12)], &amp;RED)
         ))?;
         Ok(())
     }
@@ -395,7 +398,7 @@
         let root =
             BitMapBackend::new(&quot;plotters-doc-data/element-3.png&quot;, (640, 480))
             .into_drawing_area();
-        root.fill(&amp;White)?;
+        root.fill(&amp;WHITE)?;
         let mut chart = ChartBuilder::on(&amp;root)
             .x_label_area_size(40)
             .y_label_area_size(40)
@@ -414,9 +417,9 @@
             // but they can be placed into a dynamic element wrapper,
             // by doing so, the type is unified.
             if center.1 == 2 {
-                Cross::new(center, 4, Into::&lt;ShapeStyle&gt;::into(&amp;Red).filled()).into_dyn()
+                Cross::new(center, 4, Into::&lt;ShapeStyle&gt;::into(&amp;RED).filled()).into_dyn()
             } else {
-                Circle::new(center, 4, Into::&lt;ShapeStyle&gt;::into(&amp;Green).filled()).into_dyn()
+                Circle::new(center, 4, Into::&lt;ShapeStyle&gt;::into(&amp;GREEN).filled()).into_dyn()
             }
         }))?;
 
@@ -443,6 +446,9 @@
 <span class="kw">mod</span> <span class="ident">candlestick</span>;
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">candlestick</span>::<span class="ident">CandleStick</span>;
 
+<span class="kw">mod</span> <span class="ident">errorbar</span>;
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">errorbar</span>::{<span class="ident">ErrorBar</span>, <span class="ident">ErrorBarOrientH</span>, <span class="ident">ErrorBarOrientV</span>};
+
 <span class="doccomment">/// A type which is logically a collection of points, under any given coordinate system</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">PointCollection</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Coord</span><span class="op">&gt;</span> {
     <span class="doccomment">/// The item in point iterator</span>
@@ -452,18 +458,18 @@
     <span class="kw">type</span> <span class="ident">IntoIter</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="self">Self</span>::<span class="ident">Borrow</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// framework to do the coordinate mapping</span>
-    <span class="kw">fn</span> <span class="ident">point_iter</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">IntoIter</span>;
+    <span class="kw">fn</span> <span class="ident">point_iter</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>::<span class="ident">IntoIter</span>;
 }
 
 <span class="doccomment">/// The trait indicates we are able to draw it on a drawing area</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Drawable</span><span class="op">&lt;</span><span class="ident">DB</span>: <span class="ident">DrawingBackend</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Actually draws the element. The key points is already translated into the</span>
     <span class="doccomment">/// image cooridnate and can be used by DC directly</span>
-    <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">I</span>: <span class="ident">Iterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">BackendCoord</span><span class="op">&gt;&gt;</span>(
+    <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">I</span>: <span class="ident">Iterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">BackendCoord</span><span class="op">&gt;</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">pos</span>: <span class="ident">I</span>,
         <span class="ident">backend</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">DB</span>,
-    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span>;
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span>;
 }
 
 <span class="kw">trait</span> <span class="ident">DynDrawable</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span><span class="op">&gt;</span>
@@ -474,7 +480,7 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">points</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="kw">dyn</span> <span class="ident">Iterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">BackendCoord</span><span class="op">&gt;</span>,
         <span class="ident">backend</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">DB</span>,
-    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span>;
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span>;
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span>, <span class="ident">T</span>: <span class="ident">Drawable</span><span class="op">&lt;</span><span class="ident">DB</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">DynDrawable</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">T</span> {
@@ -482,7 +488,7 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">points</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="kw">dyn</span> <span class="ident">Iterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">BackendCoord</span><span class="op">&gt;</span>,
         <span class="ident">backend</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">DB</span>,
-    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span> {
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span> {
         <span class="ident">T</span>::<span class="ident">draw</span>(<span class="self">self</span>, <span class="ident">points</span>, <span class="ident">backend</span>)
     }
 }
@@ -502,17 +508,17 @@
 {
     <span class="kw">type</span> <span class="ident">Borrow</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">Coord</span>;
     <span class="kw">type</span> <span class="ident">IntoIter</span> <span class="op">=</span> <span class="ident">std</span>::<span class="ident">slice</span>::<span class="ident">Iter</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">Coord</span><span class="op">&gt;</span>;
-    <span class="kw">fn</span> <span class="ident">point_iter</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">IntoIter</span> {
+    <span class="kw">fn</span> <span class="ident">point_iter</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>::<span class="ident">IntoIter</span> {
         <span class="self">self</span>.<span class="ident">points</span>.<span class="ident">iter</span>()
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span> <span class="op">+</span> <span class="lifetime">&#39;a</span>, <span class="ident">Coord</span>: <span class="ident">Clone</span><span class="op">&gt;</span> <span class="ident">Drawable</span><span class="op">&lt;</span><span class="ident">DB</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">DynElement</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">Coord</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">I</span>: <span class="ident">Iterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">BackendCoord</span><span class="op">&gt;&gt;</span>(
+    <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">I</span>: <span class="ident">Iterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">BackendCoord</span><span class="op">&gt;</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="kw-2">mut</span> <span class="ident">pos</span>: <span class="ident">I</span>,
         <span class="ident">backend</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">DB</span>,
-    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span> {
+    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">drawable</span>.<span class="ident">draw_dyn</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">pos</span>, <span class="ident">backend</span>)
     }
 }
@@ -524,7 +530,7 @@
     <span class="self">Self</span>: <span class="lifetime">&#39;a</span>,
 {
     <span class="doccomment">/// Make the conversion</span>
-    <span class="kw">fn</span> <span class="ident">into_dyn</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">DynElement</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">Coord</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">into_dyn</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DynElement</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">Coord</span><span class="op">&gt;</span>;
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span>, <span class="ident">T</span>, <span class="ident">DB</span>, <span class="ident">Coord</span><span class="op">&gt;</span> <span class="ident">IntoDynElement</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span>, <span class="ident">DB</span>, <span class="ident">Coord</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">T</span>
@@ -534,7 +540,7 @@
     <span class="ident">Coord</span>: <span class="ident">Clone</span>,
     <span class="ident">DB</span>: <span class="ident">DrawingBackend</span>,
 {
-    <span class="kw">fn</span> <span class="ident">into_dyn</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">DynElement</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span>, <span class="ident">DB</span>, <span class="ident">Coord</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">into_dyn</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DynElement</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span>, <span class="ident">DB</span>, <span class="ident">Coord</span><span class="op">&gt;</span> {
         <span class="ident">DynElement</span> {
             <span class="ident">points</span>: <span class="self">self</span>
                 .<span class="ident">point_iter</span>()

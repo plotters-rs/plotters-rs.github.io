@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/haohou/.cargo/registry/src/github.com-1ecc6299db9ec823/font-loader-0.8.0/src/fontconfig.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>fontconfig.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../font_loader/index.html'><img src='../../rust-logo.png' alt='logo' width='100'></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `/home/haohou/.cargo/registry/src/github.com-1ecc6299db9ec823/font-loader-0.8.0/src/fontconfig.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>fontconfig.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../font_loader/index.html'><div class='logo-container'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -325,9 +325,9 @@
     <span class="kw">static</span> <span class="ident">INIT_FONTCONFIG</span>: <span class="ident">Once</span> <span class="op">=</span> <span class="ident">ONCE_INIT</span>;
     <span class="kw">static</span> <span class="kw-2">mut</span> <span class="ident">CONFIG</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FcConfig</span> <span class="op">=</span> <span class="number">0</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FcConfig</span>;
 
-    <span class="kw">fn</span> <span class="ident">init</span>() <span class="op">-&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FcConfig</span> {
+    <span class="kw">fn</span> <span class="ident">init</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FcConfig</span> {
         <span class="kw">unsafe</span> {
-            <span class="ident">INIT_FONTCONFIG</span>.<span class="ident">call_once</span>(<span class="op">||</span> {
+            <span class="ident">INIT_FONTCONFIG</span>.<span class="ident">call_once</span>(<span class="op">|</span><span class="op">|</span> {
                 <span class="ident">CONFIG</span> <span class="op">=</span> <span class="ident">FcInitLoadConfigAndFonts</span>();
             });
             <span class="ident">CONFIG</span>
@@ -348,7 +348,7 @@
     }
 
     <span class="kw">impl</span> <span class="ident">FontPropertyBuilder</span> {
-        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-&gt;</span> <span class="ident">FontPropertyBuilder</span> {
+        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontPropertyBuilder</span> {
             <span class="kw">let</span> <span class="ident">property</span> <span class="op">=</span> <span class="ident">FontProperty</span> {
                 <span class="ident">slant</span>: <span class="ident">FC_SLANT_ROMAN</span>,
                 <span class="ident">weight</span>: <span class="ident">FC_WEIGHT_REGULAR</span>,
@@ -358,40 +358,40 @@
             <span class="ident">FontPropertyBuilder</span> { <span class="ident">property</span>: <span class="ident">property</span> }
         }
 
-        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">italic</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">FontPropertyBuilder</span> {
+        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">italic</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontPropertyBuilder</span> {
             <span class="self">self</span>.<span class="ident">property</span>.<span class="ident">slant</span> <span class="op">=</span> <span class="ident">FC_SLANT_ITALIC</span>;
             <span class="self">self</span>
         }
 
-        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">oblique</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">FontPropertyBuilder</span> {
+        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">oblique</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontPropertyBuilder</span> {
             <span class="self">self</span>.<span class="ident">property</span>.<span class="ident">slant</span> <span class="op">=</span> <span class="ident">FC_SLANT_OBLIQUE</span>;
             <span class="self">self</span>
         }
 
-        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bold</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">FontPropertyBuilder</span> {
+        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bold</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontPropertyBuilder</span> {
             <span class="self">self</span>.<span class="ident">property</span>.<span class="ident">weight</span> <span class="op">=</span> <span class="ident">FC_WEIGHT_BOLD</span>;
             <span class="self">self</span>
         }
 
-        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">monospace</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">FontPropertyBuilder</span> {
+        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">monospace</span>(<span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontPropertyBuilder</span> {
             <span class="self">self</span>.<span class="ident">property</span>.<span class="ident">spacing</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">FC_MONO</span>);
             <span class="self">self</span>
         }
 
-        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">family</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">FontPropertyBuilder</span> {
+        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">family</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">name</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontPropertyBuilder</span> {
             <span class="self">self</span>.<span class="ident">property</span>.<span class="ident">family</span>.<span class="ident">clear</span>();
             <span class="self">self</span>.<span class="ident">property</span>.<span class="ident">family</span>.<span class="ident">push_str</span>(<span class="ident">name</span>);
             <span class="self">self</span>
         }
 
-        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">build</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">FontProperty</span> {
+        <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">build</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontProperty</span> {
             <span class="self">self</span>.<span class="ident">property</span>
         }
     }
 
     <span class="doccomment">/// Get the binary data and index of a specific font</span>
     <span class="doccomment">/// Note that only truetype fonts are supported</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get</span>(<span class="ident">property</span>: <span class="kw-2">&amp;</span><span class="ident">FontProperty</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>, <span class="ident">c_int</span>)<span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get</span>(<span class="ident">property</span>: <span class="kw-2">&amp;</span><span class="ident">FontProperty</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">u8</span><span class="op">&gt;</span>, <span class="ident">c_int</span>)<span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">config</span> <span class="op">=</span> <span class="ident">init</span>();
         <span class="kw">let</span> <span class="ident">family</span>: <span class="kw-2">&amp;</span><span class="ident">str</span> <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">property</span>.<span class="ident">family</span>;
 
@@ -422,14 +422,14 @@
 
     <span class="doccomment">/// Query the names of all fonts installed in the system</span>
     <span class="doccomment">/// Note that only truetype fonts are supported</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">query_all</span>() <span class="op">-&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">query_all</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">property</span> <span class="op">=</span> <span class="ident">FontPropertyBuilder</span>::<span class="ident">new</span>().<span class="ident">build</span>();
         <span class="ident">query_specific</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">property</span>)
     }
 
     <span class="doccomment">/// Query the names of specifc fonts installed in the system</span>
     <span class="doccomment">/// Note that only truetype fonts are supported</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">query_specific</span>(<span class="ident">property</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">FontProperty</span>) <span class="op">-&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">query_specific</span>(<span class="ident">property</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">FontProperty</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">fonts</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">Vec</span>::<span class="ident">new</span>();
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="ident">config</span> <span class="op">=</span> <span class="ident">init</span>();
@@ -466,11 +466,11 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">get_int</span>(<span class="ident">pat</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FcPattern</span>, <span class="ident">object_name</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">c_int</span>, <span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">get_int</span>(<span class="ident">pat</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FcPattern</span>, <span class="ident">object_name</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">c_int</span>, <span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">object</span> <span class="op">=</span> <span class="ident">object_name</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>;
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">int</span>: <span class="ident">c_int</span> <span class="op">=</span> <span class="number">0</span>;
-            <span class="kw">if</span> <span class="ident">FcPatternGetInteger</span>(<span class="ident">pat</span>, <span class="ident">object</span>, <span class="number">0</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">int</span>) <span class="op">==</span> <span class="ident">FcResultMatch</span> {
+            <span class="kw">if</span> <span class="ident">FcPatternGetInteger</span>(<span class="ident">pat</span>, <span class="ident">object</span>, <span class="number">0</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">int</span>) <span class="op">=</span><span class="op">=</span> <span class="ident">FcResultMatch</span> {
                 <span class="prelude-val">Ok</span>(<span class="ident">int</span>)
             } <span class="kw">else</span> {
                 <span class="prelude-val">Err</span>(<span class="string">&quot;Type didn&#39;t match&quot;</span>)
@@ -487,11 +487,11 @@
         }
     }
 
-    <span class="kw">fn</span> <span class="ident">get_string</span>(<span class="ident">pat</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FcPattern</span>, <span class="ident">object_name</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">String</span>, <span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">get_string</span>(<span class="ident">pat</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FcPattern</span>, <span class="ident">object_name</span>: <span class="kw-2">&amp;</span>[<span class="ident">u8</span>]) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">String</span>, <span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span> {
         <span class="kw">unsafe</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">string</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">FcChar8</span> <span class="op">=</span> <span class="ident">ptr</span>::<span class="ident">null_mut</span>();
             <span class="kw">let</span> <span class="ident">object</span> <span class="op">=</span> <span class="ident">object_name</span>.<span class="ident">as_ptr</span>() <span class="kw">as</span> <span class="kw-2">*</span><span class="kw">const</span> <span class="ident">c_char</span>;
-            <span class="kw">if</span> <span class="ident">FcPatternGetString</span>(<span class="ident">pat</span>, <span class="ident">object</span>, <span class="number">0</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">string</span>) <span class="op">==</span> <span class="ident">FcResultMatch</span> {
+            <span class="kw">if</span> <span class="ident">FcPatternGetString</span>(<span class="ident">pat</span>, <span class="ident">object</span>, <span class="number">0</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">string</span>) <span class="op">=</span><span class="op">=</span> <span class="ident">FcResultMatch</span> {
                 <span class="kw">let</span> <span class="ident">cstr</span> <span class="op">=</span> <span class="ident">CStr</span>::<span class="ident">from_ptr</span>(<span class="ident">string</span> <span class="kw">as</span> <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">c_char</span>);
                 <span class="kw">let</span> <span class="ident">string</span> <span class="op">=</span> <span class="ident">cstr</span>.<span class="ident">to_string_lossy</span>().<span class="ident">into_owned</span>();
                 <span class="prelude-val">Ok</span>(<span class="ident">string</span>)
