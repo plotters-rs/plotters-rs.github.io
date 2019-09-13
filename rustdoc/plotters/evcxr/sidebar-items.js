@@ -1,1 +1,0 @@
-initSidebarItems({"fn":[["evcxr_figure","Start drawing an evcxr figure"]],"struct":[["SVGWrapper","The wrapper for the generated SVG"]]});
