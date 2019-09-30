@@ -1,7 +1,7 @@
-noddityConfig = { // Global
-	name: 'Noddity',
-	noddityRoot: location.pathname + 'content/',
-	editLink: 'https://github.com/TehShrike/noddity/edit/master/content/',
+noddityConfig = {
+	title: 'Noddity',
+	noddityRoot: window.location.pathname + 'content/',
+	editLink: 'https://github.com/TehShrike/noddity/edit/gh-pages/content/',
 	logo: 'logo.svg',
 	errorPage: '404.md',
 	pathPrefix: '#!/',
