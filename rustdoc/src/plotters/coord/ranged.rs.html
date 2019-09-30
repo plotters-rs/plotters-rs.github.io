@@ -336,16 +336,16 @@
     <span class="kw">type</span> <span class="ident">ValueType</span>;
 
     <span class="doccomment">/// This function maps the value to i32, which is the drawing coordinate</span>
-    <span class="kw">fn</span> <span class="ident">map</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">value</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>, <span class="ident">limit</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>)) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span>;
+    <span class="kw">fn</span> <span class="ident">map</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">value</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>, <span class="ident">limit</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>)) <span class="op">-&gt;</span> <span class="ident">i32</span>;
 
     <span class="doccomment">/// This function gives the key points that we can draw a grid based on this</span>
-    <span class="kw">fn</span> <span class="ident">key_points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">max_points</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ValueType</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">key_points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">max_points</span>: <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ValueType</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// Get the range of this value</span>
-    <span class="kw">fn</span> <span class="ident">range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ValueType</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ValueType</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// This function provides the on-axis part of its range</span>
-    <span class="kw">fn</span> <span class="ident">axis_pixel_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">limit</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>)) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">axis_pixel_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">limit</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>)) <span class="op">-&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
         <span class="ident">limit</span>.<span class="number">0</span>..<span class="ident">limit</span>.<span class="number">1</span>
     }
 }
@@ -354,7 +354,7 @@
 <span class="doccomment">/// an pixel-based cooridinate is given, it&#39;s possible to figureout the underlying</span>
 <span class="doccomment">/// logic value.</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">ReversableRanged</span>: <span class="ident">Ranged</span> {
-    <span class="kw">fn</span> <span class="ident">unmap</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">input</span>: <span class="ident">i32</span>, <span class="ident">limit</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>)) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ValueType</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">unmap</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">input</span>: <span class="ident">i32</span>, <span class="ident">limit</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>)) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ValueType</span><span class="op">&gt;</span>;
 }
 
 <span class="doccomment">/// The coordinate described by two ranged value</span>
@@ -367,11 +367,11 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">X</span>: <span class="ident">Ranged</span>, <span class="ident">Y</span>: <span class="ident">Ranged</span><span class="op">&gt;</span> <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Create a new ranged value coordinate system</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span><span class="op">&lt;</span><span class="ident">IntoX</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">X</span><span class="op">&gt;</span>, <span class="ident">IntoY</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">Y</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span><span class="op">&lt;</span><span class="ident">IntoX</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">X</span><span class="op">&gt;</span>, <span class="ident">IntoY</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">Y</span><span class="op">&gt;&gt;</span>(
         <span class="ident">logic_x</span>: <span class="ident">IntoX</span>,
         <span class="ident">logic_y</span>: <span class="ident">IntoY</span>,
         <span class="ident">actual</span>: (<span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>, <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>),
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    ) <span class="op">-&gt;</span> <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">logic_x</span>: <span class="ident">logic_x</span>.<span class="ident">into</span>(),
             <span class="ident">logic_y</span>: <span class="ident">logic_y</span>.<span class="ident">into</span>(),
@@ -381,12 +381,12 @@
     }
 
     <span class="doccomment">/// Draw the mesh for the coordinate system</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw_mesh</span><span class="op">&lt;</span><span class="ident">E</span>, <span class="ident">DrawMesh</span>: <span class="ident">FnMut</span>(<span class="ident">MeshLine</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">E</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw_mesh</span><span class="op">&lt;</span><span class="ident">E</span>, <span class="ident">DrawMesh</span>: <span class="ident">FnMut</span>(<span class="ident">MeshLine</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">E</span><span class="op">&gt;&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">h_limit</span>: <span class="ident">usize</span>,
         <span class="ident">v_limit</span>: <span class="ident">usize</span>,
         <span class="kw-2">mut</span> <span class="ident">draw_mesh</span>: <span class="ident">DrawMesh</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">E</span><span class="op">&gt;</span> {
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">E</span><span class="op">&gt;</span> {
         <span class="kw">let</span> (<span class="ident">xkp</span>, <span class="ident">ykp</span>) <span class="op">=</span> (
             <span class="self">self</span>.<span class="ident">logic_x</span>.<span class="ident">key_points</span>(<span class="ident">v_limit</span>),
             <span class="self">self</span>.<span class="ident">logic_y</span>.<span class="ident">key_points</span>(<span class="ident">h_limit</span>),
@@ -414,20 +414,20 @@
     }
 
     <span class="doccomment">/// Get the range of X axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_x_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">X</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_x_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">X</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">logic_x</span>.<span class="ident">range</span>()
     }
 
     <span class="doccomment">/// Get the range of Y axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_y_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">Y</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_y_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">Y</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">logic_y</span>.<span class="ident">range</span>()
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_x_axis_pixel_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_x_axis_pixel_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">logic_x</span>.<span class="ident">axis_pixel_range</span>(<span class="self">self</span>.<span class="ident">back_x</span>)
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_y_axis_pixel_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_y_axis_pixel_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">logic_y</span>.<span class="ident">axis_pixel_range</span>(<span class="self">self</span>.<span class="ident">back_y</span>)
     }
 }
@@ -435,7 +435,7 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">X</span>: <span class="ident">Ranged</span>, <span class="ident">Y</span>: <span class="ident">Ranged</span><span class="op">&gt;</span> <span class="ident">CoordTranslate</span> <span class="kw">for</span> <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span> {
     <span class="kw">type</span> <span class="ident">From</span> <span class="op">=</span> (<span class="ident">X</span>::<span class="ident">ValueType</span>, <span class="ident">Y</span>::<span class="ident">ValueType</span>);
 
-    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">from</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">From</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">BackendCoord</span> {
+    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">from</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">From</span>) <span class="op">-&gt;</span> <span class="ident">BackendCoord</span> {
         (
             <span class="self">self</span>.<span class="ident">logic_x</span>.<span class="ident">map</span>(<span class="kw-2">&amp;</span><span class="ident">from</span>.<span class="number">0</span>, <span class="self">self</span>.<span class="ident">back_x</span>),
             <span class="self">self</span>.<span class="ident">logic_y</span>.<span class="ident">map</span>(<span class="kw-2">&amp;</span><span class="ident">from</span>.<span class="number">1</span>, <span class="self">self</span>.<span class="ident">back_y</span>),
@@ -444,7 +444,7 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">X</span>: <span class="ident">ReversableRanged</span>, <span class="ident">Y</span>: <span class="ident">ReversableRanged</span><span class="op">&gt;</span> <span class="ident">ReverseCoordTranslate</span> <span class="kw">for</span> <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">reverse_translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">input</span>: <span class="ident">BackendCoord</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">From</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">reverse_translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">input</span>: <span class="ident">BackendCoord</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">From</span><span class="op">&gt;</span> {
         <span class="prelude-val">Some</span>((
             <span class="self">self</span>.<span class="ident">logic_x</span>.<span class="ident">unmap</span>(<span class="ident">input</span>.<span class="number">0</span>, <span class="self">self</span>.<span class="ident">back_x</span>)<span class="question-mark">?</span>,
             <span class="self">self</span>.<span class="ident">logic_y</span>.<span class="ident">unmap</span>(<span class="ident">input</span>.<span class="number">1</span>, <span class="self">self</span>.<span class="ident">back_y</span>)<span class="question-mark">?</span>,
@@ -464,10 +464,10 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">backend</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">DB</span>,
         <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">ShapeStyle</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span> {
         <span class="kw">let</span> (<span class="kw-2">&amp;</span><span class="ident">left</span>, <span class="kw-2">&amp;</span><span class="ident">right</span>) <span class="op">=</span> <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident">MeshLine</span>::<span class="ident">XMesh</span>(<span class="ident">a</span>, <span class="ident">b</span>, <span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> (<span class="ident">a</span>, <span class="ident">b</span>),
-            <span class="ident">MeshLine</span>::<span class="ident">YMesh</span>(<span class="ident">a</span>, <span class="ident">b</span>, <span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> (<span class="ident">a</span>, <span class="ident">b</span>),
+            <span class="ident">MeshLine</span>::<span class="ident">XMesh</span>(<span class="ident">a</span>, <span class="ident">b</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> (<span class="ident">a</span>, <span class="ident">b</span>),
+            <span class="ident">MeshLine</span>::<span class="ident">YMesh</span>(<span class="ident">a</span>, <span class="ident">b</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> (<span class="ident">a</span>, <span class="ident">b</span>),
         };
         <span class="ident">backend</span>.<span class="ident">draw_line</span>(<span class="ident">left</span>, <span class="ident">right</span>, <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">color</span>)
     }
@@ -480,10 +480,10 @@
     <span class="self">Self</span>::<span class="ident">ValueType</span>: <span class="ident">Eq</span>,
 {
     <span class="doccomment">/// Get the smallest value that is larger than the `this` value</span>
-    <span class="kw">fn</span> <span class="ident">next_value</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>::<span class="ident">ValueType</span>;
+    <span class="kw">fn</span> <span class="ident">next_value</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">ValueType</span>;
 
     <span class="doccomment">/// Get the largest value that is smaller than `this` value</span>
-    <span class="kw">fn</span> <span class="ident">previous_value</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>::<span class="ident">ValueType</span>;
+    <span class="kw">fn</span> <span class="ident">previous_value</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">ValueType</span>;
 }
 
 <span class="doccomment">/// The trait for the type that can be converted into a ranged coordinate axis</span>
@@ -510,7 +510,7 @@
     <span class="self">Self</span>::<span class="ident">CoordDescType</span>: <span class="ident">DescreteRanged</span>,
     <span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">CoordDescType</span> <span class="kw">as</span> <span class="ident">Ranged</span><span class="op">&gt;</span>::<span class="ident">ValueType</span>: <span class="ident">Eq</span>,
 {
-    <span class="kw">fn</span> <span class="ident">into_centric</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">CentricDescreteRange</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">CoordDescType</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">into_centric</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">CentricDescreteRange</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">CoordDescType</span><span class="op">&gt;</span> {
         <span class="ident">CentricDescreteRange</span>(<span class="self">self</span>.<span class="ident">into</span>())
     }
 }
@@ -528,16 +528,16 @@
 {
     <span class="kw">type</span> <span class="ident">ValueType</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">D</span> <span class="kw">as</span> <span class="ident">Ranged</span><span class="op">&gt;</span>::<span class="ident">ValueType</span>;
 
-    <span class="kw">fn</span> <span class="ident">map</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">value</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>, <span class="ident">limit</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>)) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">fn</span> <span class="ident">map</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">value</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>, <span class="ident">limit</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>)) <span class="op">-&gt;</span> <span class="ident">i32</span> {
         <span class="kw">let</span> <span class="ident">prev</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">D</span> <span class="kw">as</span> <span class="ident">DescreteRanged</span><span class="op">&gt;</span>::<span class="ident">previous_value</span>(<span class="kw-2">&amp;</span><span class="ident">value</span>);
         (<span class="self">self</span>.<span class="number">0</span>.<span class="ident">map</span>(<span class="kw-2">&amp;</span><span class="ident">prev</span>, <span class="ident">limit</span>) <span class="op">+</span> <span class="self">self</span>.<span class="number">0</span>.<span class="ident">map</span>(<span class="ident">value</span>, <span class="ident">limit</span>)) <span class="op">/</span> <span class="number">2</span>
     }
 
-    <span class="kw">fn</span> <span class="ident">key_points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">max_points</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">key_points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">max_points</span>: <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="number">0</span>.<span class="ident">key_points</span>(<span class="ident">max_points</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="number">0</span>.<span class="ident">range</span>()
     }
 }
@@ -546,11 +546,11 @@
 <span class="kw">where</span>
     <span class="op">&lt;</span><span class="ident">D</span> <span class="kw">as</span> <span class="ident">Ranged</span><span class="op">&gt;</span>::<span class="ident">ValueType</span>: <span class="ident">Eq</span>,
 {
-    <span class="kw">fn</span> <span class="ident">next_value</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>::<span class="ident">ValueType</span> {
+    <span class="kw">fn</span> <span class="ident">next_value</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">ValueType</span> {
         <span class="op">&lt;</span><span class="ident">D</span> <span class="kw">as</span> <span class="ident">DescreteRanged</span><span class="op">&gt;</span>::<span class="ident">next_value</span>(<span class="ident">this</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">previous_value</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>::<span class="ident">ValueType</span> {
+    <span class="kw">fn</span> <span class="ident">previous_value</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">ValueType</span> {
         <span class="op">&lt;</span><span class="ident">D</span> <span class="kw">as</span> <span class="ident">DescreteRanged</span><span class="op">&gt;</span>::<span class="ident">previous_value</span>(<span class="ident">this</span>)
     }
 }
@@ -568,8 +568,8 @@
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">IntoPartialAxis</span>: <span class="ident">AsRangedCoord</span> {
     <span class="kw">fn</span> <span class="ident">partial_axis</span>(
         <span class="self">self</span>,
-        <span class="ident">axis_range</span>: <span class="ident">Range</span><span class="op">&lt;</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">CoordDescType</span> <span class="kw">as</span> <span class="ident">Ranged</span><span class="op">&gt;</span>::<span class="ident">ValueType</span><span class="op">&gt;</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">PartialAxis</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">CoordDescType</span><span class="op">&gt;</span> {
+        <span class="ident">axis_range</span>: <span class="ident">Range</span><span class="op">&lt;&lt;</span><span class="self">Self</span>::<span class="ident">CoordDescType</span> <span class="kw">as</span> <span class="ident">Ranged</span><span class="op">&gt;</span>::<span class="ident">ValueType</span><span class="op">&gt;</span>,
+    ) <span class="op">-&gt;</span> <span class="ident">PartialAxis</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">CoordDescType</span><span class="op">&gt;</span> {
         <span class="ident">PartialAxis</span>(<span class="self">self</span>.<span class="ident">into</span>(), <span class="ident">axis_range</span>)
     }
 }
@@ -582,19 +582,19 @@
 {
     <span class="kw">type</span> <span class="ident">ValueType</span> <span class="op">=</span> <span class="ident">R</span>::<span class="ident">ValueType</span>;
 
-    <span class="kw">fn</span> <span class="ident">map</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">value</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>, <span class="ident">limit</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>)) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">i32</span> {
+    <span class="kw">fn</span> <span class="ident">map</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">value</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>, <span class="ident">limit</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>)) <span class="op">-&gt;</span> <span class="ident">i32</span> {
         <span class="self">self</span>.<span class="number">0</span>.<span class="ident">map</span>(<span class="ident">value</span>, <span class="ident">limit</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">key_points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">max_points</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">key_points</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">max_points</span>: <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="ident">Vec</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="number">0</span>.<span class="ident">key_points</span>(<span class="ident">max_points</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="number">0</span>.<span class="ident">range</span>()
     }
 
-    <span class="kw">fn</span> <span class="ident">axis_pixel_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">limit</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>)) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">axis_pixel_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">limit</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>)) <span class="op">-&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">map</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">1</span>.<span class="ident">start</span>, <span class="ident">limit</span>);
         <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">map</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="number">1</span>.<span class="ident">end</span>, <span class="ident">limit</span>);
 
@@ -607,11 +607,11 @@
     <span class="ident">R</span>: <span class="ident">Ranged</span>,
     <span class="op">&lt;</span><span class="ident">R</span> <span class="kw">as</span> <span class="ident">Ranged</span><span class="op">&gt;</span>::<span class="ident">ValueType</span>: <span class="ident">Eq</span> <span class="op">+</span> <span class="ident">Clone</span>,
 {
-    <span class="kw">fn</span> <span class="ident">next_value</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>::<span class="ident">ValueType</span> {
+    <span class="kw">fn</span> <span class="ident">next_value</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">ValueType</span> {
         <span class="op">&lt;</span><span class="ident">R</span> <span class="kw">as</span> <span class="ident">DescreteRanged</span><span class="op">&gt;</span>::<span class="ident">next_value</span>(<span class="ident">this</span>)
     }
 
-    <span class="kw">fn</span> <span class="ident">previous_value</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>::<span class="ident">ValueType</span> {
+    <span class="kw">fn</span> <span class="ident">previous_value</span>(<span class="ident">this</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">ValueType</span>) <span class="op">-&gt;</span> <span class="self">Self</span>::<span class="ident">ValueType</span> {
         <span class="op">&lt;</span><span class="ident">R</span> <span class="kw">as</span> <span class="ident">DescreteRanged</span><span class="op">&gt;</span>::<span class="ident">previous_value</span>(<span class="ident">this</span>)
     }
 }
@@ -628,7 +628,7 @@
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">make_partial_axis</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(
     <span class="ident">axis_range</span>: <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
     <span class="ident">part</span>: <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span>,
-) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">PartialAxis</span><span class="op">&lt;</span><span class="op">&lt;</span><span class="ident">Range</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="ident">AsRangedCoord</span><span class="op">&gt;</span>::<span class="ident">CoordDescType</span><span class="op">&gt;</span><span class="op">&gt;</span>
+) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">PartialAxis</span><span class="op">&lt;&lt;</span><span class="ident">Range</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="ident">AsRangedCoord</span><span class="op">&gt;</span>::<span class="ident">CoordDescType</span><span class="op">&gt;&gt;</span>
 <span class="kw">where</span>
     <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>: <span class="ident">AsRangedCoord</span>,
     <span class="ident">T</span>: <span class="ident">num_traits</span>::<span class="ident">NumCast</span> <span class="op">+</span> <span class="ident">Clone</span>,

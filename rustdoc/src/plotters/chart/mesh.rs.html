@@ -342,7 +342,7 @@
     <span class="ident">X</span>::<span class="ident">ValueType</span>: <span class="ident">Debug</span>,
     <span class="ident">Y</span>::<span class="ident">ValueType</span>: <span class="ident">Debug</span>,
 {
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw-2">mut</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw-2">mut</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">style</span> <span class="op">=</span> <span class="ident">target</span>.<span class="ident">configure_mesh</span>();
         <span class="ident">style</span>.<span class="ident">draw_x_mesh</span> <span class="op">=</span> <span class="bool-val">false</span>;
         <span class="ident">style</span>.<span class="ident">draw_y_mesh</span> <span class="op">=</span> <span class="bool-val">false</span>;
@@ -351,7 +351,7 @@
 
     <span class="doccomment">/// Set the style definition for the axis</span>
     <span class="doccomment">/// - `style`: The style for the axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">axis_style</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">axis_style</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">T</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">axis_style</span>(<span class="ident">style</span>);
         <span class="self">self</span>
     }
@@ -359,7 +359,7 @@
     <span class="doccomment">/// The offset of x labels. This is used when we want to place the label in the middle of</span>
     <span class="doccomment">/// the grid. This is useful if we are drawing a histogram</span>
     <span class="doccomment">/// - `value`: The offset in pixel</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_label_offset</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_label_offset</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">i32</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">x_label_offset</span>(<span class="ident">value</span>);
         <span class="self">self</span>
     }
@@ -367,62 +367,62 @@
     <span class="doccomment">/// The offset of y labels. This is used when we want to place the label in the middle of</span>
     <span class="doccomment">/// the grid. This is useful if we are drawing a histogram</span>
     <span class="doccomment">/// - `value`: The offset in pixel</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_label_offset</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_label_offset</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">i32</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">y_label_offset</span>(<span class="ident">value</span>);
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set how many labels for the X axis at most</span>
     <span class="doccomment">/// - `value`: The maximum desired number of labels in the X axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_labels</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_labels</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">x_labels</span>(<span class="ident">value</span>);
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set how many label for the Y axis at most</span>
     <span class="doccomment">/// - `value`: The maximum desired number of labels in the Y axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_labels</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_labels</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">y_labels</span>(<span class="ident">value</span>);
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the formatter function for the X label text</span>
     <span class="doccomment">/// - `fmt`: The formatter function</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_label_formatter</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">X</span>::<span class="ident">ValueType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_label_formatter</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">X</span>::<span class="ident">ValueType</span>) <span class="op">-&gt;</span> <span class="ident">String</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">x_label_formatter</span>(<span class="ident">fmt</span>);
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the formatter function for the Y label text</span>
     <span class="doccomment">/// - `fmt`: The formatter function</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_label_formatter</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Y</span>::<span class="ident">ValueType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_label_formatter</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Y</span>::<span class="ident">ValueType</span>) <span class="op">-&gt;</span> <span class="ident">String</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">y_label_formatter</span>(<span class="ident">fmt</span>);
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the axis description&#39;s style. If not given, use label style instead.</span>
     <span class="doccomment">/// - `style`: The text style that would be applied to descriptions</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">axis_desc_style</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">axis_desc_style</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">T</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">axis_desc_style</span>(<span class="ident">style</span>);
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the X axis&#39;s description</span>
     <span class="doccomment">/// - `desc`: The description of the X axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_desc</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">desc</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_desc</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">desc</span>: <span class="ident">T</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">x_desc</span>(<span class="ident">desc</span>);
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the Y axis&#39;s description</span>
     <span class="doccomment">/// - `desc`: The description of the Y axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_desc</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">desc</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_desc</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">desc</span>: <span class="ident">T</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">y_desc</span>(<span class="ident">desc</span>);
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Draw the axes for the secondary coordinate system</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span> {
         <span class="self">self</span>.<span class="ident">style</span>.<span class="ident">draw</span>()
     }
 }
@@ -440,16 +440,16 @@
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">y_label_offset</span>: <span class="ident">i32</span>,
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">n_x_labels</span>: <span class="ident">usize</span>,
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">n_y_labels</span>: <span class="ident">usize</span>,
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">axis_desc_style</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span><span class="op">&gt;</span>,
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">axis_desc_style</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;&gt;</span>,
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">x_desc</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">y_desc</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">line_style_1</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;</span>,
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">line_style_2</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;</span>,
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">axis_style</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">label_style</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">format_x</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">X</span>::<span class="ident">ValueType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">String</span>,
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">format_y</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Y</span>::<span class="ident">ValueType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">String</span>,
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">target</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw-2">mut</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span>,
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">label_style</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;&gt;</span>,
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">format_x</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">X</span>::<span class="ident">ValueType</span>) <span class="op">-&gt;</span> <span class="ident">String</span>,
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">format_y</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Y</span>::<span class="ident">ValueType</span>) <span class="op">-&gt;</span> <span class="ident">String</span>,
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">target</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw-2">mut</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;&gt;</span><span class="op">&gt;</span>,
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">_pahtom_data</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span>(<span class="ident">X</span>, <span class="ident">Y</span>)<span class="op">&gt;</span>,
 }
 
@@ -462,7 +462,7 @@
     <span class="doccomment">/// The offset of x labels. This is used when we want to place the label in the middle of</span>
     <span class="doccomment">/// the grid. This is useful if we are drawing a histogram</span>
     <span class="doccomment">/// - `value`: The offset in pixel</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_label_offset</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_label_offset</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">i32</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">x_label_offset</span> <span class="op">=</span> <span class="ident">value</span>;
         <span class="self">self</span>
     }
@@ -470,113 +470,113 @@
     <span class="doccomment">/// The offset of y labels. This is used when we want to place the label in the middle of</span>
     <span class="doccomment">/// the grid. This is useful if we are drawing a histogram</span>
     <span class="doccomment">/// - `value`: The offset in pixel</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_label_offset</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_label_offset</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">i32</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">y_label_offset</span> <span class="op">=</span> <span class="ident">value</span>;
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Disable the mesh for the x axis.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">disable_x_mesh</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">disable_x_mesh</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">draw_x_mesh</span> <span class="op">=</span> <span class="bool-val">false</span>;
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Disable the mesh for the y axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">disable_y_mesh</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">disable_y_mesh</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">draw_y_mesh</span> <span class="op">=</span> <span class="bool-val">false</span>;
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Disable drawing the X axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">disable_x_axis</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">disable_x_axis</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">draw_x_axis</span> <span class="op">=</span> <span class="bool-val">false</span>;
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Disable drawing the Y axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">disable_y_axis</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">disable_y_axis</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">draw_y_axis</span> <span class="op">=</span> <span class="bool-val">false</span>;
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the style definition for the axis</span>
     <span class="doccomment">/// - `style`: The style for the axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">axis_style</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">axis_style</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">T</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">axis_style</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">style</span>.<span class="ident">into</span>());
         <span class="self">self</span>
     }
     <span class="doccomment">/// Set how many labels for the X axis at most</span>
     <span class="doccomment">/// - `value`: The maximum desired number of labels in the X axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_labels</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_labels</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">n_x_labels</span> <span class="op">=</span> <span class="ident">value</span>;
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set how many label for the Y axis at most</span>
     <span class="doccomment">/// - `value`: The maximum desired number of labels in the Y axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_labels</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_labels</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">n_y_labels</span> <span class="op">=</span> <span class="ident">value</span>;
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the style for the coarse grind grid</span>
     <span class="doccomment">/// - `style`: This is the fcoarse grind grid style</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">line_style_1</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">line_style_1</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">T</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">line_style_1</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">style</span>.<span class="ident">into</span>());
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the style for the fine grind grid</span>
     <span class="doccomment">/// - `style`: The fine grind grid style</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">line_style_2</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">line_style_2</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">T</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">line_style_2</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">style</span>.<span class="ident">into</span>());
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the style of the label text</span>
     <span class="doccomment">/// - `style`: The text style that would be applied to the labels</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">label_style</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">label_style</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">T</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">label_style</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">style</span>.<span class="ident">into</span>());
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the formatter function for the X label text</span>
     <span class="doccomment">/// - `fmt`: The formatter function</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_label_formatter</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">X</span>::<span class="ident">ValueType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_label_formatter</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">X</span>::<span class="ident">ValueType</span>) <span class="op">-&gt;</span> <span class="ident">String</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">format_x</span> <span class="op">=</span> <span class="ident">fmt</span>;
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the formatter function for the Y label text</span>
     <span class="doccomment">/// - `fmt`: The formatter function</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_label_formatter</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Y</span>::<span class="ident">ValueType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">String</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_label_formatter</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="kw-2">&amp;</span><span class="ident">Y</span>::<span class="ident">ValueType</span>) <span class="op">-&gt;</span> <span class="ident">String</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">format_y</span> <span class="op">=</span> <span class="ident">fmt</span>;
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the axis description&#39;s style. If not given, use label style instead.</span>
     <span class="doccomment">/// - `style`: The text style that would be applied to descriptions</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">axis_desc_style</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">axis_desc_style</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">T</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">axis_desc_style</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">style</span>.<span class="ident">into</span>());
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the X axis&#39;s description</span>
     <span class="doccomment">/// - `desc`: The description of the X axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_desc</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">desc</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_desc</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">desc</span>: <span class="ident">T</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">x_desc</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">desc</span>.<span class="ident">into</span>());
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the Y axis&#39;s description</span>
     <span class="doccomment">/// - `desc`: The description of the Y axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_desc</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">desc</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_desc</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">desc</span>: <span class="ident">T</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">y_desc</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">desc</span>.<span class="ident">into</span>());
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Draw the configured mesh on the target plot</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span> {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">target</span> <span class="op">=</span> <span class="prelude-val">None</span>;
         <span class="ident">std</span>::<span class="ident">mem</span>::<span class="ident">swap</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">target</span>, <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">target</span>);
         <span class="kw">let</span> <span class="ident">target</span> <span class="op">=</span> <span class="ident">target</span>.<span class="ident">unwrap</span>();
@@ -589,25 +589,25 @@
         <span class="kw">let</span> <span class="ident">mesh_style_1</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">line_style_1</span>
             .<span class="ident">clone</span>()
-            .<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> (<span class="kw-2">&amp;</span><span class="ident">default_mesh_color_1</span>).<span class="ident">into</span>());
+            .<span class="ident">unwrap_or_else</span>(<span class="op">||</span> (<span class="kw-2">&amp;</span><span class="ident">default_mesh_color_1</span>).<span class="ident">into</span>());
         <span class="kw">let</span> <span class="ident">mesh_style_2</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">line_style_2</span>
             .<span class="ident">clone</span>()
-            .<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> (<span class="kw-2">&amp;</span><span class="ident">default_mesh_color_2</span>).<span class="ident">into</span>());
+            .<span class="ident">unwrap_or_else</span>(<span class="op">||</span> (<span class="kw-2">&amp;</span><span class="ident">default_mesh_color_2</span>).<span class="ident">into</span>());
         <span class="kw">let</span> <span class="ident">axis_style</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">axis_style</span>
             .<span class="ident">clone</span>()
-            .<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> (<span class="kw-2">&amp;</span><span class="ident">default_axis_color</span>).<span class="ident">into</span>());
+            .<span class="ident">unwrap_or_else</span>(<span class="op">||</span> (<span class="kw-2">&amp;</span><span class="ident">default_axis_color</span>).<span class="ident">into</span>());
 
         <span class="kw">let</span> <span class="ident">label_style</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">label_style</span>
             .<span class="ident">clone</span>()
-            .<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">default_label_font</span>.<span class="ident">into</span>());
+            .<span class="ident">unwrap_or_else</span>(<span class="op">||</span> <span class="ident">default_label_font</span>.<span class="ident">into</span>());
 
         <span class="kw">let</span> <span class="ident">axis_desc_style</span> <span class="op">=</span> <span class="self">self</span>
             .<span class="ident">axis_desc_style</span>
             .<span class="ident">clone</span>()
-            .<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="ident">label_style</span>.<span class="ident">clone</span>());
+            .<span class="ident">unwrap_or_else</span>(<span class="op">||</span> <span class="ident">label_style</span>.<span class="ident">clone</span>());
 
         <span class="ident">target</span>.<span class="ident">draw_mesh</span>(
             (<span class="self">self</span>.<span class="ident">n_y_labels</span> <span class="op">*</span> <span class="number">10</span>, <span class="self">self</span>.<span class="ident">n_x_labels</span> <span class="op">*</span> <span class="number">10</span>),
@@ -631,8 +631,8 @@
             <span class="kw-2">&amp;</span><span class="ident">mesh_style_1</span>,
             <span class="kw-2">&amp;</span><span class="ident">label_style</span>,
             <span class="op">|</span><span class="ident">m</span><span class="op">|</span> <span class="kw">match</span> <span class="ident">m</span> {
-                <span class="ident">MeshLine</span>::<span class="ident">XMesh</span>(<span class="kw">_</span>, <span class="kw">_</span>, <span class="ident">v</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Some</span>((<span class="self">self</span>.<span class="ident">format_x</span>)(<span class="ident">v</span>)),
-                <span class="ident">MeshLine</span>::<span class="ident">YMesh</span>(<span class="kw">_</span>, <span class="kw">_</span>, <span class="ident">v</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Some</span>((<span class="self">self</span>.<span class="ident">format_y</span>)(<span class="ident">v</span>)),
+                <span class="ident">MeshLine</span>::<span class="ident">XMesh</span>(<span class="kw">_</span>, <span class="kw">_</span>, <span class="ident">v</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>((<span class="self">self</span>.<span class="ident">format_x</span>)(<span class="ident">v</span>)),
+                <span class="ident">MeshLine</span>::<span class="ident">YMesh</span>(<span class="kw">_</span>, <span class="kw">_</span>, <span class="ident">v</span>) <span class="op">=&gt;</span> <span class="prelude-val">Some</span>((<span class="self">self</span>.<span class="ident">format_y</span>)(<span class="ident">v</span>)),
             },
             <span class="self">self</span>.<span class="ident">draw_x_mesh</span>,
             <span class="self">self</span>.<span class="ident">draw_y_mesh</span>,

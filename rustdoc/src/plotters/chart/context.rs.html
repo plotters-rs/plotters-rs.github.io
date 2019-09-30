@@ -434,6 +434,23 @@
 <span id="434">434</span>
 <span id="435">435</span>
 <span id="436">436</span>
+<span id="437">437</span>
+<span id="438">438</span>
+<span id="439">439</span>
+<span id="440">440</span>
+<span id="441">441</span>
+<span id="442">442</span>
+<span id="443">443</span>
+<span id="444">444</span>
+<span id="445">445</span>
+<span id="446">446</span>
+<span id="447">447</span>
+<span id="448">448</span>
+<span id="449">449</span>
+<span id="450">450</span>
+<span id="451">451</span>
+<span id="452">452</span>
+<span id="453">453</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">borrow</span>::<span class="ident">Borrow</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">fmt</span>::<span class="ident">Debug</span>;
@@ -453,24 +470,25 @@
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">style</span>::{<span class="ident">FontTransform</span>, <span class="ident">ShapeStyle</span>, <span class="ident">TextStyle</span>};
 
 <span class="doccomment">/// The annotations (such as the label of the series, the legend element, etc)</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">type_complexity</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">SeriesAnno</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span><span class="op">&gt;</span> {
     <span class="ident">label</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
-    <span class="ident">draw_func</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="ident">BackendCoord</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DynElement</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">BackendCoord</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;a</span><span class="op">&gt;</span><span class="op">&gt;</span>,
+    <span class="ident">draw_func</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">Box</span><span class="op">&lt;</span><span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="ident">BackendCoord</span>) <span class="op">-&gt;</span> <span class="ident">DynElement</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">BackendCoord</span><span class="op">&gt;</span> <span class="op">+</span> <span class="lifetime">&#39;a</span><span class="op">&gt;&gt;</span>,
     <span class="ident">phantom_data</span>: <span class="ident">PhantomData</span><span class="op">&lt;</span><span class="ident">DB</span><span class="op">&gt;</span>,
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span><span class="op">&gt;</span> <span class="ident">SeriesAnno</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span><span class="op">&gt;</span> {
-    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">get_label</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">str</span> {
+    <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">get_label</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="ident">str</span> {
         <span class="self">self</span>.<span class="ident">label</span>.<span class="ident">as_ref</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="ident">x</span>.<span class="ident">as_str</span>()).<span class="ident">unwrap_or</span>(<span class="string">&quot;&quot;</span>)
     }
 
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">get_draw_func</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="ident">BackendCoord</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DynElement</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">BackendCoord</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw">dyn</span> <span class="ident">Fn</span>(<span class="ident">BackendCoord</span>) <span class="op">-&gt;</span> <span class="ident">DynElement</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">BackendCoord</span><span class="op">&gt;&gt;</span> {
         <span class="self">self</span>.<span class="ident">draw_func</span>.<span class="ident">as_ref</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">x</span><span class="op">|</span> <span class="ident">x</span>.<span class="ident">borrow</span>())
     }
 
-    <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">fn</span> <span class="ident">new</span>() <span class="op">-&gt;</span> <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">label</span>: <span class="prelude-val">None</span>,
             <span class="ident">draw_func</span>: <span class="prelude-val">None</span>,
@@ -480,7 +498,7 @@
 
     <span class="doccomment">/// Set the series label</span>
     <span class="doccomment">/// `label`: The string would be use as label for current series</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">label</span><span class="op">&lt;</span><span class="ident">L</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">label</span>: <span class="ident">L</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">label</span><span class="op">&lt;</span><span class="ident">L</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">label</span>: <span class="ident">L</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">label</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">label</span>.<span class="ident">into</span>());
         <span class="self">self</span>
     }
@@ -489,10 +507,10 @@
     <span class="doccomment">/// - `func`: The function use to create the element</span>
     <span class="doccomment">/// *Note*: The creation function uses a shifted pixel-based coordinate system. And place the</span>
     <span class="doccomment">/// point (0,0) to the mid-right point of the shape</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">legend</span><span class="op">&lt;</span><span class="ident">E</span>: <span class="ident">IntoDynElement</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">BackendCoord</span><span class="op">&gt;</span>, <span class="ident">T</span>: <span class="ident">Fn</span>(<span class="ident">BackendCoord</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">E</span> <span class="op">+</span> <span class="lifetime">&#39;a</span><span class="op">&gt;</span>(
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">legend</span><span class="op">&lt;</span><span class="ident">E</span>: <span class="ident">IntoDynElement</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">BackendCoord</span><span class="op">&gt;</span>, <span class="ident">T</span>: <span class="ident">Fn</span>(<span class="ident">BackendCoord</span>) <span class="op">-&gt;</span> <span class="ident">E</span> <span class="op">+</span> <span class="lifetime">&#39;a</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">func</span>: <span class="ident">T</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    ) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">draw_func</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">Box</span>::<span class="ident">new</span>(<span class="kw">move</span> <span class="op">|</span><span class="ident">p</span><span class="op">|</span> <span class="ident">func</span>(<span class="ident">p</span>).<span class="ident">into_dyn</span>()));
         <span class="self">self</span>
     }
@@ -502,10 +520,10 @@
 <span class="doccomment">/// Any plot/chart is abstracted as this type, and any data series can be placed to the chart</span>
 <span class="doccomment">/// context.</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span>, <span class="ident">CT</span>: <span class="ident">CoordTranslate</span><span class="op">&gt;</span> {
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">x_label_area</span>: [<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">DrawingArea</span><span class="op">&lt;</span><span class="ident">DB</span>, <span class="ident">Shift</span><span class="op">&gt;</span><span class="op">&gt;</span>; <span class="number">2</span>],
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">y_label_area</span>: [<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">DrawingArea</span><span class="op">&lt;</span><span class="ident">DB</span>, <span class="ident">Shift</span><span class="op">&gt;</span><span class="op">&gt;</span>; <span class="number">2</span>],
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">x_label_area</span>: [<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">DrawingArea</span><span class="op">&lt;</span><span class="ident">DB</span>, <span class="ident">Shift</span><span class="op">&gt;&gt;</span>; <span class="number">2</span>],
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">y_label_area</span>: [<span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">DrawingArea</span><span class="op">&lt;</span><span class="ident">DB</span>, <span class="ident">Shift</span><span class="op">&gt;&gt;</span>; <span class="number">2</span>],
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">drawing_area</span>: <span class="ident">DrawingArea</span><span class="op">&lt;</span><span class="ident">DB</span>, <span class="ident">CT</span><span class="op">&gt;</span>,
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">series_anno</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">SeriesAnno</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span><span class="op">&gt;</span><span class="op">&gt;</span>,
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="ident">series_anno</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">SeriesAnno</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span><span class="op">&gt;&gt;</span>,
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span>
@@ -515,11 +533,11 @@
         <span class="ident">YT</span>: <span class="ident">Debug</span>,
         <span class="ident">X</span>: <span class="ident">Ranged</span><span class="op">&lt;</span><span class="ident">ValueType</span> <span class="op">=</span> <span class="ident">XT</span><span class="op">&gt;</span>,
         <span class="ident">Y</span>: <span class="ident">Ranged</span><span class="op">&lt;</span><span class="ident">ValueType</span> <span class="op">=</span> <span class="ident">YT</span><span class="op">&gt;</span>,
-    <span class="op">&gt;</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span><span class="op">&gt;</span>
+    <span class="op">&gt;</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;&gt;</span>
 {
     <span class="doccomment">/// Initialize a mesh configuration object and mesh drawing can be finalized by calling</span>
     <span class="doccomment">/// the function `MeshStyle::draw`</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">configure_mesh</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">MeshStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span>, <span class="ident">X</span>, <span class="ident">Y</span>, <span class="ident">DB</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">configure_mesh</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">MeshStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span>, <span class="ident">X</span>, <span class="ident">Y</span>, <span class="ident">DB</span><span class="op">&gt;</span> {
         <span class="ident">MeshStyle</span> {
             <span class="ident">axis_style</span>: <span class="prelude-val">None</span>,
             <span class="ident">x_label_offset</span>: <span class="number">0</span>,
@@ -546,45 +564,45 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span> <span class="op">+</span> <span class="lifetime">&#39;a</span>, <span class="ident">CT</span>: <span class="ident">CoordTranslate</span><span class="op">&gt;</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Configure the styles for drawing series labels in the chart</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">configure_series_labels</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SeriesLabelStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span>, <span class="ident">DB</span>, <span class="ident">CT</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">configure_series_labels</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">SeriesLabelStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span>, <span class="ident">DB</span>, <span class="ident">CT</span><span class="op">&gt;</span> {
         <span class="ident">SeriesLabelStyle</span>::<span class="ident">new</span>(<span class="self">self</span>)
     }
 
     <span class="doccomment">/// Get a reference of underlying plotting area</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">plotting_area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">DrawingArea</span><span class="op">&lt;</span><span class="ident">DB</span>, <span class="ident">CT</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">plotting_area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="ident">DrawingArea</span><span class="op">&lt;</span><span class="ident">DB</span>, <span class="ident">CT</span><span class="op">&gt;</span> {
         <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">drawing_area</span>
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span>, <span class="ident">CT</span>: <span class="ident">ReverseCoordTranslate</span><span class="op">&gt;</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Convert the chart context into an closure that can be used for coordinate translation</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">into_coord_trans</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw">impl</span> <span class="ident">Fn</span>(<span class="ident">BackendCoord</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CT</span>::<span class="ident">From</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">into_coord_trans</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw">impl</span> <span class="ident">Fn</span>(<span class="ident">BackendCoord</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CT</span>::<span class="ident">From</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">coord_spec</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">drawing_area</span>.<span class="ident">into_coord_spec</span>();
         <span class="kw">move</span> <span class="op">|</span><span class="ident">coord</span><span class="op">|</span> <span class="ident">coord_spec</span>.<span class="ident">reverse_translate</span>(<span class="ident">coord</span>)
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span>, <span class="ident">X</span>: <span class="ident">Ranged</span>, <span class="ident">Y</span>: <span class="ident">Ranged</span><span class="op">&gt;</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span>, <span class="ident">X</span>: <span class="ident">Ranged</span>, <span class="ident">Y</span>: <span class="ident">Ranged</span><span class="op">&gt;</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;&gt;</span> {
     <span class="doccomment">/// Get the range of X axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">X</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">x_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">X</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">drawing_area</span>.<span class="ident">get_x_range</span>()
     }
 
     <span class="doccomment">/// Get range of the Y axis</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">Y</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">y_range</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">Y</span>::<span class="ident">ValueType</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">drawing_area</span>.<span class="ident">get_y_range</span>()
     }
 
     <span class="doccomment">/// Maps the coordinate to the backend coordinate. This is typically used</span>
     <span class="doccomment">/// with an interactive chart.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">backend_coord</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">coord</span>: <span class="kw-2">&amp;</span>(<span class="ident">X</span>::<span class="ident">ValueType</span>, <span class="ident">Y</span>::<span class="ident">ValueType</span>)) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">BackendCoord</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">backend_coord</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">coord</span>: <span class="kw-2">&amp;</span>(<span class="ident">X</span>::<span class="ident">ValueType</span>, <span class="ident">Y</span>::<span class="ident">ValueType</span>)) <span class="op">-&gt;</span> <span class="ident">BackendCoord</span> {
         <span class="self">self</span>.<span class="ident">drawing_area</span>.<span class="ident">map_coordinate</span>(<span class="ident">coord</span>)
     }
 
     <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">draw_series_impl</span><span class="op">&lt;</span><span class="ident">E</span>, <span class="ident">R</span>, <span class="ident">S</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">series</span>: <span class="ident">S</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span>
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span>
     <span class="kw">where</span>
         <span class="kw">for</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">E</span>: <span class="ident">PointCollection</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span>, (<span class="ident">X</span>::<span class="ident">ValueType</span>, <span class="ident">Y</span>::<span class="ident">ValueType</span>)<span class="op">&gt;</span>,
         <span class="ident">E</span>: <span class="ident">Drawable</span><span class="op">&lt;</span><span class="ident">DB</span><span class="op">&gt;</span>,
@@ -597,7 +615,7 @@
         <span class="prelude-val">Ok</span>(())
     }
 
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">alloc_series_anno</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">SeriesAnno</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">alloc_series_anno</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">SeriesAnno</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">idx</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">series_anno</span>.<span class="ident">len</span>();
         <span class="self">self</span>.<span class="ident">series_anno</span>.<span class="ident">push</span>(<span class="ident">SeriesAnno</span>::<span class="ident">new</span>());
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">series_anno</span>[<span class="ident">idx</span>]
@@ -607,7 +625,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw_series</span><span class="op">&lt;</span><span class="ident">E</span>, <span class="ident">R</span>, <span class="ident">S</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">series</span>: <span class="ident">S</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">SeriesAnno</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span><span class="op">&gt;</span>, <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span>
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">SeriesAnno</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span><span class="op">&gt;</span>, <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span>
     <span class="kw">where</span>
         <span class="kw">for</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">E</span>: <span class="ident">PointCollection</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span>, (<span class="ident">X</span>::<span class="ident">ValueType</span>, <span class="ident">Y</span>::<span class="ident">ValueType</span>)<span class="op">&gt;</span>,
         <span class="ident">E</span>: <span class="ident">Drawable</span><span class="op">&lt;</span><span class="ident">DB</span><span class="op">&gt;</span>,
@@ -620,15 +638,16 @@
 
     <span class="doccomment">/// The actual function that draws the mesh lines.</span>
     <span class="doccomment">/// It also returns the label that suppose to be there.</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">type_complexity</span>)]</span>
     <span class="kw">fn</span> <span class="ident">draw_mesh_lines</span><span class="op">&lt;</span><span class="ident">FmtLabel</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         (<span class="ident">r</span>, <span class="ident">c</span>): (<span class="ident">usize</span>, <span class="ident">usize</span>),
         (<span class="ident">x_mesh</span>, <span class="ident">y_mesh</span>): (<span class="ident">bool</span>, <span class="ident">bool</span>),
         <span class="ident">mesh_line_style</span>: <span class="kw-2">&amp;</span><span class="ident">ShapeStyle</span>,
         <span class="kw-2">mut</span> <span class="ident">fmt_label</span>: <span class="ident">FmtLabel</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(<span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">i32</span>, <span class="ident">String</span>)<span class="op">&gt;</span>, <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">i32</span>, <span class="ident">String</span>)<span class="op">&gt;</span>), <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span>
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(<span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">i32</span>, <span class="ident">String</span>)<span class="op">&gt;</span>, <span class="ident">Vec</span><span class="op">&lt;</span>(<span class="ident">i32</span>, <span class="ident">String</span>)<span class="op">&gt;</span>), <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span>
     <span class="kw">where</span>
-        <span class="ident">FmtLabel</span>: <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">MeshLine</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
+        <span class="ident">FmtLabel</span>: <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">MeshLine</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
     {
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">x_labels</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[];
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">y_labels</span> <span class="op">=</span> <span class="macro">vec</span><span class="macro">!</span>[];
@@ -636,13 +655,13 @@
             <span class="op">|</span><span class="ident">b</span>, <span class="ident">l</span><span class="op">|</span> {
                 <span class="kw">let</span> <span class="ident">draw</span>;
                 <span class="kw">match</span> <span class="ident">l</span> {
-                    <span class="ident">MeshLine</span>::<span class="ident">XMesh</span>((<span class="ident">x</span>, <span class="kw">_</span>), <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
+                    <span class="ident">MeshLine</span>::<span class="ident">XMesh</span>((<span class="ident">x</span>, <span class="kw">_</span>), <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> {
                         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">label_text</span>) <span class="op">=</span> <span class="ident">fmt_label</span>(<span class="kw-2">&amp;</span><span class="ident">l</span>) {
                             <span class="ident">x_labels</span>.<span class="ident">push</span>((<span class="ident">x</span>, <span class="ident">label_text</span>));
                         }
                         <span class="ident">draw</span> <span class="op">=</span> <span class="ident">x_mesh</span>;
                     }
-                    <span class="ident">MeshLine</span>::<span class="ident">YMesh</span>((<span class="kw">_</span>, <span class="ident">y</span>), <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> {
+                    <span class="ident">MeshLine</span>::<span class="ident">YMesh</span>((<span class="kw">_</span>, <span class="ident">y</span>), <span class="kw">_</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> {
                         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">label_text</span>) <span class="op">=</span> <span class="ident">fmt_label</span>(<span class="kw-2">&amp;</span><span class="ident">l</span>) {
                             <span class="ident">y_labels</span>.<span class="ident">push</span>((<span class="ident">y</span>, <span class="ident">label_text</span>));
                         }
@@ -661,16 +680,20 @@
         <span class="prelude-val">Ok</span>((<span class="ident">x_labels</span>, <span class="ident">y_labels</span>))
     }
 
+    <span class="comment">// TODO: consider make this function less complicated</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">cognitive_complexity</span>)]</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">too_many_arguments</span>)]</span>
     <span class="kw">fn</span> <span class="ident">draw_axis_and_labels</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        <span class="ident">area</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">DrawingArea</span><span class="op">&lt;</span><span class="ident">DB</span>, <span class="ident">Shift</span><span class="op">&gt;</span><span class="op">&gt;</span>,
+        <span class="ident">area</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">DrawingArea</span><span class="op">&lt;</span><span class="ident">DB</span>, <span class="ident">Shift</span><span class="op">&gt;&gt;</span>,
         <span class="ident">axis_style</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">ShapeStyle</span><span class="op">&gt;</span>,
         <span class="ident">labels</span>: <span class="kw-2">&amp;</span>[(<span class="ident">i32</span>, <span class="ident">String</span>)],
         <span class="ident">label_style</span>: <span class="kw-2">&amp;</span><span class="ident">TextStyle</span>,
         <span class="ident">label_offset</span>: <span class="ident">i32</span>,
         <span class="ident">orientation</span>: (<span class="ident">i16</span>, <span class="ident">i16</span>),
         <span class="ident">axis_desc</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span>(<span class="kw-2">&amp;</span><span class="ident">str</span>, <span class="kw-2">&amp;</span><span class="ident">TextStyle</span>)<span class="op">&gt;</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+        <span class="ident">tick_size</span>: <span class="ident">i32</span>,
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span> {
         <span class="kw">let</span> <span class="ident">area</span> <span class="op">=</span> <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">target</span>) <span class="op">=</span> <span class="ident">area</span> {
             <span class="ident">target</span>
         } <span class="kw">else</span> {
@@ -680,32 +703,31 @@
         <span class="kw">let</span> (<span class="ident">x0</span>, <span class="ident">y0</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">drawing_area</span>.<span class="ident">get_base_pixel</span>();
 
         <span class="comment">/* TODO: make this configure adjustable */</span>
-        <span class="kw">let</span> <span class="ident">knob_size</span> <span class="op">=</span> <span class="number">5</span>;
         <span class="kw">let</span> <span class="ident">label_dist</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">1</span> <span class="op">&gt;</span> <span class="number">0</span> { <span class="number">0</span> } <span class="kw">else</span> { <span class="number">10</span> };
 
         <span class="kw">let</span> (<span class="ident">tw</span>, <span class="ident">th</span>) <span class="op">=</span> <span class="ident">area</span>.<span class="ident">dim_in_pixel</span>();
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">axis_range</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
+        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">axis_range</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">==</span> <span class="number">0</span> {
             <span class="self">self</span>.<span class="ident">drawing_area</span>.<span class="ident">get_x_axis_pixel_range</span>()
         } <span class="kw">else</span> {
             <span class="self">self</span>.<span class="ident">drawing_area</span>.<span class="ident">get_y_axis_pixel_range</span>()
         };
 
-        <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
-            <span class="ident">axis_range</span>.<span class="ident">start</span> <span class="op">-</span><span class="op">=</span> <span class="ident">x0</span>;
-            <span class="ident">axis_range</span>.<span class="ident">end</span> <span class="op">-</span><span class="op">=</span> <span class="ident">x0</span>;
+        <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">==</span> <span class="number">0</span> {
+            <span class="ident">axis_range</span>.<span class="ident">start</span> <span class="op">-=</span> <span class="ident">x0</span>;
+            <span class="ident">axis_range</span>.<span class="ident">end</span> <span class="op">-=</span> <span class="ident">x0</span>;
         } <span class="kw">else</span> {
-            <span class="ident">axis_range</span>.<span class="ident">start</span> <span class="op">-</span><span class="op">=</span> <span class="ident">y0</span>;
-            <span class="ident">axis_range</span>.<span class="ident">end</span> <span class="op">-</span><span class="op">=</span> <span class="ident">y0</span>;
+            <span class="ident">axis_range</span>.<span class="ident">start</span> <span class="op">-=</span> <span class="ident">y0</span>;
+            <span class="ident">axis_range</span>.<span class="ident">end</span> <span class="op">-=</span> <span class="ident">y0</span>;
         }
 
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">style</span>) <span class="op">=</span> <span class="ident">axis_style</span> {
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">x0</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">&gt;</span> <span class="number">0</span> { <span class="number">0</span> } <span class="kw">else</span> { <span class="ident">tw</span> <span class="kw">as</span> <span class="ident">i32</span> };
             <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">y0</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">1</span> <span class="op">&gt;</span> <span class="number">0</span> { <span class="number">0</span> } <span class="kw">else</span> { <span class="ident">th</span> <span class="kw">as</span> <span class="ident">i32</span> };
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">x1</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span> { <span class="number">0</span> } <span class="kw">else</span> { <span class="ident">tw</span> <span class="kw">as</span> <span class="ident">i32</span> };
-            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">y1</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">1</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span> { <span class="number">0</span> } <span class="kw">else</span> { <span class="ident">th</span> <span class="kw">as</span> <span class="ident">i32</span> };
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">x1</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">&gt;=</span> <span class="number">0</span> { <span class="number">0</span> } <span class="kw">else</span> { <span class="ident">tw</span> <span class="kw">as</span> <span class="ident">i32</span> };
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">y1</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">1</span> <span class="op">&gt;=</span> <span class="number">0</span> { <span class="number">0</span> } <span class="kw">else</span> { <span class="ident">th</span> <span class="kw">as</span> <span class="ident">i32</span> };
 
-            <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
+            <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">==</span> <span class="number">0</span> {
                 <span class="ident">x0</span> <span class="op">=</span> <span class="ident">axis_range</span>.<span class="ident">start</span>;
                 <span class="ident">x1</span> <span class="op">=</span> <span class="ident">axis_range</span>.<span class="ident">end</span>;
             } <span class="kw">else</span> {
@@ -715,10 +737,15 @@
             <span class="ident">area</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="ident">Path</span>::<span class="ident">new</span>(<span class="macro">vec</span><span class="macro">!</span>[(<span class="ident">x0</span>, <span class="ident">y0</span>), (<span class="ident">x1</span>, <span class="ident">y1</span>)], <span class="ident">style</span>.<span class="ident">clone</span>()))<span class="question-mark">?</span>;
         }
 
-        <span class="kw">let</span> <span class="ident">right_most</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">orientation</span>.<span class="number">1</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
+        <span class="kw">let</span> <span class="ident">right_most</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">orientation</span>.<span class="number">1</span> <span class="op">==</span> <span class="number">0</span> {
             <span class="ident">labels</span>
                 .<span class="ident">iter</span>()
-                .<span class="ident">map</span>(<span class="op">|</span>(<span class="kw">_</span>, <span class="ident">t</span>)<span class="op">|</span> <span class="ident">label_style</span>.<span class="ident">font</span>.<span class="ident">box_size</span>(<span class="ident">t</span>).<span class="ident">unwrap_or</span>((<span class="number">0</span>, <span class="number">0</span>)).<span class="number">0</span>)
+                .<span class="ident">map</span>(<span class="op">|</span>(<span class="kw">_</span>, <span class="ident">t</span>)<span class="op">|</span> {
+                    <span class="self">self</span>.<span class="ident">drawing_area</span>
+                        .<span class="ident">estimate_text_size</span>(<span class="ident">t</span>, <span class="kw-2">&amp;</span><span class="ident">label_style</span>.<span class="ident">font</span>)
+                        .<span class="ident">unwrap_or</span>((<span class="number">0</span>, <span class="number">0</span>))
+                        .<span class="number">0</span>
+                })
                 .<span class="ident">max</span>()
                 .<span class="ident">unwrap_or</span>(<span class="number">0</span>) <span class="kw">as</span> <span class="ident">i32</span>
                 <span class="op">+</span> <span class="ident">label_dist</span> <span class="kw">as</span> <span class="ident">i32</span>
@@ -727,32 +754,35 @@
         };
 
         <span class="kw">for</span> (<span class="ident">p</span>, <span class="ident">t</span>) <span class="kw">in</span> <span class="ident">labels</span> {
-            <span class="kw">let</span> <span class="ident">rp</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> { <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">x0</span> } <span class="kw">else</span> { <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">y0</span> };
+            <span class="kw">let</span> <span class="ident">rp</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">==</span> <span class="number">0</span> { <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">x0</span> } <span class="kw">else</span> { <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">y0</span> };
 
             <span class="kw">if</span> <span class="ident">rp</span> <span class="op">&lt;</span> <span class="ident">axis_range</span>.<span class="ident">start</span>.<span class="ident">min</span>(<span class="ident">axis_range</span>.<span class="ident">end</span>)
-                <span class="op">|</span><span class="op">|</span> <span class="ident">axis_range</span>.<span class="ident">end</span>.<span class="ident">max</span>(<span class="ident">axis_range</span>.<span class="ident">start</span>) <span class="op">&lt;</span> <span class="ident">rp</span>
+                <span class="op">||</span> <span class="ident">axis_range</span>.<span class="ident">end</span>.<span class="ident">max</span>(<span class="ident">axis_range</span>.<span class="ident">start</span>) <span class="op">&lt;</span> <span class="ident">rp</span>
             {
                 <span class="kw">continue</span>;
             }
 
-            <span class="kw">let</span> (<span class="ident">w</span>, <span class="ident">h</span>) <span class="op">=</span> <span class="ident">label_style</span>.<span class="ident">font</span>.<span class="ident">box_size</span>(<span class="kw-2">&amp;</span><span class="ident">t</span>).<span class="ident">unwrap_or</span>((<span class="number">0</span>, <span class="number">0</span>));
+            <span class="kw">let</span> (<span class="ident">w</span>, <span class="ident">h</span>) <span class="op">=</span> <span class="self">self</span>
+                .<span class="ident">drawing_area</span>
+                .<span class="ident">estimate_text_size</span>(<span class="kw-2">&amp;</span><span class="ident">t</span>, <span class="kw-2">&amp;</span><span class="ident">label_style</span>.<span class="ident">font</span>)
+                .<span class="ident">unwrap_or</span>((<span class="number">0</span>, <span class="number">0</span>));
 
             <span class="kw">let</span> (<span class="ident">cx</span>, <span class="ident">cy</span>) <span class="op">=</span> <span class="kw">match</span> <span class="ident">orientation</span> {
-                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">dy</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> (<span class="ident">right_most</span> <span class="op">-</span> <span class="ident">w</span> <span class="kw">as</span> <span class="ident">i32</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">y0</span>),
-                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">&lt;</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">dy</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> (<span class="ident">tw</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> <span class="ident">label_dist</span> <span class="op">-</span> <span class="ident">w</span> <span class="kw">as</span> <span class="ident">i32</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">y0</span>),
-                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">dy</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> (<span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">x0</span>, <span class="ident">label_dist</span> <span class="op">+</span> <span class="ident">h</span> <span class="kw">as</span> <span class="ident">i32</span>),
-                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">dy</span> <span class="op">&lt;</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> (<span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">x0</span>, <span class="ident">th</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> <span class="ident">label_dist</span> <span class="op">-</span> <span class="ident">h</span> <span class="kw">as</span> <span class="ident">i32</span>),
-                <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Bug: Invlid orientation specification&quot;</span>),
+                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">dy</span> <span class="op">==</span> <span class="number">0</span> <span class="op">=&gt;</span> (<span class="ident">right_most</span> <span class="op">-</span> <span class="ident">w</span> <span class="kw">as</span> <span class="ident">i32</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">y0</span>),
+                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">&lt;</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">dy</span> <span class="op">==</span> <span class="number">0</span> <span class="op">=&gt;</span> (<span class="ident">tw</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> <span class="ident">label_dist</span> <span class="op">-</span> <span class="ident">w</span> <span class="kw">as</span> <span class="ident">i32</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">y0</span>),
+                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">==</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">dy</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="op">=&gt;</span> (<span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">x0</span>, <span class="ident">label_dist</span> <span class="op">+</span> <span class="ident">h</span> <span class="kw">as</span> <span class="ident">i32</span>),
+                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">==</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">dy</span> <span class="op">&lt;</span> <span class="number">0</span> <span class="op">=&gt;</span> (<span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">x0</span>, <span class="ident">th</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> <span class="ident">label_dist</span> <span class="op">-</span> <span class="ident">h</span> <span class="kw">as</span> <span class="ident">i32</span>),
+                <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Bug: Invlid orientation specification&quot;</span>),
             };
 
-            <span class="kw">let</span> <span class="ident">should_draw</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
-                <span class="ident">cx</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">cx</span> <span class="op">+</span> <span class="ident">label_offset</span> <span class="op">+</span> <span class="ident">w</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">/</span> <span class="number">2</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">tw</span> <span class="kw">as</span> <span class="ident">i32</span>
+            <span class="kw">let</span> <span class="ident">should_draw</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">==</span> <span class="number">0</span> {
+                <span class="ident">cx</span> <span class="op">&gt;=</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">cx</span> <span class="op">+</span> <span class="ident">label_offset</span> <span class="op">+</span> <span class="ident">w</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">/</span> <span class="number">2</span> <span class="op">&lt;=</span> <span class="ident">tw</span> <span class="kw">as</span> <span class="ident">i32</span>
             } <span class="kw">else</span> {
-                <span class="ident">cy</span> <span class="op">&gt;</span><span class="op">=</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">cy</span> <span class="op">+</span> <span class="ident">label_offset</span> <span class="op">+</span> <span class="ident">h</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">/</span> <span class="number">2</span> <span class="op">&lt;</span><span class="op">=</span> <span class="ident">th</span> <span class="kw">as</span> <span class="ident">i32</span>
+                <span class="ident">cy</span> <span class="op">&gt;=</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">cy</span> <span class="op">+</span> <span class="ident">label_offset</span> <span class="op">+</span> <span class="ident">h</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">/</span> <span class="number">2</span> <span class="op">&lt;=</span> <span class="ident">th</span> <span class="kw">as</span> <span class="ident">i32</span>
             };
 
             <span class="kw">if</span> <span class="ident">should_draw</span> {
-                <span class="kw">let</span> (<span class="ident">text_x</span>, <span class="ident">text_y</span>) <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
+                <span class="kw">let</span> (<span class="ident">text_x</span>, <span class="ident">text_y</span>) <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">==</span> <span class="number">0</span> {
                     (<span class="ident">cx</span> <span class="op">-</span> <span class="ident">w</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">/</span> <span class="number">2</span> <span class="op">+</span> <span class="ident">label_offset</span>, <span class="ident">cy</span>)
                 } <span class="kw">else</span> {
                     (<span class="ident">cx</span>, <span class="ident">cy</span> <span class="op">-</span> <span class="ident">h</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">/</span> <span class="number">2</span> <span class="op">+</span> <span class="ident">label_offset</span>)
@@ -762,15 +792,15 @@
 
                 <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">style</span>) <span class="op">=</span> <span class="ident">axis_style</span> {
                     <span class="kw">let</span> (<span class="ident">kx0</span>, <span class="ident">ky0</span>, <span class="ident">kx1</span>, <span class="ident">ky1</span>) <span class="op">=</span> <span class="kw">match</span> <span class="ident">orientation</span> {
-                        (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">dy</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> (<span class="number">0</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">y0</span>, <span class="ident">knob_size</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">y0</span>),
-                        (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">&lt;</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">dy</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> {
-                            (<span class="ident">tw</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> <span class="ident">knob_size</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">y0</span>, <span class="ident">tw</span> <span class="kw">as</span> <span class="ident">i32</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">y0</span>)
+                        (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">dy</span> <span class="op">==</span> <span class="number">0</span> <span class="op">=&gt;</span> (<span class="number">0</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">y0</span>, <span class="ident">tick_size</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">y0</span>),
+                        (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">&lt;</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">dy</span> <span class="op">==</span> <span class="number">0</span> <span class="op">=&gt;</span> {
+                            (<span class="ident">tw</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> <span class="ident">tick_size</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">y0</span>, <span class="ident">tw</span> <span class="kw">as</span> <span class="ident">i32</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">y0</span>)
                         }
-                        (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">dy</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> (<span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">x0</span>, <span class="number">0</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">x0</span>, <span class="ident">knob_size</span>),
-                        (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">dy</span> <span class="op">&lt;</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> {
-                            (<span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">x0</span>, <span class="ident">th</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> <span class="ident">knob_size</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">x0</span>, <span class="ident">th</span> <span class="kw">as</span> <span class="ident">i32</span>)
+                        (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">==</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">dy</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="op">=&gt;</span> (<span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">x0</span>, <span class="number">0</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">x0</span>, <span class="ident">tick_size</span>),
+                        (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">==</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">dy</span> <span class="op">&lt;</span> <span class="number">0</span> <span class="op">=&gt;</span> {
+                            (<span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">x0</span>, <span class="ident">th</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> <span class="ident">tick_size</span>, <span class="kw-2">*</span><span class="ident">p</span> <span class="op">-</span> <span class="ident">x0</span>, <span class="ident">th</span> <span class="kw">as</span> <span class="ident">i32</span>)
                         }
-                        <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Bug: Invlid orientation specification&quot;</span>),
+                        <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Bug: Invlid orientation specification&quot;</span>),
                     };
                     <span class="kw">let</span> <span class="ident">line</span> <span class="op">=</span> <span class="ident">Path</span>::<span class="ident">new</span>(<span class="macro">vec</span><span class="macro">!</span>[(<span class="ident">kx0</span>, <span class="ident">ky0</span>), (<span class="ident">kx1</span>, <span class="ident">ky1</span>)], <span class="ident">style</span>.<span class="ident">clone</span>());
                     <span class="ident">area</span>.<span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="ident">line</span>)<span class="question-mark">?</span>;
@@ -779,24 +809,25 @@
         }
 
         <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>((<span class="ident">text</span>, <span class="ident">style</span>)) <span class="op">=</span> <span class="ident">axis_desc</span> {
-            <span class="kw">let</span> <span class="ident">actual_style</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> {
+            <span class="kw">let</span> <span class="ident">actual_style</span> <span class="op">=</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">==</span> <span class="number">0</span> {
                 <span class="ident">style</span>.<span class="ident">clone</span>()
+            } <span class="kw">else</span> <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">==</span> <span class="op">-</span><span class="number">1</span> {
+                <span class="ident">style</span>.<span class="ident">transform</span>(<span class="ident">FontTransform</span>::<span class="ident">Rotate270</span>)
             } <span class="kw">else</span> {
-                <span class="kw">if</span> <span class="ident">orientation</span>.<span class="number">0</span> <span class="op">=</span><span class="op">=</span> <span class="op">-</span><span class="number">1</span> {
-                    <span class="ident">style</span>.<span class="ident">transform</span>(<span class="ident">FontTransform</span>::<span class="ident">Rotate270</span>)
-                } <span class="kw">else</span> {
-                    <span class="ident">style</span>.<span class="ident">transform</span>(<span class="ident">FontTransform</span>::<span class="ident">Rotate90</span>)
-                }
+                <span class="ident">style</span>.<span class="ident">transform</span>(<span class="ident">FontTransform</span>::<span class="ident">Rotate90</span>)
             };
 
-            <span class="kw">let</span> (<span class="ident">w</span>, <span class="ident">h</span>) <span class="op">=</span> <span class="ident">actual_style</span>.<span class="ident">font</span>.<span class="ident">box_size</span>(<span class="ident">text</span>).<span class="ident">unwrap_or</span>((<span class="number">0</span>, <span class="number">0</span>));
+            <span class="kw">let</span> (<span class="ident">w</span>, <span class="ident">h</span>) <span class="op">=</span> <span class="self">self</span>
+                .<span class="ident">drawing_area</span>
+                .<span class="ident">estimate_text_size</span>(<span class="ident">text</span>, <span class="kw-2">&amp;</span><span class="ident">actual_style</span>.<span class="ident">font</span>)
+                .<span class="ident">unwrap_or</span>((<span class="number">0</span>, <span class="number">0</span>));
 
             <span class="kw">let</span> (<span class="ident">x0</span>, <span class="ident">y0</span>) <span class="op">=</span> <span class="kw">match</span> <span class="ident">orientation</span> {
-                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">dy</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> (<span class="ident">tw</span> <span class="op">-</span> <span class="ident">w</span>, (<span class="ident">th</span> <span class="op">-</span> <span class="ident">h</span>) <span class="op">/</span> <span class="number">2</span>),
-                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">&lt;</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">dy</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> (<span class="number">0</span>, (<span class="ident">th</span> <span class="op">-</span> <span class="ident">h</span>) <span class="op">/</span> <span class="number">2</span>),
-                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">dy</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> ((<span class="ident">tw</span> <span class="op">-</span> <span class="ident">w</span>) <span class="op">/</span> <span class="number">2</span>, <span class="ident">th</span> <span class="op">-</span> <span class="ident">h</span>),
-                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">=</span><span class="op">=</span> <span class="number">0</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">dy</span> <span class="op">&lt;</span> <span class="number">0</span> <span class="op">=</span><span class="op">&gt;</span> ((<span class="ident">tw</span> <span class="op">-</span> <span class="ident">w</span>) <span class="op">/</span> <span class="number">2</span>, <span class="number">0</span>),
-                <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Bug: Invlid orientation specification&quot;</span>),
+                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">dy</span> <span class="op">==</span> <span class="number">0</span> <span class="op">=&gt;</span> (<span class="ident">tw</span> <span class="op">-</span> <span class="ident">w</span>, (<span class="ident">th</span> <span class="op">-</span> <span class="ident">h</span>) <span class="op">/</span> <span class="number">2</span>),
+                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">&lt;</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">dy</span> <span class="op">==</span> <span class="number">0</span> <span class="op">=&gt;</span> (<span class="number">0</span>, (<span class="ident">th</span> <span class="op">-</span> <span class="ident">h</span>) <span class="op">/</span> <span class="number">2</span>),
+                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">==</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">dy</span> <span class="op">&gt;</span> <span class="number">0</span> <span class="op">=&gt;</span> ((<span class="ident">tw</span> <span class="op">-</span> <span class="ident">w</span>) <span class="op">/</span> <span class="number">2</span>, <span class="ident">th</span> <span class="op">-</span> <span class="ident">h</span>),
+                (<span class="ident">dx</span>, <span class="ident">dy</span>) <span class="kw">if</span> <span class="ident">dx</span> <span class="op">==</span> <span class="number">0</span> <span class="op">&amp;&amp;</span> <span class="ident">dy</span> <span class="op">&lt;</span> <span class="number">0</span> <span class="op">=&gt;</span> ((<span class="ident">tw</span> <span class="op">-</span> <span class="ident">w</span>) <span class="op">/</span> <span class="number">2</span>, <span class="number">0</span>),
+                <span class="kw">_</span> <span class="op">=&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;Bug: Invlid orientation specification&quot;</span>),
             };
 
             <span class="ident">area</span>.<span class="ident">draw_text</span>(<span class="kw-2">&amp;</span><span class="ident">text</span>, <span class="kw-2">&amp;</span><span class="ident">actual_style</span>, (<span class="ident">x0</span> <span class="kw">as</span> <span class="ident">i32</span>, <span class="ident">y0</span> <span class="kw">as</span> <span class="ident">i32</span>))<span class="question-mark">?</span>;
@@ -822,9 +853,9 @@
         <span class="ident">axis_desc_style</span>: <span class="kw-2">&amp;</span><span class="ident">TextStyle</span>,
         <span class="ident">x_desc</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
         <span class="ident">y_desc</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span>
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span>
     <span class="kw">where</span>
-        <span class="ident">FmtLabel</span>: <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">MeshLine</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
+        <span class="ident">FmtLabel</span>: <span class="ident">FnMut</span>(<span class="kw-2">&amp;</span><span class="ident">MeshLine</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span>,
     {
         <span class="kw">let</span> (<span class="ident">x_labels</span>, <span class="ident">y_labels</span>) <span class="op">=</span>
             <span class="self">self</span>.<span class="ident">draw_mesh_lines</span>((<span class="ident">r</span>, <span class="ident">c</span>), (<span class="ident">x_mesh</span>, <span class="ident">y_mesh</span>), <span class="ident">mesh_line_style</span>, <span class="ident">fmt_label</span>)<span class="question-mark">?</span>;
@@ -838,6 +869,7 @@
                 <span class="ident">x_label_offset</span>,
                 (<span class="number">0</span>, <span class="op">-</span><span class="number">1</span> <span class="op">+</span> <span class="ident">idx</span> <span class="kw">as</span> <span class="ident">i16</span> <span class="op">*</span> <span class="number">2</span>),
                 <span class="ident">x_desc</span>.<span class="ident">as_ref</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">desc</span><span class="op">|</span> (<span class="kw-2">&amp;</span><span class="ident">desc</span>[..], <span class="ident">axis_desc_style</span>)),
+                <span class="number">5</span>,
             )<span class="question-mark">?</span>;
 
             <span class="self">self</span>.<span class="ident">draw_axis_and_labels</span>(
@@ -848,6 +880,7 @@
                 <span class="ident">y_label_offset</span>,
                 (<span class="op">-</span><span class="number">1</span> <span class="op">+</span> <span class="ident">idx</span> <span class="kw">as</span> <span class="ident">i16</span> <span class="op">*</span> <span class="number">2</span>, <span class="number">0</span>),
                 <span class="ident">y_desc</span>.<span class="ident">as_ref</span>().<span class="ident">map</span>(<span class="op">|</span><span class="ident">desc</span><span class="op">|</span> (<span class="kw-2">&amp;</span><span class="ident">desc</span>[..], <span class="ident">axis_desc_style</span>)),
+                <span class="number">5</span>,
             )<span class="question-mark">?</span>;
         }
 
@@ -855,11 +888,12 @@
     }
 
     <span class="doccomment">/// Attach a secondary coord to the chart</span>
+    <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">type_complexity</span>)]</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set_secondary_coord</span><span class="op">&lt;</span><span class="ident">SX</span>: <span class="ident">AsRangedCoord</span>, <span class="ident">SY</span>: <span class="ident">AsRangedCoord</span><span class="op">&gt;</span>(
         <span class="self">self</span>,
         <span class="ident">x_coord</span>: <span class="ident">SX</span>,
         <span class="ident">y_coord</span>: <span class="ident">SY</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">DualCoordChartContext</span><span class="op">&lt;</span>
+    ) <span class="op">-&gt;</span> <span class="ident">DualCoordChartContext</span><span class="op">&lt;</span>
         <span class="lifetime">&#39;a</span>,
         <span class="ident">DB</span>,
         <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span>,

@@ -183,7 +183,7 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span>, <span class="ident">CT1</span>: <span class="ident">CoordTranslate</span>, <span class="ident">CT2</span>: <span class="ident">CoordTranslate</span><span class="op">&gt;</span>
     <span class="ident">DualCoordChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span>, <span class="ident">CT2</span><span class="op">&gt;</span>
 {
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="kw-2">mut</span> <span class="ident">primiary</span>: <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span><span class="op">&gt;</span>, <span class="ident">secondary_coord</span>: <span class="ident">CT2</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="kw-2">mut</span> <span class="ident">primiary</span>: <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span><span class="op">&gt;</span>, <span class="ident">secondary_coord</span>: <span class="ident">CT2</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
         <span class="kw">let</span> <span class="ident">secondary_drawing_area</span> <span class="op">=</span> <span class="ident">primiary</span>
             .<span class="ident">drawing_area</span>
             .<span class="ident">strip_coord_spec</span>()
@@ -212,11 +212,11 @@
     }
 
     <span class="doccomment">/// Get a reference to the drawing area that uses the secondary coordinate system</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">secondary_plotting_area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">DrawingArea</span><span class="op">&lt;</span><span class="ident">DB</span>, <span class="ident">CT2</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">secondary_plotting_area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="ident">DrawingArea</span><span class="op">&lt;</span><span class="ident">DB</span>, <span class="ident">CT2</span><span class="op">&gt;</span> {
         <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">secondary</span>.<span class="ident">drawing_area</span>
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">borrow_secondary</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT2</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">borrow_secondary</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT2</span><span class="op">&gt;</span> {
         <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">secondary</span>
     }
 }
@@ -225,7 +225,7 @@
     <span class="ident">DualCoordChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span>, <span class="ident">CT2</span><span class="op">&gt;</span>
 {
     <span class="doccomment">/// Convert the chart context into the secondary coodindate translation function</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">into_secondary_coord_trans</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw">impl</span> <span class="ident">Fn</span>(<span class="ident">BackendCoord</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CT2</span>::<span class="ident">From</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">into_secondary_coord_trans</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw">impl</span> <span class="ident">Fn</span>(<span class="ident">BackendCoord</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CT2</span>::<span class="ident">From</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">coord_spec</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">secondary</span>.<span class="ident">drawing_area</span>.<span class="ident">into_coord_spec</span>();
         <span class="kw">move</span> <span class="op">|</span><span class="ident">coord</span><span class="op">|</span> <span class="ident">coord_spec</span>.<span class="ident">reverse_translate</span>(<span class="ident">coord</span>)
     }
@@ -238,9 +238,9 @@
     <span class="doccomment">/// logical coordinate for both primiary coordinate system and secondary coordinate system.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">into_coord_trans_pair</span>(
         <span class="self">self</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> (
-        <span class="kw">impl</span> <span class="ident">Fn</span>(<span class="ident">BackendCoord</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CT1</span>::<span class="ident">From</span><span class="op">&gt;</span>,
-        <span class="kw">impl</span> <span class="ident">Fn</span>(<span class="ident">BackendCoord</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CT2</span>::<span class="ident">From</span><span class="op">&gt;</span>,
+    ) <span class="op">-&gt;</span> (
+        <span class="kw">impl</span> <span class="ident">Fn</span>(<span class="ident">BackendCoord</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CT1</span>::<span class="ident">From</span><span class="op">&gt;</span>,
+        <span class="kw">impl</span> <span class="ident">Fn</span>(<span class="ident">BackendCoord</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">CT2</span>::<span class="ident">From</span><span class="op">&gt;</span>,
     ) {
         <span class="kw">let</span> <span class="ident">coord_spec_1</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">primiary</span>.<span class="ident">drawing_area</span>.<span class="ident">into_coord_spec</span>();
         <span class="kw">let</span> <span class="ident">coord_spec_2</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">secondary</span>.<span class="ident">drawing_area</span>.<span class="ident">into_coord_spec</span>();
@@ -252,19 +252,19 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span>, <span class="ident">CT1</span>: <span class="ident">CoordTranslate</span>, <span class="ident">SX</span>: <span class="ident">Ranged</span>, <span class="ident">SY</span>: <span class="ident">Ranged</span><span class="op">&gt;</span>
-    <span class="ident">DualCoordChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span>, <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">SX</span>, <span class="ident">SY</span><span class="op">&gt;</span><span class="op">&gt;</span>
+    <span class="ident">DualCoordChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span>, <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">SX</span>, <span class="ident">SY</span><span class="op">&gt;&gt;</span>
 <span class="kw">where</span>
     <span class="ident">SX</span>::<span class="ident">ValueType</span>: <span class="ident">Debug</span>,
     <span class="ident">SY</span>::<span class="ident">ValueType</span>: <span class="ident">Debug</span>,
 {
     <span class="doccomment">/// Start configure the style for the secondary axes</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">configure_secondary_axes</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SecondaryMeshStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span>, <span class="ident">SX</span>, <span class="ident">SY</span>, <span class="ident">DB</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">configure_secondary_axes</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">SecondaryMeshStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span>, <span class="ident">SX</span>, <span class="ident">SY</span>, <span class="ident">DB</span><span class="op">&gt;</span> {
         <span class="ident">SecondaryMeshStyle</span>::<span class="ident">new</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">secondary</span>)
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span>, <span class="ident">X</span>: <span class="ident">Ranged</span>, <span class="ident">Y</span>: <span class="ident">Ranged</span>, <span class="ident">SX</span>: <span class="ident">Ranged</span>, <span class="ident">SY</span>: <span class="ident">Ranged</span><span class="op">&gt;</span>
-    <span class="ident">DualCoordChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span>, <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">SX</span>, <span class="ident">SY</span><span class="op">&gt;</span><span class="op">&gt;</span>
+    <span class="ident">DualCoordChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">X</span>, <span class="ident">Y</span><span class="op">&gt;</span>, <span class="ident">RangedCoord</span><span class="op">&lt;</span><span class="ident">SX</span>, <span class="ident">SY</span><span class="op">&gt;&gt;</span>
 <span class="kw">where</span>
     <span class="ident">X</span>::<span class="ident">ValueType</span>: <span class="ident">Debug</span>,
     <span class="ident">Y</span>::<span class="ident">ValueType</span>: <span class="ident">Debug</span>,
@@ -277,7 +277,7 @@
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw_secondary_series</span><span class="op">&lt;</span><span class="ident">E</span>, <span class="ident">R</span>, <span class="ident">S</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">series</span>: <span class="ident">S</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">SeriesAnno</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span><span class="op">&gt;</span>, <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span>
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">SeriesAnno</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span><span class="op">&gt;</span>, <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span>
     <span class="kw">where</span>
         <span class="kw">for</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">E</span>: <span class="ident">PointCollection</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span>, (<span class="ident">SX</span>::<span class="ident">ValueType</span>, <span class="ident">SY</span>::<span class="ident">ValueType</span>)<span class="op">&gt;</span>,
         <span class="ident">E</span>: <span class="ident">Drawable</span><span class="op">&lt;</span><span class="ident">DB</span><span class="op">&gt;</span>,
@@ -290,17 +290,17 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span>, <span class="ident">CT1</span>: <span class="ident">CoordTranslate</span>, <span class="ident">CT2</span>: <span class="ident">CoordTranslate</span><span class="op">&gt;</span>
-    <span class="ident">Borrow</span><span class="op">&lt;</span><span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">DualCoordChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span>, <span class="ident">CT2</span><span class="op">&gt;</span>
+    <span class="ident">Borrow</span><span class="op">&lt;</span><span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">DualCoordChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span>, <span class="ident">CT2</span><span class="op">&gt;</span>
 {
-    <span class="kw">fn</span> <span class="ident">borrow</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">borrow</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span><span class="op">&gt;</span> {
         <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">primiary</span>
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span>, <span class="ident">CT1</span>: <span class="ident">CoordTranslate</span>, <span class="ident">CT2</span>: <span class="ident">CoordTranslate</span><span class="op">&gt;</span>
-    <span class="ident">BorrowMut</span><span class="op">&lt;</span><span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">DualCoordChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span>, <span class="ident">CT2</span><span class="op">&gt;</span>
+    <span class="ident">BorrowMut</span><span class="op">&lt;</span><span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span><span class="op">&gt;&gt;</span> <span class="kw">for</span> <span class="ident">DualCoordChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span>, <span class="ident">CT2</span><span class="op">&gt;</span>
 {
-    <span class="kw">fn</span> <span class="ident">borrow_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">borrow_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span><span class="op">&gt;</span> {
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>.<span class="ident">primiary</span>
     }
 }
@@ -309,7 +309,7 @@
     <span class="kw">for</span> <span class="ident">DualCoordChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span>, <span class="ident">CT2</span><span class="op">&gt;</span>
 {
     <span class="kw">type</span> <span class="ident">Target</span> <span class="op">=</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span><span class="op">&gt;</span>;
-    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">Target</span> {
+    <span class="kw">fn</span> <span class="ident">deref</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">Target</span> {
         <span class="self">self</span>.<span class="ident">borrow</span>()
     }
 }
@@ -317,7 +317,7 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span>, <span class="ident">CT1</span>: <span class="ident">CoordTranslate</span>, <span class="ident">CT2</span>: <span class="ident">CoordTranslate</span><span class="op">&gt;</span> <span class="ident">DerefMut</span>
     <span class="kw">for</span> <span class="ident">DualCoordChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT1</span>, <span class="ident">CT2</span><span class="op">&gt;</span>
 {
-    <span class="kw">fn</span> <span class="ident">deref_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span>::<span class="ident">Target</span> {
+    <span class="kw">fn</span> <span class="ident">deref_mut</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span>::<span class="ident">Target</span> {
         <span class="self">self</span>.<span class="ident">borrow_mut</span>()
     }
 }

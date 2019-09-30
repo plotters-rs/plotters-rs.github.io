@@ -154,6 +154,8 @@
 <span id="154">154</span>
 <span id="155">155</span>
 <span id="156">156</span>
+<span id="157">157</span>
+<span id="158">158</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::{<span class="ident">FontData</span>, <span class="ident">FontDataInternal</span>};
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">style</span>::{<span class="ident">Color</span>, <span class="ident">LayoutBox</span>, <span class="ident">TextStyle</span>};
@@ -178,22 +180,22 @@
 <span class="kw">impl</span> <span class="ident">FontTransform</span> {
     <span class="doccomment">/// Compute the offset of the &quot;top-left&quot; cornor of the text.</span>
     <span class="doccomment">/// &quot;Top-left&quot; defined as the first char&#39;s top-left in reading orientation.</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">layout</span>: <span class="ident">LayoutBox</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">i32</span>, <span class="ident">i32</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">offset</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">layout</span>: <span class="ident">LayoutBox</span>) <span class="op">-&gt;</span> (<span class="ident">i32</span>, <span class="ident">i32</span>) {
         <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident">FontTransform</span>::<span class="prelude-val">None</span> <span class="op">=</span><span class="op">&gt;</span> (<span class="number">0</span>, <span class="number">0</span>),
-            <span class="ident">FontTransform</span>::<span class="ident">Rotate90</span> <span class="op">=</span><span class="op">&gt;</span> ((<span class="ident">layout</span>.<span class="number">1</span>).<span class="number">1</span> <span class="op">-</span> (<span class="ident">layout</span>.<span class="number">0</span>).<span class="number">1</span>, <span class="number">0</span>),
-            <span class="ident">FontTransform</span>::<span class="ident">Rotate180</span> <span class="op">=</span><span class="op">&gt;</span> ((<span class="ident">layout</span>.<span class="number">1</span>).<span class="number">0</span> <span class="op">-</span> (<span class="ident">layout</span>.<span class="number">0</span>).<span class="number">0</span>, (<span class="ident">layout</span>.<span class="number">1</span>).<span class="number">1</span> <span class="op">-</span> (<span class="ident">layout</span>.<span class="number">0</span>).<span class="number">1</span>),
-            <span class="ident">FontTransform</span>::<span class="ident">Rotate270</span> <span class="op">=</span><span class="op">&gt;</span> (<span class="number">0</span>, (<span class="ident">layout</span>.<span class="number">1</span>).<span class="number">0</span> <span class="op">-</span> (<span class="ident">layout</span>.<span class="number">0</span>).<span class="number">0</span>),
+            <span class="ident">FontTransform</span>::<span class="prelude-val">None</span> <span class="op">=&gt;</span> (<span class="number">0</span>, <span class="number">0</span>),
+            <span class="ident">FontTransform</span>::<span class="ident">Rotate90</span> <span class="op">=&gt;</span> ((<span class="ident">layout</span>.<span class="number">1</span>).<span class="number">1</span> <span class="op">-</span> (<span class="ident">layout</span>.<span class="number">0</span>).<span class="number">1</span>, <span class="number">0</span>),
+            <span class="ident">FontTransform</span>::<span class="ident">Rotate180</span> <span class="op">=&gt;</span> ((<span class="ident">layout</span>.<span class="number">1</span>).<span class="number">0</span> <span class="op">-</span> (<span class="ident">layout</span>.<span class="number">0</span>).<span class="number">0</span>, (<span class="ident">layout</span>.<span class="number">1</span>).<span class="number">1</span> <span class="op">-</span> (<span class="ident">layout</span>.<span class="number">0</span>).<span class="number">1</span>),
+            <span class="ident">FontTransform</span>::<span class="ident">Rotate270</span> <span class="op">=&gt;</span> (<span class="number">0</span>, (<span class="ident">layout</span>.<span class="number">1</span>).<span class="number">0</span> <span class="op">-</span> (<span class="ident">layout</span>.<span class="number">0</span>).<span class="number">0</span>),
         }
     }
 
     <span class="doccomment">/// Transform the coordinate to performe the rotation</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">transform</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">i32</span>, <span class="ident">i32</span>) {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">transform</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">x</span>: <span class="ident">i32</span>, <span class="ident">y</span>: <span class="ident">i32</span>) <span class="op">-&gt;</span> (<span class="ident">i32</span>, <span class="ident">i32</span>) {
         <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident">FontTransform</span>::<span class="prelude-val">None</span> <span class="op">=</span><span class="op">&gt;</span> (<span class="ident">x</span>, <span class="ident">y</span>),
-            <span class="ident">FontTransform</span>::<span class="ident">Rotate90</span> <span class="op">=</span><span class="op">&gt;</span> (<span class="op">-</span><span class="ident">y</span>, <span class="ident">x</span>),
-            <span class="ident">FontTransform</span>::<span class="ident">Rotate180</span> <span class="op">=</span><span class="op">&gt;</span> (<span class="op">-</span><span class="ident">x</span>, <span class="op">-</span><span class="ident">y</span>),
-            <span class="ident">FontTransform</span>::<span class="ident">Rotate270</span> <span class="op">=</span><span class="op">&gt;</span> (<span class="ident">y</span>, <span class="op">-</span><span class="ident">x</span>),
+            <span class="ident">FontTransform</span>::<span class="prelude-val">None</span> <span class="op">=&gt;</span> (<span class="ident">x</span>, <span class="ident">y</span>),
+            <span class="ident">FontTransform</span>::<span class="ident">Rotate90</span> <span class="op">=&gt;</span> (<span class="op">-</span><span class="ident">y</span>, <span class="ident">x</span>),
+            <span class="ident">FontTransform</span>::<span class="ident">Rotate180</span> <span class="op">=&gt;</span> (<span class="op">-</span><span class="ident">x</span>, <span class="op">-</span><span class="ident">y</span>),
+            <span class="ident">FontTransform</span>::<span class="ident">Rotate270</span> <span class="op">=&gt;</span> (<span class="ident">y</span>, <span class="op">-</span><span class="ident">x</span>),
         }
     }
 }
@@ -208,30 +210,30 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">From</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">from</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">from</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
         <span class="ident">FontDesc</span>::<span class="ident">new</span>(<span class="ident">from</span>, <span class="number">1.0</span>)
     }
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">From</span><span class="op">&lt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>, <span class="ident">T</span>)<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">from</span>((<span class="ident">typeface</span>, <span class="ident">size</span>): (<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>, <span class="ident">T</span>)) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">f64</span><span class="op">&gt;&gt;</span> <span class="ident">From</span><span class="op">&lt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>, <span class="ident">T</span>)<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">from</span>((<span class="ident">typeface</span>, <span class="ident">size</span>): (<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>, <span class="ident">T</span>)) <span class="op">-&gt;</span> <span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
         <span class="ident">FontDesc</span>::<span class="ident">new</span>(<span class="ident">typeface</span>, <span class="ident">size</span>.<span class="ident">into</span>())
     }
 }
 
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">IntoFont</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">into_font</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">into_font</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>;
 }
 
-<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span> <span class="ident">IntoFont</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">T</span> {
-    <span class="kw">fn</span> <span class="ident">into_font</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+<span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;&gt;</span><span class="op">&gt;</span> <span class="ident">IntoFont</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">T</span> {
+    <span class="kw">fn</span> <span class="ident">into_font</span>(<span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
         <span class="self">self</span>.<span class="ident">into</span>()
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Create a new font</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">typeface</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>, <span class="ident">size</span>: <span class="ident">f64</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">typeface</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span>, <span class="ident">size</span>: <span class="ident">f64</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">size</span>,
             <span class="ident">name</span>: <span class="ident">typeface</span>,
@@ -241,7 +243,7 @@
     }
 
     <span class="doccomment">/// Create a new font desc with the same font but different size</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">resize</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">size</span>: <span class="ident">f64</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">resize</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">size</span>: <span class="ident">f64</span>) <span class="op">-&gt;</span> <span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
         <span class="self">Self</span> {
             <span class="ident">size</span>,
             <span class="ident">name</span>: <span class="self">self</span>.<span class="ident">name</span>,
@@ -251,7 +253,7 @@
     }
 
     <span class="doccomment">/// Set the font transformation</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">transform</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">trans</span>: <span class="ident">FontTransform</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">transform</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">trans</span>: <span class="ident">FontTransform</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">size</span>: <span class="self">self</span>.<span class="ident">size</span>,
             <span class="ident">name</span>: <span class="self">self</span>.<span class="ident">name</span>,
@@ -261,12 +263,12 @@
     }
 
     <span class="doccomment">/// Get the font transformation description</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_transform</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontTransform</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_transform</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">FontTransform</span> {
         <span class="self">self</span>.<span class="ident">transform</span>.<span class="ident">clone</span>()
     }
 
     <span class="doccomment">/// Set the color of the font and return the result text style object</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">color</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">Color</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">color</span>: <span class="kw-2">&amp;</span><span class="ident">C</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">color</span><span class="op">&lt;</span><span class="ident">C</span>: <span class="ident">Color</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">color</span>: <span class="kw-2">&amp;</span><span class="ident">C</span>) <span class="op">-&gt;</span> <span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
         <span class="ident">TextStyle</span> {
             <span class="ident">font</span>: <span class="self">self</span>.<span class="ident">clone</span>(),
             <span class="ident">color</span>: <span class="ident">color</span>.<span class="ident">to_rgba</span>(),
@@ -274,40 +276,42 @@
     }
 
     <span class="doccomment">/// Get the name of the font</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span> {
         <span class="self">self</span>.<span class="ident">name</span>
     }
 
     <span class="doccomment">/// Get the size of font</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">f64</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get_size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">f64</span> {
         <span class="self">self</span>.<span class="ident">size</span>
     }
 
     <span class="doccomment">/// Get the size of the text if rendered in this font</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">layout_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontResult</span><span class="op">&lt;</span>((<span class="ident">i32</span>, <span class="ident">i32</span>), (<span class="ident">i32</span>, <span class="ident">i32</span>))<span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">layout_box</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">FontResult</span><span class="op">&lt;</span>((<span class="ident">i32</span>, <span class="ident">i32</span>), (<span class="ident">i32</span>, <span class="ident">i32</span>))<span class="op">&gt;</span> {
         <span class="kw">match</span> <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">data</span> {
-            <span class="prelude-val">Ok</span>(<span class="kw-2">ref</span> <span class="ident">font</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">font</span>.<span class="ident">estimate_layout</span>(<span class="self">self</span>.<span class="ident">size</span>, <span class="ident">text</span>),
-            <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">e</span>.<span class="ident">clone</span>()),
+            <span class="prelude-val">Ok</span>(<span class="kw-2">ref</span> <span class="ident">font</span>) <span class="op">=&gt;</span> <span class="ident">font</span>.<span class="ident">estimate_layout</span>(<span class="self">self</span>.<span class="ident">size</span>, <span class="ident">text</span>),
+            <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">e</span>.<span class="ident">clone</span>()),
         }
     }
 
-    <span class="doccomment">/// Get the size of the text if rendered in this font</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">box_size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontResult</span><span class="op">&lt;</span>(<span class="ident">u32</span>, <span class="ident">u32</span>)<span class="op">&gt;</span> {
+    <span class="doccomment">/// Get the size of the text if rendered in this font.</span>
+    <span class="doccomment">/// This is similar to `layout_box` function, but it apply the font transformation</span>
+    <span class="doccomment">/// and estimate the overall size of the font</span>
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">box_size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-&gt;</span> <span class="ident">FontResult</span><span class="op">&lt;</span>(<span class="ident">u32</span>, <span class="ident">u32</span>)<span class="op">&gt;</span> {
         <span class="kw">let</span> ((<span class="ident">min_x</span>, <span class="ident">min_y</span>), (<span class="ident">max_x</span>, <span class="ident">max_y</span>)) <span class="op">=</span> <span class="self">self</span>.<span class="ident">layout_box</span>(<span class="ident">text</span>)<span class="question-mark">?</span>;
         <span class="kw">let</span> (<span class="ident">w</span>, <span class="ident">h</span>) <span class="op">=</span> <span class="self">self</span>.<span class="ident">get_transform</span>().<span class="ident">transform</span>(<span class="ident">max_x</span> <span class="op">-</span> <span class="ident">min_x</span>, <span class="ident">max_y</span> <span class="op">-</span> <span class="ident">min_y</span>);
         <span class="prelude-val">Ok</span>((<span class="ident">w</span>.<span class="ident">abs</span>() <span class="kw">as</span> <span class="ident">u32</span>, <span class="ident">h</span>.<span class="ident">abs</span>() <span class="kw">as</span> <span class="ident">u32</span>))
     }
 
     <span class="doccomment">/// Actually draws a font with a drawing function</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">E</span>, <span class="ident">DrawFunc</span>: <span class="ident">FnMut</span>(<span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">f32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">E</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw</span><span class="op">&lt;</span><span class="ident">E</span>, <span class="ident">DrawFunc</span>: <span class="ident">FnMut</span>(<span class="ident">i32</span>, <span class="ident">i32</span>, <span class="ident">f32</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">E</span><span class="op">&gt;&gt;</span>(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
         (<span class="ident">x</span>, <span class="ident">y</span>): (<span class="ident">i32</span>, <span class="ident">i32</span>),
         <span class="ident">draw</span>: <span class="ident">DrawFunc</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">FontResult</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">E</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    ) <span class="op">-&gt;</span> <span class="ident">FontResult</span><span class="op">&lt;</span><span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">E</span><span class="op">&gt;&gt;</span> {
         <span class="kw">match</span> <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">data</span> {
-            <span class="prelude-val">Ok</span>(<span class="kw-2">ref</span> <span class="ident">font</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">font</span>.<span class="ident">draw</span>((<span class="ident">x</span>, <span class="ident">y</span>), <span class="self">self</span>.<span class="ident">size</span>, <span class="ident">text</span>, <span class="self">self</span>.<span class="ident">get_transform</span>(), <span class="ident">draw</span>),
-            <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">e</span>.<span class="ident">clone</span>()),
+            <span class="prelude-val">Ok</span>(<span class="kw-2">ref</span> <span class="ident">font</span>) <span class="op">=&gt;</span> <span class="ident">font</span>.<span class="ident">draw</span>((<span class="ident">x</span>, <span class="ident">y</span>), <span class="self">self</span>.<span class="ident">size</span>, <span class="ident">text</span>, <span class="self">self</span>.<span class="ident">get_transform</span>(), <span class="ident">draw</span>),
+            <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">e</span>.<span class="ident">clone</span>()),
         }
     }
 }

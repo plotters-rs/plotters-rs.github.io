@@ -198,24 +198,24 @@
 }
 
 <span class="kw">impl</span> <span class="ident">SeriesLabelPosition</span> {
-    <span class="kw">fn</span> <span class="ident">layout_label_area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">label_dim</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>), <span class="ident">area_dim</span>: (<span class="ident">u32</span>, <span class="ident">u32</span>)) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">i32</span>, <span class="ident">i32</span>) {
+    <span class="kw">fn</span> <span class="ident">layout_label_area</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">label_dim</span>: (<span class="ident">i32</span>, <span class="ident">i32</span>), <span class="ident">area_dim</span>: (<span class="ident">u32</span>, <span class="ident">u32</span>)) <span class="op">-&gt;</span> (<span class="ident">i32</span>, <span class="ident">i32</span>) {
         <span class="kw">use</span> <span class="ident">SeriesLabelPosition</span>::<span class="kw-2">*</span>;
         (
             <span class="kw">match</span> <span class="self">self</span> {
-                <span class="ident">UpperLeft</span> <span class="op">|</span> <span class="ident">MiddleLeft</span> <span class="op">|</span> <span class="ident">LowerLeft</span> <span class="op">=</span><span class="op">&gt;</span> <span class="number">0</span>,
-                <span class="ident">UpperMiddle</span> <span class="op">|</span> <span class="ident">MiddleMiddle</span> <span class="op">|</span> <span class="ident">LowerMiddle</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="ident">UpperLeft</span> <span class="op">|</span> <span class="ident">MiddleLeft</span> <span class="op">|</span> <span class="ident">LowerLeft</span> <span class="op">=&gt;</span> <span class="number">0</span>,
+                <span class="ident">UpperMiddle</span> <span class="op">|</span> <span class="ident">MiddleMiddle</span> <span class="op">|</span> <span class="ident">LowerMiddle</span> <span class="op">=&gt;</span> {
                     (<span class="ident">area_dim</span>.<span class="number">0</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> <span class="ident">label_dim</span>.<span class="number">0</span> <span class="kw">as</span> <span class="ident">i32</span>) <span class="op">/</span> <span class="number">2</span>
                 }
-                <span class="ident">UpperRight</span> <span class="op">|</span> <span class="ident">MiddleRight</span> <span class="op">|</span> <span class="ident">LowerRight</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">area_dim</span>.<span class="number">0</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> <span class="ident">label_dim</span>.<span class="number">0</span> <span class="kw">as</span> <span class="ident">i32</span>,
-                <span class="ident">Coordinate</span>(<span class="ident">x</span>, <span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="kw-2">*</span><span class="ident">x</span>,
+                <span class="ident">UpperRight</span> <span class="op">|</span> <span class="ident">MiddleRight</span> <span class="op">|</span> <span class="ident">LowerRight</span> <span class="op">=&gt;</span> <span class="ident">area_dim</span>.<span class="number">0</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> <span class="ident">label_dim</span>.<span class="number">0</span> <span class="kw">as</span> <span class="ident">i32</span>,
+                <span class="ident">Coordinate</span>(<span class="ident">x</span>, <span class="kw">_</span>) <span class="op">=&gt;</span> <span class="kw-2">*</span><span class="ident">x</span>,
             } <span class="op">-</span> <span class="number">5</span>,
             <span class="kw">match</span> <span class="self">self</span> {
-                <span class="ident">UpperLeft</span> <span class="op">|</span> <span class="ident">UpperMiddle</span> <span class="op">|</span> <span class="ident">UpperRight</span> <span class="op">=</span><span class="op">&gt;</span> <span class="number">0</span>,
-                <span class="ident">MiddleLeft</span> <span class="op">|</span> <span class="ident">MiddleMiddle</span> <span class="op">|</span> <span class="ident">MiddleRight</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="ident">UpperLeft</span> <span class="op">|</span> <span class="ident">UpperMiddle</span> <span class="op">|</span> <span class="ident">UpperRight</span> <span class="op">=&gt;</span> <span class="number">0</span>,
+                <span class="ident">MiddleLeft</span> <span class="op">|</span> <span class="ident">MiddleMiddle</span> <span class="op">|</span> <span class="ident">MiddleRight</span> <span class="op">=&gt;</span> {
                     (<span class="ident">area_dim</span>.<span class="number">1</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> <span class="ident">label_dim</span>.<span class="number">1</span> <span class="kw">as</span> <span class="ident">i32</span>) <span class="op">/</span> <span class="number">2</span>
                 }
-                <span class="ident">LowerLeft</span> <span class="op">|</span> <span class="ident">LowerMiddle</span> <span class="op">|</span> <span class="ident">LowerRight</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">area_dim</span>.<span class="number">1</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> <span class="ident">label_dim</span>.<span class="number">1</span> <span class="kw">as</span> <span class="ident">i32</span>,
-                <span class="ident">Coordinate</span>(<span class="kw">_</span>, <span class="ident">y</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="kw-2">*</span><span class="ident">y</span>,
+                <span class="ident">LowerLeft</span> <span class="op">|</span> <span class="ident">LowerMiddle</span> <span class="op">|</span> <span class="ident">LowerRight</span> <span class="op">=&gt;</span> <span class="ident">area_dim</span>.<span class="number">1</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">-</span> <span class="ident">label_dim</span>.<span class="number">1</span> <span class="kw">as</span> <span class="ident">i32</span>,
+                <span class="ident">Coordinate</span>(<span class="kw">_</span>, <span class="ident">y</span>) <span class="op">=&gt;</span> <span class="kw-2">*</span><span class="ident">y</span>,
             } <span class="op">-</span> <span class="number">5</span>,
         )
     }
@@ -228,12 +228,12 @@
     <span class="ident">legend_area_size</span>: <span class="ident">u32</span>,
     <span class="ident">border_style</span>: <span class="ident">ShapeStyle</span>,
     <span class="ident">background</span>: <span class="ident">ShapeStyle</span>,
-    <span class="ident">label_font</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span><span class="op">&gt;</span>,
+    <span class="ident">label_font</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;&gt;</span>,
     <span class="ident">margin</span>: <span class="ident">u32</span>,
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span>, <span class="ident">DB</span>: <span class="ident">DrawingBackend</span> <span class="op">+</span> <span class="lifetime">&#39;a</span>, <span class="ident">CT</span>: <span class="ident">CoordTranslate</span><span class="op">&gt;</span> <span class="ident">SeriesLabelStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span>, <span class="ident">DB</span>, <span class="ident">CT</span><span class="op">&gt;</span> {
-    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw-2">mut</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT</span><span class="op">&gt;</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
+    <span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">target</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="kw-2">mut</span> <span class="ident">ChartContext</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>, <span class="ident">CT</span><span class="op">&gt;</span>) <span class="op">-&gt;</span> <span class="self">Self</span> {
         <span class="self">Self</span> {
             <span class="ident">target</span>,
             <span class="ident">position</span>: <span class="ident">SeriesLabelPosition</span>::<span class="ident">MiddleRight</span>,
@@ -247,46 +247,46 @@
 
     <span class="doccomment">/// Set the series label positioning style</span>
     <span class="doccomment">/// `pos` - The positioning style</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">position</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pos</span>: <span class="ident">SeriesLabelPosition</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">position</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">pos</span>: <span class="ident">SeriesLabelPosition</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">position</span> <span class="op">=</span> <span class="ident">pos</span>;
         <span class="self">self</span>
     }
 
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">margin</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">value</span>: <span class="ident">u32</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">margin</span> <span class="op">=</span> <span class="ident">value</span>;
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the size of legend area</span>
     <span class="doccomment">/// `size` - The size of legend area in pixel</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">legend_area_size</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">size</span>: <span class="ident">u32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">legend_area_size</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">size</span>: <span class="ident">u32</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">legend_area_size</span> <span class="op">=</span> <span class="ident">size</span>;
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the style of the label series area</span>
     <span class="doccomment">/// `style` - The style of the border</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">border_style</span><span class="op">&lt;</span><span class="ident">S</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">S</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">border_style</span><span class="op">&lt;</span><span class="ident">S</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">S</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">border_style</span> <span class="op">=</span> <span class="ident">style</span>.<span class="ident">into</span>();
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the background style</span>
     <span class="doccomment">/// `style` - The style of the border</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">background_style</span><span class="op">&lt;</span><span class="ident">S</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">S</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">background_style</span><span class="op">&lt;</span><span class="ident">S</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">ShapeStyle</span><span class="op">&gt;&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">style</span>: <span class="ident">S</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">background</span> <span class="op">=</span> <span class="ident">style</span>.<span class="ident">into</span>();
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Set the series label font</span>
     <span class="doccomment">/// `font` - The font</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">label_font</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">font</span>: <span class="ident">F</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">label_font</span><span class="op">&lt;</span><span class="ident">F</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">TextStyle</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;&gt;</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">font</span>: <span class="ident">F</span>) <span class="op">-&gt;</span> <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">label_font</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">font</span>.<span class="ident">into</span>());
         <span class="self">self</span>
     }
 
     <span class="doccomment">/// Draw the series label area</span>
-    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span> {
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">draw</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingAreaErrorKind</span><span class="op">&lt;</span><span class="ident">DB</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span> {
         <span class="kw">let</span> <span class="ident">drawing_area</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">target</span>.<span class="ident">plotting_area</span>().<span class="ident">strip_coord_spec</span>();
         <span class="kw">let</span> <span class="ident">default_font</span> <span class="op">=</span> (<span class="string">&quot;Arial&quot;</span>, <span class="number">12</span>).<span class="ident">into_font</span>();
         <span class="kw">let</span> <span class="ident">default_style</span>: <span class="ident">TextStyle</span> <span class="op">=</span> <span class="ident">default_font</span>.<span class="ident">into</span>();
@@ -304,12 +304,12 @@
             <span class="kw">let</span> <span class="ident">label_text</span> <span class="op">=</span> <span class="ident">anno</span>.<span class="ident">get_label</span>();
             <span class="kw">let</span> <span class="ident">draw_func</span> <span class="op">=</span> <span class="ident">anno</span>.<span class="ident">get_draw_func</span>();
 
-            <span class="kw">if</span> <span class="ident">label_text</span> <span class="op">=</span><span class="op">=</span> <span class="string">&quot;&quot;</span> <span class="kw-2">&amp;</span><span class="op">&amp;</span> <span class="ident">draw_func</span>.<span class="ident">is_none</span>() {
+            <span class="kw">if</span> <span class="ident">label_text</span> <span class="op">==</span> <span class="string">&quot;&quot;</span> <span class="op">&amp;&amp;</span> <span class="ident">draw_func</span>.<span class="ident">is_none</span>() {
                 <span class="kw">continue</span>;
             }
 
             <span class="ident">funcs</span>.<span class="ident">push</span>(
-                <span class="ident">draw_func</span>.<span class="ident">unwrap_or_else</span>(<span class="op">|</span><span class="op">|</span> <span class="kw-2">&amp;</span><span class="op">|</span><span class="ident">p</span>: <span class="ident">BackendCoord</span><span class="op">|</span> <span class="ident">EmptyElement</span>::<span class="ident">at</span>(<span class="ident">p</span>).<span class="ident">into_dyn</span>()),
+                <span class="ident">draw_func</span>.<span class="ident">unwrap_or_else</span>(<span class="op">||</span> <span class="kw-2">&amp;</span><span class="op">|</span><span class="ident">p</span>: <span class="ident">BackendCoord</span><span class="op">|</span> <span class="ident">EmptyElement</span>::<span class="ident">at</span>(<span class="ident">p</span>).<span class="ident">into_dyn</span>()),
             );
             <span class="ident">label_element</span>.<span class="ident">push_line</span>(<span class="ident">label_text</span>);
         }
@@ -320,8 +320,8 @@
 
         <span class="kw">let</span> <span class="ident">margin</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">margin</span> <span class="kw">as</span> <span class="ident">i32</span>;
 
-        <span class="ident">w</span> <span class="op">+</span><span class="op">=</span> <span class="self">self</span>.<span class="ident">legend_area_size</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">+</span> <span class="ident">margin</span> <span class="op">*</span> <span class="number">2</span>;
-        <span class="ident">h</span> <span class="op">+</span><span class="op">=</span> <span class="ident">margin</span> <span class="op">*</span> <span class="number">2</span>;
+        <span class="ident">w</span> <span class="op">+=</span> <span class="self">self</span>.<span class="ident">legend_area_size</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">+</span> <span class="ident">margin</span> <span class="op">*</span> <span class="number">2</span>;
+        <span class="ident">h</span> <span class="op">+=</span> <span class="ident">margin</span> <span class="op">*</span> <span class="number">2</span>;
 
         <span class="kw">let</span> (<span class="ident">area_w</span>, <span class="ident">area_h</span>) <span class="op">=</span> <span class="ident">drawing_area</span>.<span class="ident">dim_in_pixel</span>();
 

@@ -66,7 +66,7 @@
 
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Palette</span> {
     <span class="kw">const</span> <span class="ident">COLORS</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static</span> [(<span class="ident">u8</span>, <span class="ident">u8</span>, <span class="ident">u8</span>)];
-    <span class="kw">fn</span> <span class="ident">pick</span>(<span class="ident">idx</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">PaletteColor</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>
+    <span class="kw">fn</span> <span class="ident">pick</span>(<span class="ident">idx</span>: <span class="ident">usize</span>) <span class="op">-&gt;</span> <span class="ident">PaletteColor</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="self">Self</span>: <span class="ident">Sized</span>,
     {

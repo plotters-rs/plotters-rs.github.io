@@ -127,7 +127,7 @@ Also, the ranged axis can be decereted, and this is required by the histogram se
 <span class="kw">mod</span> <span class="ident">ranged</span>;
 
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;chrono&quot;</span>)]</span>
-<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">datetime</span>::{<span class="ident">RangedDate</span>, <span class="ident">RangedDateTime</span>};
+<span class="kw">pub</span> <span class="kw">use</span> <span class="ident">datetime</span>::{<span class="ident">IntoMonthly</span>, <span class="ident">IntoYearly</span>, <span class="ident">RangedDate</span>, <span class="ident">RangedDateTime</span>};
 <span class="kw">pub</span> <span class="kw">use</span> <span class="ident">numeric</span>::{
     <span class="ident">RangedCoordf32</span>, <span class="ident">RangedCoordf64</span>, <span class="ident">RangedCoordi32</span>, <span class="ident">RangedCoordi64</span>, <span class="ident">RangedCoordu32</span>, <span class="ident">RangedCoordu64</span>,
 };
@@ -146,7 +146,7 @@ Also, the ranged axis can be decereted, and this is required by the histogram se
     <span class="kw">type</span> <span class="ident">From</span>;
 
     <span class="doccomment">/// Translate the guest coordinate to the guest coordinate</span>
-    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">from</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">From</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">BackendCoord</span>;
+    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">from</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">From</span>) <span class="op">-&gt;</span> <span class="ident">BackendCoord</span>;
 }
 
 <span class="doccomment">/// The trait indicates that the coordinate system supports reverse transform</span>
@@ -157,7 +157,7 @@ Also, the ranged axis can be decereted, and this is required by the histogram se
     <span class="doccomment">/// logic coordinate.</span>
     <span class="doccomment">/// Note: the return value is an option, because it&#39;s possible that the drawing</span>
     <span class="doccomment">/// coordinate isn&#39;t able to be represented in te guest cooredinate system</span>
-    <span class="kw">fn</span> <span class="ident">reverse_translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">input</span>: <span class="ident">BackendCoord</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">From</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">reverse_translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">input</span>: <span class="ident">BackendCoord</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">From</span><span class="op">&gt;</span>;
 }
 
 <span class="doccomment">/// The coordinate translation that only impose shift</span>
@@ -166,13 +166,13 @@ Also, the ranged axis can be decereted, and this is required by the histogram se
 
 <span class="kw">impl</span> <span class="ident">CoordTranslate</span> <span class="kw">for</span> <span class="ident">Shift</span> {
     <span class="kw">type</span> <span class="ident">From</span> <span class="op">=</span> <span class="ident">BackendCoord</span>;
-    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">from</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">From</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">BackendCoord</span> {
+    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">from</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">From</span>) <span class="op">-&gt;</span> <span class="ident">BackendCoord</span> {
         (<span class="ident">from</span>.<span class="number">0</span> <span class="op">+</span> (<span class="self">self</span>.<span class="number">0</span>).<span class="number">0</span>, <span class="ident">from</span>.<span class="number">1</span> <span class="op">+</span> (<span class="self">self</span>.<span class="number">0</span>).<span class="number">1</span>)
     }
 }
 
 <span class="kw">impl</span> <span class="ident">ReverseCoordTranslate</span> <span class="kw">for</span> <span class="ident">Shift</span> {
-    <span class="kw">fn</span> <span class="ident">reverse_translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">input</span>: <span class="ident">BackendCoord</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">BackendCoord</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">reverse_translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">input</span>: <span class="ident">BackendCoord</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">BackendCoord</span><span class="op">&gt;</span> {
         <span class="prelude-val">Some</span>((<span class="ident">input</span>.<span class="number">0</span> <span class="op">-</span> (<span class="self">self</span>.<span class="number">0</span>).<span class="number">0</span>, <span class="ident">input</span>.<span class="number">1</span> <span class="op">-</span> (<span class="self">self</span>.<span class="number">0</span>).<span class="number">1</span>))
     }
 }
@@ -182,14 +182,14 @@ Also, the ranged axis can be decereted, and this is required by the histogram se
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">CoordTranslate</span><span class="op">&gt;</span> <span class="ident">CoordTranslate</span> <span class="kw">for</span> <span class="ident">ShiftAndTrans</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
     <span class="kw">type</span> <span class="ident">From</span> <span class="op">=</span> <span class="ident">T</span>::<span class="ident">From</span>;
-    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">from</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">From</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">BackendCoord</span> {
+    <span class="kw">fn</span> <span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">from</span>: <span class="kw-2">&amp;</span><span class="self">Self</span>::<span class="ident">From</span>) <span class="op">-&gt;</span> <span class="ident">BackendCoord</span> {
         <span class="kw">let</span> <span class="ident">temp</span> <span class="op">=</span> <span class="self">self</span>.<span class="number">1</span>.<span class="ident">translate</span>(<span class="ident">from</span>);
         <span class="self">self</span>.<span class="number">0</span>.<span class="ident">translate</span>(<span class="kw-2">&amp;</span><span class="ident">temp</span>)
     }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">ReverseCoordTranslate</span><span class="op">&gt;</span> <span class="ident">ReverseCoordTranslate</span> <span class="kw">for</span> <span class="ident">ShiftAndTrans</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">reverse_translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">input</span>: <span class="ident">BackendCoord</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">T</span>::<span class="ident">From</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">reverse_translate</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">input</span>: <span class="ident">BackendCoord</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">T</span>::<span class="ident">From</span><span class="op">&gt;</span> {
         <span class="prelude-val">Some</span>(<span class="self">self</span>.<span class="number">1</span>.<span class="ident">reverse_translate</span>(<span class="self">self</span>.<span class="number">0</span>.<span class="ident">reverse_translate</span>(<span class="ident">input</span>)<span class="question-mark">?</span>)<span class="question-mark">?</span>)
     }
 }

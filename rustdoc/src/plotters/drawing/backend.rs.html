@@ -211,91 +211,8 @@
 <span id="211">211</span>
 <span id="212">212</span>
 <span id="213">213</span>
-<span id="214">214</span>
-<span id="215">215</span>
-<span id="216">216</span>
-<span id="217">217</span>
-<span id="218">218</span>
-<span id="219">219</span>
-<span id="220">220</span>
-<span id="221">221</span>
-<span id="222">222</span>
-<span id="223">223</span>
-<span id="224">224</span>
-<span id="225">225</span>
-<span id="226">226</span>
-<span id="227">227</span>
-<span id="228">228</span>
-<span id="229">229</span>
-<span id="230">230</span>
-<span id="231">231</span>
-<span id="232">232</span>
-<span id="233">233</span>
-<span id="234">234</span>
-<span id="235">235</span>
-<span id="236">236</span>
-<span id="237">237</span>
-<span id="238">238</span>
-<span id="239">239</span>
-<span id="240">240</span>
-<span id="241">241</span>
-<span id="242">242</span>
-<span id="243">243</span>
-<span id="244">244</span>
-<span id="245">245</span>
-<span id="246">246</span>
-<span id="247">247</span>
-<span id="248">248</span>
-<span id="249">249</span>
-<span id="250">250</span>
-<span id="251">251</span>
-<span id="252">252</span>
-<span id="253">253</span>
-<span id="254">254</span>
-<span id="255">255</span>
-<span id="256">256</span>
-<span id="257">257</span>
-<span id="258">258</span>
-<span id="259">259</span>
-<span id="260">260</span>
-<span id="261">261</span>
-<span id="262">262</span>
-<span id="263">263</span>
-<span id="264">264</span>
-<span id="265">265</span>
-<span id="266">266</span>
-<span id="267">267</span>
-<span id="268">268</span>
-<span id="269">269</span>
-<span id="270">270</span>
-<span id="271">271</span>
-<span id="272">272</span>
-<span id="273">273</span>
-<span id="274">274</span>
-<span id="275">275</span>
-<span id="276">276</span>
-<span id="277">277</span>
-<span id="278">278</span>
-<span id="279">279</span>
-<span id="280">280</span>
-<span id="281">281</span>
-<span id="282">282</span>
-<span id="283">283</span>
-<span id="284">284</span>
-<span id="285">285</span>
-<span id="286">286</span>
-<span id="287">287</span>
-<span id="288">288</span>
-<span id="289">289</span>
-<span id="290">290</span>
-<span id="291">291</span>
-<span id="292">292</span>
-<span id="293">293</span>
-<span id="294">294</span>
-<span id="295">295</span>
-<span id="296">296</span>
 </pre><div class="example-wrap"><pre class="rust ">
-<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">style</span>::{<span class="ident">Color</span>, <span class="ident">FontDesc</span>, <span class="ident">FontError</span>, <span class="ident">RGBAColor</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">style</span>::{<span class="ident">Color</span>, <span class="ident">FontDesc</span>, <span class="ident">FontError</span>, <span class="ident">RGBAColor</span>, <span class="ident">ShapeStyle</span>};
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">error</span>::<span class="ident">Error</span>;
 
 <span class="doccomment">/// A coordiante in the image</span>
@@ -311,10 +228,10 @@
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">E</span>: <span class="ident">Error</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span><span class="op">&gt;</span> <span class="ident">std</span>::<span class="ident">fmt</span>::<span class="ident">Display</span> <span class="kw">for</span> <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="ident">E</span><span class="op">&gt;</span> {
-    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">std</span>::<span class="ident">fmt</span>::<span class="ident">Formatter</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">std</span>::<span class="ident">fmt</span>::<span class="ident">Error</span><span class="op">&gt;</span> {
+    <span class="kw">fn</span> <span class="ident">fmt</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">fmt</span>: <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">std</span>::<span class="ident">fmt</span>::<span class="ident">Formatter</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">std</span>::<span class="ident">fmt</span>::<span class="ident">Error</span><span class="op">&gt;</span> {
         <span class="kw">match</span> <span class="self">self</span> {
-            <span class="ident">DrawingErrorKind</span>::<span class="ident">DrawingError</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">fmt</span>, <span class="string">&quot;Drawing backend error: {}&quot;</span>, <span class="ident">e</span>),
-            <span class="ident">DrawingErrorKind</span>::<span class="ident">FontError</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">fmt</span>, <span class="string">&quot;Font loading error: {}&quot;</span>, <span class="ident">e</span>),
+            <span class="ident">DrawingErrorKind</span>::<span class="ident">DrawingError</span>(<span class="ident">e</span>) <span class="op">=&gt;</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">fmt</span>, <span class="string">&quot;Drawing backend error: {}&quot;</span>, <span class="ident">e</span>),
+            <span class="ident">DrawingErrorKind</span>::<span class="ident">FontError</span>(<span class="ident">e</span>) <span class="op">=&gt;</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">fmt</span>, <span class="string">&quot;Font loading error: {}&quot;</span>, <span class="ident">e</span>),
         }
     }
 }
@@ -327,14 +244,28 @@
     <span class="kw">type</span> <span class="ident">ColorType</span>: <span class="ident">Color</span>;
 
     <span class="doccomment">/// Convert the style into the underlying color</span>
-    <span class="kw">fn</span> <span class="ident">as_color</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">RGBAColor</span>;
+    <span class="kw">fn</span> <span class="ident">as_color</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">RGBAColor</span>;
+
     <span class="comment">// TODO: In the future we should support stroke width, line shape, etc....</span>
+    <span class="kw">fn</span> <span class="ident">stroke_width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">u32</span> {
+        <span class="number">1</span>
+    }
 }
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Color</span><span class="op">&gt;</span> <span class="ident">BackendStyle</span> <span class="kw">for</span> <span class="ident">T</span> {
     <span class="kw">type</span> <span class="ident">ColorType</span> <span class="op">=</span> <span class="ident">T</span>;
-    <span class="kw">fn</span> <span class="ident">as_color</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">RGBAColor</span> {
+    <span class="kw">fn</span> <span class="ident">as_color</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">RGBAColor</span> {
         <span class="self">self</span>.<span class="ident">to_rgba</span>()
+    }
+}
+
+<span class="kw">impl</span> <span class="ident">BackendStyle</span> <span class="kw">for</span> <span class="ident">ShapeStyle</span> {
+    <span class="kw">type</span> <span class="ident">ColorType</span> <span class="op">=</span> <span class="ident">RGBAColor</span>;
+    <span class="kw">fn</span> <span class="ident">as_color</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">RGBAColor</span> {
+        <span class="self">self</span>.<span class="ident">color</span>.<span class="ident">clone</span>()
+    }
+    <span class="kw">fn</span> <span class="ident">stroke_width</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> <span class="ident">u32</span> {
+        <span class="self">self</span>.<span class="ident">stroke_width</span>
     }
 }
 
@@ -345,22 +276,22 @@
 <span class="doccomment">///  If the drawing backend supports vector graphics, the other drawing APIs should be</span>
 <span class="doccomment">///  overrided by the backend specific implementation. Otherwise, the default implementation</span>
 <span class="doccomment">///  will use the pixel-based approach to draw other types of low-level shapes.</span>
-<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">DrawingBackend</span> {
+<span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">DrawingBackend</span>: <span class="ident">Sized</span> {
     <span class="doccomment">/// The error type reported by the backend</span>
     <span class="kw">type</span> <span class="ident">ErrorType</span>: <span class="ident">Error</span> <span class="op">+</span> <span class="ident">Send</span> <span class="op">+</span> <span class="ident">Sync</span>;
 
     <span class="doccomment">/// Get the dimension of the drawing backend in pixel</span>
-    <span class="kw">fn</span> <span class="ident">get_size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> (<span class="ident">u32</span>, <span class="ident">u32</span>);
+    <span class="kw">fn</span> <span class="ident">get_size</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-&gt;</span> (<span class="ident">u32</span>, <span class="ident">u32</span>);
 
     <span class="doccomment">/// Ensure the backend is ready to draw</span>
-    <span class="kw">fn</span> <span class="ident">ensure_prepared</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">ensure_prepared</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span>;
 
     <span class="doccomment">/// Finialize the drawing step and present all the changes.</span>
     <span class="doccomment">/// This is used as the real-time rendering support.</span>
     <span class="doccomment">/// The backend may implement in the following way, when `ensure_prepared` is called</span>
     <span class="doccomment">/// it checks if it needs a fresh buffer and `present` is called rendering all the</span>
     <span class="doccomment">/// pending changes on the screen.</span>
-    <span class="kw">fn</span> <span class="ident">present</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span>;
+    <span class="kw">fn</span> <span class="ident">present</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span>;
 
     <span class="doccomment">/// Draw a pixel on the drawing backend</span>
     <span class="doccomment">/// - `point`: The backend pixel-based coordinate to draw</span>
@@ -369,7 +300,7 @@
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">point</span>: <span class="ident">BackendCoord</span>,
         <span class="ident">color</span>: <span class="kw-2">&amp;</span><span class="ident">RGBAColor</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span>;
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span>;
 
     <span class="doccomment">/// Draw a line on the drawing backend</span>
     <span class="doccomment">/// - `from`: The start point of the line</span>
@@ -377,47 +308,11 @@
     <span class="doccomment">/// - `style`: The style of the line</span>
     <span class="kw">fn</span> <span class="ident">draw_line</span><span class="op">&lt;</span><span class="ident">S</span>: <span class="ident">BackendStyle</span><span class="op">&gt;</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
-        <span class="kw-2">mut</span> <span class="ident">from</span>: <span class="ident">BackendCoord</span>,
-        <span class="kw-2">mut</span> <span class="ident">to</span>: <span class="ident">BackendCoord</span>,
+        <span class="ident">from</span>: <span class="ident">BackendCoord</span>,
+        <span class="ident">to</span>: <span class="ident">BackendCoord</span>,
         <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">S</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">alpha</span>() <span class="op">=</span><span class="op">=</span> <span class="number">0.0</span> {
-            <span class="kw">return</span> <span class="prelude-val">Ok</span>(());
-        }
-
-        <span class="kw">let</span> <span class="ident">steep</span> <span class="op">=</span> (<span class="ident">from</span>.<span class="number">0</span> <span class="op">-</span> <span class="ident">to</span>.<span class="number">0</span>).<span class="ident">abs</span>() <span class="op">&lt;</span> (<span class="ident">from</span>.<span class="number">1</span> <span class="op">-</span> <span class="ident">to</span>.<span class="number">1</span>).<span class="ident">abs</span>();
-
-        <span class="kw">if</span> <span class="ident">steep</span> {
-            <span class="ident">from</span> <span class="op">=</span> (<span class="ident">from</span>.<span class="number">1</span>, <span class="ident">from</span>.<span class="number">0</span>);
-            <span class="ident">to</span> <span class="op">=</span> (<span class="ident">to</span>.<span class="number">1</span>, <span class="ident">to</span>.<span class="number">0</span>);
-        }
-
-        <span class="kw">let</span> (<span class="ident">from</span>, <span class="ident">to</span>) <span class="op">=</span> <span class="kw">if</span> <span class="ident">from</span>.<span class="number">0</span> <span class="op">&gt;</span> <span class="ident">to</span>.<span class="number">0</span> {
-            (<span class="ident">to</span>, <span class="ident">from</span>)
-        } <span class="kw">else</span> {
-            (<span class="ident">from</span>, <span class="ident">to</span>)
-        };
-
-        <span class="kw">let</span> <span class="ident">grad</span> <span class="op">=</span> <span class="ident">f64</span>::<span class="ident">from</span>(<span class="ident">to</span>.<span class="number">1</span> <span class="op">-</span> <span class="ident">from</span>.<span class="number">1</span>) <span class="op">/</span> <span class="ident">f64</span>::<span class="ident">from</span>(<span class="ident">to</span>.<span class="number">0</span> <span class="op">-</span> <span class="ident">from</span>.<span class="number">0</span>);
-
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">put_pixel</span> <span class="op">=</span> <span class="op">|</span>(<span class="ident">x</span>, <span class="ident">y</span>): <span class="ident">BackendCoord</span>, <span class="ident">b</span>: <span class="ident">f64</span><span class="op">|</span> {
-            <span class="kw">if</span> <span class="ident">steep</span> {
-                <span class="self">self</span>.<span class="ident">draw_pixel</span>((<span class="ident">y</span>, <span class="ident">x</span>), <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">mix</span>(<span class="ident">b</span>))
-            } <span class="kw">else</span> {
-                <span class="self">self</span>.<span class="ident">draw_pixel</span>((<span class="ident">x</span>, <span class="ident">y</span>), <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">mix</span>(<span class="ident">b</span>))
-            }
-        };
-
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">y</span> <span class="op">=</span> <span class="ident">f64</span>::<span class="ident">from</span>(<span class="ident">from</span>.<span class="number">1</span>);
-
-        <span class="kw">for</span> <span class="ident">x</span> <span class="kw">in</span> <span class="ident">from</span>.<span class="number">0</span>..<span class="op">=</span><span class="ident">to</span>.<span class="number">0</span> {
-            <span class="ident">put_pixel</span>((<span class="ident">x</span>, <span class="ident">y</span> <span class="kw">as</span> <span class="ident">i32</span>), <span class="number">1.0</span> <span class="op">+</span> <span class="ident">y</span>.<span class="ident">floor</span>() <span class="op">-</span> <span class="ident">y</span>)<span class="question-mark">?</span>;
-            <span class="ident">put_pixel</span>((<span class="ident">x</span>, <span class="ident">y</span> <span class="kw">as</span> <span class="ident">i32</span> <span class="op">+</span> <span class="number">1</span>), <span class="ident">y</span> <span class="op">-</span> <span class="ident">y</span>.<span class="ident">floor</span>())<span class="question-mark">?</span>;
-
-            <span class="ident">y</span> <span class="op">+</span><span class="op">=</span> <span class="ident">grad</span>;
-        }
-
-        <span class="prelude-val">Ok</span>(())
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span> {
+        <span class="kw">super</span>::<span class="ident">rasterizer</span>::<span class="ident">draw_line</span>(<span class="self">self</span>, <span class="ident">from</span>, <span class="ident">to</span>, <span class="ident">style</span>)
     }
 
     <span class="doccomment">/// Draw a rectangle on the drawing backend</span>
@@ -431,74 +326,34 @@
         <span class="ident">bottom_right</span>: <span class="ident">BackendCoord</span>,
         <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">S</span>,
         <span class="ident">fill</span>: <span class="ident">bool</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">alpha</span>() <span class="op">=</span><span class="op">=</span> <span class="number">0.0</span> {
-            <span class="kw">return</span> <span class="prelude-val">Ok</span>(());
-        }
-        <span class="kw">let</span> (<span class="ident">upper_left</span>, <span class="ident">bottom_right</span>) <span class="op">=</span> (
-            (
-                <span class="ident">upper_left</span>.<span class="number">0</span>.<span class="ident">min</span>(<span class="ident">bottom_right</span>.<span class="number">0</span>),
-                <span class="ident">upper_left</span>.<span class="number">1</span>.<span class="ident">min</span>(<span class="ident">bottom_right</span>.<span class="number">1</span>),
-            ),
-            (
-                <span class="ident">upper_left</span>.<span class="number">0</span>.<span class="ident">max</span>(<span class="ident">bottom_right</span>.<span class="number">0</span>),
-                <span class="ident">upper_left</span>.<span class="number">1</span>.<span class="ident">max</span>(<span class="ident">bottom_right</span>.<span class="number">1</span>),
-            ),
-        );
-
-        <span class="kw">if</span> <span class="ident">fill</span> {
-            <span class="kw">if</span> <span class="ident">bottom_right</span>.<span class="number">0</span> <span class="op">-</span> <span class="ident">upper_left</span>.<span class="number">0</span> <span class="op">&lt;</span> <span class="ident">bottom_right</span>.<span class="number">1</span> <span class="op">-</span> <span class="ident">upper_left</span>.<span class="number">1</span> {
-                <span class="kw">for</span> <span class="ident">x</span> <span class="kw">in</span> <span class="ident">upper_left</span>.<span class="number">0</span>..<span class="op">=</span><span class="ident">bottom_right</span>.<span class="number">0</span> {
-                    <span class="self">self</span>.<span class="ident">draw_line</span>((<span class="ident">x</span>, <span class="ident">upper_left</span>.<span class="number">1</span>), (<span class="ident">x</span>, <span class="ident">bottom_right</span>.<span class="number">1</span>), <span class="ident">style</span>)<span class="question-mark">?</span>;
-                }
-            } <span class="kw">else</span> {
-                <span class="kw">for</span> <span class="ident">y</span> <span class="kw">in</span> <span class="ident">upper_left</span>.<span class="number">1</span>..<span class="op">=</span><span class="ident">bottom_right</span>.<span class="number">1</span> {
-                    <span class="self">self</span>.<span class="ident">draw_line</span>((<span class="ident">upper_left</span>.<span class="number">0</span>, <span class="ident">y</span>), (<span class="ident">bottom_right</span>.<span class="number">0</span>, <span class="ident">y</span>), <span class="ident">style</span>)<span class="question-mark">?</span>;
-                }
-            }
-        } <span class="kw">else</span> {
-            <span class="self">self</span>.<span class="ident">draw_line</span>(
-                (<span class="ident">upper_left</span>.<span class="number">0</span>, <span class="ident">upper_left</span>.<span class="number">1</span>),
-                (<span class="ident">upper_left</span>.<span class="number">0</span>, <span class="ident">bottom_right</span>.<span class="number">1</span>),
-                <span class="ident">style</span>,
-            )<span class="question-mark">?</span>;
-            <span class="self">self</span>.<span class="ident">draw_line</span>(
-                (<span class="ident">upper_left</span>.<span class="number">0</span>, <span class="ident">upper_left</span>.<span class="number">1</span>),
-                (<span class="ident">bottom_right</span>.<span class="number">0</span>, <span class="ident">upper_left</span>.<span class="number">1</span>),
-                <span class="ident">style</span>,
-            )<span class="question-mark">?</span>;
-            <span class="self">self</span>.<span class="ident">draw_line</span>(
-                (<span class="ident">bottom_right</span>.<span class="number">0</span>, <span class="ident">bottom_right</span>.<span class="number">1</span>),
-                (<span class="ident">upper_left</span>.<span class="number">0</span>, <span class="ident">bottom_right</span>.<span class="number">1</span>),
-                <span class="ident">style</span>,
-            )<span class="question-mark">?</span>;
-            <span class="self">self</span>.<span class="ident">draw_line</span>(
-                (<span class="ident">bottom_right</span>.<span class="number">0</span>, <span class="ident">bottom_right</span>.<span class="number">1</span>),
-                (<span class="ident">bottom_right</span>.<span class="number">0</span>, <span class="ident">upper_left</span>.<span class="number">1</span>),
-                <span class="ident">style</span>,
-            )<span class="question-mark">?</span>;
-        }
-        <span class="prelude-val">Ok</span>(())
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span> {
+        <span class="kw">super</span>::<span class="ident">rasterizer</span>::<span class="ident">draw_rect</span>(<span class="self">self</span>, <span class="ident">upper_left</span>, <span class="ident">bottom_right</span>, <span class="ident">style</span>, <span class="ident">fill</span>)
     }
 
     <span class="doccomment">/// Draw a path on the drawing backend</span>
     <span class="doccomment">/// - `path`: The iterator of key points of the path</span>
     <span class="doccomment">/// - `style`: The style of the path</span>
-    <span class="kw">fn</span> <span class="ident">draw_path</span><span class="op">&lt;</span><span class="ident">S</span>: <span class="ident">BackendStyle</span>, <span class="ident">I</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">BackendCoord</span><span class="op">&gt;</span><span class="op">&gt;</span>(
+    <span class="kw">fn</span> <span class="ident">draw_path</span><span class="op">&lt;</span><span class="ident">S</span>: <span class="ident">BackendStyle</span>, <span class="ident">I</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">BackendCoord</span><span class="op">&gt;&gt;</span>(
         <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
         <span class="ident">path</span>: <span class="ident">I</span>,
         <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">S</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">alpha</span>() <span class="op">=</span><span class="op">=</span> <span class="number">0.0</span> {
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span> {
+        <span class="kw">if</span> <span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">alpha</span>() <span class="op">==</span> <span class="number">0.0</span> {
             <span class="kw">return</span> <span class="prelude-val">Ok</span>(());
         }
 
-        <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">begin</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">BackendCoord</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
-        <span class="kw">for</span> <span class="ident">end</span> <span class="kw">in</span> <span class="ident">path</span>.<span class="ident">into_iter</span>() {
-            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">begin</span>) <span class="op">=</span> <span class="ident">begin</span> {
-                <span class="self">self</span>.<span class="ident">draw_line</span>(<span class="ident">begin</span>, <span class="ident">end</span>, <span class="ident">style</span>)<span class="question-mark">?</span>;
+        <span class="kw">if</span> <span class="ident">style</span>.<span class="ident">stroke_width</span>() <span class="op">==</span> <span class="number">1</span> {
+            <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">begin</span>: <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">BackendCoord</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-val">None</span>;
+            <span class="kw">for</span> <span class="ident">end</span> <span class="kw">in</span> <span class="ident">path</span>.<span class="ident">into_iter</span>() {
+                <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Some</span>(<span class="ident">begin</span>) <span class="op">=</span> <span class="ident">begin</span> {
+                    <span class="self">self</span>.<span class="ident">draw_line</span>(<span class="ident">begin</span>, <span class="ident">end</span>, <span class="ident">style</span>)<span class="question-mark">?</span>;
+                }
+                <span class="ident">begin</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">end</span>);
             }
-            <span class="ident">begin</span> <span class="op">=</span> <span class="prelude-val">Some</span>(<span class="ident">end</span>);
+        } <span class="kw">else</span> {
+            <span class="kw">let</span> <span class="ident">p</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">path</span>.<span class="ident">into_iter</span>().<span class="ident">collect</span>();
+            <span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="kw">super</span>::<span class="ident">rasterizer</span>::<span class="ident">path</span>::<span class="ident">polygonize</span>(<span class="kw-2">&amp;</span><span class="ident">p</span>[..], <span class="ident">style</span>.<span class="ident">stroke_width</span>());
+            <span class="kw">return</span> <span class="self">self</span>.<span class="ident">fill_polygon</span>(<span class="ident">v</span>, <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">as_color</span>());
         }
         <span class="prelude-val">Ok</span>(())
     }
@@ -514,57 +369,18 @@
         <span class="ident">radius</span>: <span class="ident">u32</span>,
         <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">S</span>,
         <span class="ident">fill</span>: <span class="ident">bool</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">alpha</span>() <span class="op">=</span><span class="op">=</span> <span class="number">0.0</span> {
-            <span class="kw">return</span> <span class="prelude-val">Ok</span>(());
-        }
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span> {
+        <span class="kw">super</span>::<span class="ident">rasterizer</span>::<span class="ident">draw_circle</span>(<span class="self">self</span>, <span class="ident">center</span>, <span class="ident">radius</span>, <span class="ident">style</span>, <span class="ident">fill</span>)
+    }
 
-        <span class="kw">let</span> <span class="ident">min</span> <span class="op">=</span> (<span class="ident">f64</span>::<span class="ident">from</span>(<span class="ident">radius</span>) <span class="op">*</span> (<span class="number">1.0</span> <span class="op">-</span> (<span class="number">2f64</span>).<span class="ident">sqrt</span>() <span class="op">/</span> <span class="number">2.0</span>)).<span class="ident">ceil</span>() <span class="kw">as</span> <span class="ident">i32</span>;
-        <span class="kw">let</span> <span class="ident">max</span> <span class="op">=</span> (<span class="ident">f64</span>::<span class="ident">from</span>(<span class="ident">radius</span>) <span class="op">*</span> (<span class="number">1.0</span> <span class="op">+</span> (<span class="number">2f64</span>).<span class="ident">sqrt</span>() <span class="op">/</span> <span class="number">2.0</span>)).<span class="ident">floor</span>() <span class="kw">as</span> <span class="ident">i32</span>;
+    <span class="kw">fn</span> <span class="ident">fill_polygon</span><span class="op">&lt;</span><span class="ident">S</span>: <span class="ident">BackendStyle</span>, <span class="ident">I</span>: <span class="ident">IntoIterator</span><span class="op">&lt;</span><span class="ident">Item</span> <span class="op">=</span> <span class="ident">BackendCoord</span><span class="op">&gt;&gt;</span>(
+        <span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="self">self</span>,
+        <span class="ident">vert</span>: <span class="ident">I</span>,
+        <span class="ident">style</span>: <span class="kw-2">&amp;</span><span class="ident">S</span>,
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span> {
+        <span class="kw">let</span> <span class="ident">vert_buf</span>: <span class="ident">Vec</span><span class="op">&lt;</span><span class="kw">_</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">vert</span>.<span class="ident">into_iter</span>().<span class="ident">collect</span>();
 
-        <span class="kw">let</span> <span class="ident">range</span> <span class="op">=</span> <span class="ident">min</span>..<span class="op">=</span><span class="ident">max</span>;
-
-        <span class="kw">let</span> (<span class="ident">up</span>, <span class="ident">down</span>) <span class="op">=</span> (
-            <span class="ident">range</span>.<span class="ident">start</span>() <span class="op">+</span> <span class="ident">center</span>.<span class="number">1</span> <span class="op">-</span> <span class="ident">radius</span> <span class="kw">as</span> <span class="ident">i32</span>,
-            <span class="ident">range</span>.<span class="ident">end</span>() <span class="op">+</span> <span class="ident">center</span>.<span class="number">1</span> <span class="op">-</span> <span class="ident">radius</span> <span class="kw">as</span> <span class="ident">i32</span>,
-        );
-
-        <span class="kw">for</span> <span class="ident">dy</span> <span class="kw">in</span> <span class="ident">range</span> {
-            <span class="kw">let</span> <span class="ident">dy</span> <span class="op">=</span> <span class="ident">dy</span> <span class="op">-</span> <span class="ident">radius</span> <span class="kw">as</span> <span class="ident">i32</span>;
-            <span class="kw">let</span> <span class="ident">y</span> <span class="op">=</span> <span class="ident">center</span>.<span class="number">1</span> <span class="op">+</span> <span class="ident">dy</span>;
-
-            <span class="kw">let</span> <span class="ident">lx</span> <span class="op">=</span> (<span class="ident">f64</span>::<span class="ident">from</span>(<span class="ident">radius</span>) <span class="op">*</span> <span class="ident">f64</span>::<span class="ident">from</span>(<span class="ident">radius</span>)
-                <span class="op">-</span> (<span class="ident">f64</span>::<span class="ident">from</span>(<span class="ident">dy</span>) <span class="op">*</span> <span class="ident">f64</span>::<span class="ident">from</span>(<span class="ident">dy</span>)).<span class="ident">max</span>(<span class="number">1e-5</span>))
-            .<span class="ident">sqrt</span>();
-
-            <span class="kw">let</span> <span class="ident">left</span> <span class="op">=</span> <span class="ident">center</span>.<span class="number">0</span> <span class="op">-</span> <span class="ident">lx</span>.<span class="ident">floor</span>() <span class="kw">as</span> <span class="ident">i32</span>;
-            <span class="kw">let</span> <span class="ident">right</span> <span class="op">=</span> <span class="ident">center</span>.<span class="number">0</span> <span class="op">+</span> <span class="ident">lx</span>.<span class="ident">floor</span>() <span class="kw">as</span> <span class="ident">i32</span>;
-
-            <span class="kw">let</span> <span class="ident">v</span> <span class="op">=</span> <span class="ident">lx</span> <span class="op">-</span> <span class="ident">lx</span>.<span class="ident">floor</span>();
-
-            <span class="kw">let</span> <span class="ident">x</span> <span class="op">=</span> <span class="ident">center</span>.<span class="number">0</span> <span class="op">+</span> <span class="ident">dy</span>;
-            <span class="kw">let</span> <span class="ident">top</span> <span class="op">=</span> <span class="ident">center</span>.<span class="number">1</span> <span class="op">-</span> <span class="ident">lx</span>.<span class="ident">floor</span>() <span class="kw">as</span> <span class="ident">i32</span>;
-            <span class="kw">let</span> <span class="ident">bottom</span> <span class="op">=</span> <span class="ident">center</span>.<span class="number">1</span> <span class="op">+</span> <span class="ident">lx</span>.<span class="ident">floor</span>() <span class="kw">as</span> <span class="ident">i32</span>;
-
-            <span class="kw">if</span> <span class="ident">fill</span> {
-                <span class="self">self</span>.<span class="ident">draw_line</span>((<span class="ident">left</span>, <span class="ident">y</span>), (<span class="ident">right</span>, <span class="ident">y</span>), <span class="ident">style</span>)<span class="question-mark">?</span>;
-                <span class="self">self</span>.<span class="ident">draw_line</span>((<span class="ident">x</span>, <span class="ident">top</span>), (<span class="ident">x</span>, <span class="ident">up</span>), <span class="ident">style</span>)<span class="question-mark">?</span>;
-                <span class="self">self</span>.<span class="ident">draw_line</span>((<span class="ident">x</span>, <span class="ident">down</span>), (<span class="ident">x</span>, <span class="ident">bottom</span>), <span class="ident">style</span>)<span class="question-mark">?</span>;
-            } <span class="kw">else</span> {
-                <span class="self">self</span>.<span class="ident">draw_pixel</span>((<span class="ident">left</span>, <span class="ident">y</span>), <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">mix</span>(<span class="number">1.0</span> <span class="op">-</span> <span class="ident">v</span>))<span class="question-mark">?</span>;
-                <span class="self">self</span>.<span class="ident">draw_pixel</span>((<span class="ident">right</span>, <span class="ident">y</span>), <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">mix</span>(<span class="number">1.0</span> <span class="op">-</span> <span class="ident">v</span>))<span class="question-mark">?</span>;
-
-                <span class="self">self</span>.<span class="ident">draw_pixel</span>((<span class="ident">x</span>, <span class="ident">top</span>), <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">mix</span>(<span class="number">1.0</span> <span class="op">-</span> <span class="ident">v</span>))<span class="question-mark">?</span>;
-                <span class="self">self</span>.<span class="ident">draw_pixel</span>((<span class="ident">x</span>, <span class="ident">bottom</span>), <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">mix</span>(<span class="number">1.0</span> <span class="op">-</span> <span class="ident">v</span>))<span class="question-mark">?</span>;
-            }
-
-            <span class="self">self</span>.<span class="ident">draw_pixel</span>((<span class="ident">left</span> <span class="op">-</span> <span class="number">1</span>, <span class="ident">y</span>), <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">mix</span>(<span class="ident">v</span>))<span class="question-mark">?</span>;
-            <span class="self">self</span>.<span class="ident">draw_pixel</span>((<span class="ident">right</span> <span class="op">+</span> <span class="number">1</span>, <span class="ident">y</span>), <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">mix</span>(<span class="ident">v</span>))<span class="question-mark">?</span>;
-            <span class="self">self</span>.<span class="ident">draw_pixel</span>((<span class="ident">x</span>, <span class="ident">top</span> <span class="op">-</span> <span class="number">1</span>), <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">mix</span>(<span class="ident">v</span>))<span class="question-mark">?</span>;
-            <span class="self">self</span>.<span class="ident">draw_pixel</span>((<span class="ident">x</span>, <span class="ident">bottom</span> <span class="op">+</span> <span class="number">1</span>), <span class="kw-2">&amp;</span><span class="ident">style</span>.<span class="ident">as_color</span>().<span class="ident">mix</span>(<span class="ident">v</span>))<span class="question-mark">?</span>;
-        }
-
-        <span class="prelude-val">Ok</span>(())
+        <span class="kw">super</span>::<span class="ident">rasterizer</span>::<span class="ident">fill_polygon</span>(<span class="self">self</span>, <span class="kw-2">&amp;</span><span class="ident">vert_buf</span>[..], <span class="ident">style</span>)
     }
 
     <span class="doccomment">/// Draw a text on the drawing backend</span>
@@ -578,17 +394,35 @@
         <span class="ident">font</span>: <span class="kw-2">&amp;</span><span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>,
         <span class="ident">pos</span>: <span class="ident">BackendCoord</span>,
         <span class="ident">color</span>: <span class="kw-2">&amp;</span><span class="ident">RGBAColor</span>,
-    ) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;</span><span class="op">&gt;</span> {
-        <span class="kw">if</span> <span class="ident">color</span>.<span class="ident">alpha</span>() <span class="op">=</span><span class="op">=</span> <span class="number">0.0</span> {
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span> {
+        <span class="kw">if</span> <span class="ident">color</span>.<span class="ident">alpha</span>() <span class="op">==</span> <span class="number">0.0</span> {
             <span class="kw">return</span> <span class="prelude-val">Ok</span>(());
         }
 
         <span class="kw">match</span> <span class="ident">font</span>.<span class="ident">draw</span>(<span class="ident">text</span>, (<span class="ident">pos</span>.<span class="number">0</span>, <span class="ident">pos</span>.<span class="number">1</span>), <span class="op">|</span><span class="ident">x</span>, <span class="ident">y</span>, <span class="ident">v</span><span class="op">|</span> {
             <span class="self">self</span>.<span class="ident">draw_pixel</span>((<span class="ident">x</span> <span class="kw">as</span> <span class="ident">i32</span>, <span class="ident">y</span> <span class="kw">as</span> <span class="ident">i32</span>), <span class="kw-2">&amp;</span><span class="ident">color</span>.<span class="ident">mix</span>(<span class="ident">f64</span>::<span class="ident">from</span>(<span class="ident">v</span>)))
         }) {
-            <span class="prelude-val">Ok</span>(<span class="ident">drawing_result</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="ident">drawing_result</span>,
-            <span class="prelude-val">Err</span>(<span class="ident">font_error</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">DrawingErrorKind</span>::<span class="ident">FontError</span>(<span class="ident">font_error</span>)),
+            <span class="prelude-val">Ok</span>(<span class="ident">drawing_result</span>) <span class="op">=&gt;</span> <span class="ident">drawing_result</span>,
+            <span class="prelude-val">Err</span>(<span class="ident">font_error</span>) <span class="op">=&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">DrawingErrorKind</span>::<span class="ident">FontError</span>(<span class="ident">font_error</span>)),
         }
+    }
+
+    <span class="doccomment">/// Estimate the size of the text if rendered on this backend.</span>
+    <span class="doccomment">/// This is important because some of the backend may not have font ability.</span>
+    <span class="doccomment">/// Thus this allows those backend reports proper value rather than ask the</span>
+    <span class="doccomment">/// font rasterizer for that.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// - `text`: The text to estimate</span>
+    <span class="doccomment">/// - `font`: The font to estimate</span>
+    <span class="doccomment">/// - *Returns* The estimated text size</span>
+    <span class="kw">fn</span> <span class="ident">estimate_text_size</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        <span class="ident">text</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>,
+        <span class="ident">font</span>: <span class="kw-2">&amp;</span><span class="ident">FontDesc</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>,
+    ) <span class="op">-&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span>(<span class="ident">u32</span>, <span class="ident">u32</span>), <span class="ident">DrawingErrorKind</span><span class="op">&lt;</span><span class="self">Self</span>::<span class="ident">ErrorType</span><span class="op">&gt;&gt;</span> {
+        <span class="prelude-val">Ok</span>(<span class="ident">font</span>
+            .<span class="ident">box_size</span>(<span class="ident">text</span>)
+            .<span class="ident">map_err</span>(<span class="op">|</span><span class="ident">e</span><span class="op">|</span> <span class="ident">DrawingErrorKind</span>::<span class="ident">FontError</span>(<span class="ident">e</span>))<span class="question-mark">?</span>)
     }
 }
 </pre></div>
