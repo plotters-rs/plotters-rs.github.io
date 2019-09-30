@@ -30,3 +30,4 @@ Also available to you are:
 - `current` - the file name of the page you are current on.  Set by the noddity-renderer
 - `postList` - changing soon
 - all the values set in your config.js
+
