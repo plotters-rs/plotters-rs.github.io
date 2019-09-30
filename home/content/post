@@ -23,9 +23,6 @@ markdown: false
 	<a href="https://docs.rs/plotters">
 		<img style="display: inline!important" src="https://docs.rs/plotters/badge.svg"/>
 	</a>
-	<a href="https://plotters-rs.github.io/rustdoc/plotters/">
-		<img style="display: inline! important" src="https://img.shields.io/badge/docs-development-lightgrey.svg"/>
-	</a>
 	<a href="https://travis-ci.org/38/plotters">
 		<img style="display: inline! important" src="https://travis-ci.org/38/plotters.svg?branch=master"/>
 	</a>
