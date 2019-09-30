@@ -2,7 +2,7 @@ title: Post template
 markdown: false
 
 {{#editLink}}
-	<div id="edit-post-link"><a href="https://github.com/38/plotters.git">Fork me on Github!</a></div>
+	<div id="edit-post-link"><a href="https://github.com/38/plotters.git">Github Repo</a></div>
 {{/editLink}}
 
 <div id="sidebar">
