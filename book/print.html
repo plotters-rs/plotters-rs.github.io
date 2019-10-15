@@ -427,6 +427,69 @@ fn main() {
 <p>Result image:</p>
 <p><img src="basic/../../images/2.7.png" alt="2.7.png" /></p>
 <h2><a class="header" href="#histogram" id="histogram">Histogram</a></h2>
+<p>In practise, the histogram can be two things:</p>
+<ol>
+<li>A bar plot</li>
+<li>Or a bar plot that shows the distribution of values</li>
+</ol>
+<p>For a bar plot, we can simply create with a iterator that yields a series of
+rectangle. The following code demostrates how. The function <code>Rectangle::margin</code> 
+is used to set a pixel based margin for the rectangle element.</p>
+<pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
+
+fn main() {
+    let root_area = BitMapBackend::new(&quot;images/2.8.png&quot;, (600, 400)).into_drawing_area();
+    root_area.fill(&amp;WHITE).unwrap();
+
+    let mut ctx = ChartBuilder::on(&amp;root_area)
+        .set_label_area_size(LabelAreaPosition::Left, 40)
+        .set_label_area_size(LabelAreaPosition::Bottom, 40)
+        .caption(&quot;Bar Demo&quot;, (&quot;Arial&quot;, 40))
+        .build_ranged(0..10, 0..50)
+        .unwrap();
+
+    ctx.configure_mesh().draw().unwrap();
+
+    let data = [25, 37, 15, 32, 45, 33, 32, 10, 0, 21];
+
+    ctx.draw_series((0..).zip(data.iter()).map(|(x, y)| {
+        let mut bar = Rectangle::new([(x, 0), (x + 1, *y)], RED.filled());
+        bar.set_margin(0, 0, 5, 5);
+        bar
+    }))
+    .unwrap();
+}
+</code></pre></pre>
+<p>Result image:</p>
+<p><img src="basic/../../images/2.8.png" alt="2.8.png" /></p>
+<p>Similary, the following code draws a vertical bar chart.</p>
+<pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
+
+fn main() {
+    let root_area = BitMapBackend::new(&quot;images/2.9.png&quot;, (600, 400)).into_drawing_area();
+    root_area.fill(&amp;WHITE).unwrap();
+
+    let mut ctx = ChartBuilder::on(&amp;root_area)
+        .set_label_area_size(LabelAreaPosition::Left, 40)
+        .set_label_area_size(LabelAreaPosition::Bottom, 40)
+        .caption(&quot;Bar Demo&quot;, (&quot;Arial&quot;, 40))
+        .build_ranged(0..50, 0..10)
+        .unwrap();
+
+    ctx.configure_mesh().draw().unwrap();
+
+    let data = [25, 37, 15, 32, 45, 33, 32, 10, 0, 21];
+
+    ctx.draw_series((0..).zip(data.iter()).map(|(y, x)| {
+        let mut bar = Rectangle::new([(0, y), (*x, y + 1)], GREEN.filled());
+        bar.set_margin(5, 5, 0, 0);
+        bar
+    }))
+    .unwrap();
+}
+</code></pre></pre>
+<p>Result image:</p>
+<p><img src="basic/../../images/2.9.png" alt="2.9.png" /></p>
 <h2><a class="header" href="#error-bar" id="error-bar">Error bar</a></h2>
 <h2><a class="header" href="#heatmap" id="heatmap">Heatmap</a></h2>
 <h2><a class="header" href="#customized-series" id="customized-series">Customized series</a></h2>
