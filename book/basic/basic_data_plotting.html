@@ -207,6 +207,36 @@ fn main() {
 <p>And this will produce the following image.</p>
 <p><img src="../../images/2.6.png" alt="2.6.png" /></p>
 <h2><a class="header" href="#area-chart" id="area-chart">Area chart</a></h2>
+<p>The following demo demostrate how we can draw an area chart.</p>
+<pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
+
+fn main() {
+    let root_area = BitMapBackend::new(&quot;images/2.7.png&quot;, (600, 400)).into_drawing_area();
+    root_area.fill(&amp;WHITE).unwrap();
+
+    let mut ctx = ChartBuilder::on(&amp;root_area)
+        .set_label_area_size(LabelAreaPosition::Left, 40)
+        .set_label_area_size(LabelAreaPosition::Bottom, 40)
+        .caption(&quot;Scatter Demo&quot;, (&quot;Arial&quot;, 40))
+        .build_ranged(0..10, 0..50)
+        .unwrap();
+
+    ctx.configure_mesh().draw().unwrap();
+
+	let data = [25, 37, 15, 32, 45, 33, 32, 10, 29, 0, 21];
+
+    ctx.draw_series(
+		AreaSeries::new(
+			(0..).zip(data.into_iter()), // The data iter
+			0,   // Baseline
+			&amp;RED.mix(0.2) // Make the series opac
+		).border_style(&amp;RED) // Make a brighter border
+    )
+    .unwrap();
+}
+</code></pre></pre>
+<p>Result image:</p>
+<p><img src="../../images/2.7.png" alt="2.7.png" /></p>
 <h2><a class="header" href="#histogram" id="histogram">Histogram</a></h2>
 <h2><a class="header" href="#error-bar" id="error-bar">Error bar</a></h2>
 <h2><a class="header" href="#heatmap" id="heatmap">Heatmap</a></h2>
