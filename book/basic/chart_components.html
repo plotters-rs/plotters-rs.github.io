@@ -146,6 +146,29 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#draw-figure-components" id="draw-figure-components">Draw figure components</a></h1>
+<p>For most of the time, the chart should have many components, such as the axis,
+the mesh grid, etc. The <code>ChartContext</code> type is able to draw those component automatically.</p>
+<h2><a class="header" href="#adding-mesh-to-the-chart" id="adding-mesh-to-the-chart">Adding mesh to the chart</a></h2>
+<p>The following code demostrate how we can use <code>ChartContext::configure_mesh</code> to add a mesh
+to the chart.</p>
+<pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
+
+fn main() {
+	let root_drawing_area = BitMapBackend::new(&quot;images/2.2.png&quot;, (600, 400))
+		.into_drawing_area();
+
+	root_drawing_area.fill(&amp;WHITE).unwrap();
+
+	let mut ctx = ChartBuilder::on(&amp;root_drawing_area)
+		.build_ranged(0..100, 0..100)
+		.unwrap();
+
+	ctx.configure_mesh().draw().unwrap();
+
+}
+</code></pre></pre>
+<p>And this code should produce the following result.</p>
+<p><img src="../../images/2.2.png" alt="example-2-2" /></p>
 
                     </main>
 

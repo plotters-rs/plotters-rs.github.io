@@ -206,9 +206,74 @@ fn main() {
 <p>In this chapter, let's go through the basic functionality of Plotters. 
 We are going to focus on how to setup the plotting environment and produce
 different types of data plots, creating static, animated or realtime data visualizations.</p>
-<p>The following chapter has more detailed introduction on tweaking the chart. </p>
+<p>The following chapter has more detailed introduction on tweaking the chart.</p>
 <h1><a class="header" href="#define-chart-context" id="define-chart-context">Define chart context</a></h1>
+<p>As we preivously mentioned, Plotters is drawing library that allows free drawing. 
+In theory, you should be able to draw any data plot based on the Plotters drawing
+API. But we provide the chart context, which creates a friendly environment for 
+data visualization.</p>
+<h2><a class="header" href="#create-a-chart-context-from-a-drwaing-area" id="create-a-chart-context-from-a-drwaing-area">Create a chart context from a drwaing area</a></h2>
+<p><code>ChartBuilder</code> is the helper type for making a chart context.</p>
+<p>The following code shows how to make a chart context that is using a 
+2D cartesian coordinate in which both X and Y axis is ranged 0 to 100.</p>
+<pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
+
+fn main() {
+	let drawing_area = BitMapBackend::new(&quot;result.pngn&quot;, (1024, 768))
+		.into_drawing_area();
+	
+	let _chart = ChartBuilder::on(&amp;drawing_area)
+		.build_ranged(0..100, 0..100)
+		.unwrap();
+}
+</code></pre></pre>
+<h2><a class="header" href="#draw-series-on-to-the-chart-context" id="draw-series-on-to-the-chart-context">Draw series on to the chart context</a></h2>
+<p>Once we have the chart context, we can put series on it. 
+In this example, we use the <code>LineSeries</code> type to draw a line series on the
+chart. </p>
+<pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
+
+fn main() {
+	let drawing_area = BitMapBackend::new(&quot;images/2.1.png&quot;, (600, 400))
+		.into_drawing_area();
+
+	drawing_area.fill(&amp;WHITE).unwrap();
+	
+	let mut chart = ChartBuilder::on(&amp;drawing_area)
+		.build_ranged(0..100, 0..100)
+		.unwrap();
+
+	chart.draw_series(
+		LineSeries::new((0..100).map(|x| (x, 100 - x)), &amp;BLACK),
+	).unwrap();
+}
+</code></pre></pre>
+<p>This code will produce the following figure. </p>
+<p><img src="basic/../../images/2.1.png" alt="exampe-2.1" /></p>
 <h1><a class="header" href="#draw-figure-components" id="draw-figure-components">Draw figure components</a></h1>
+<p>For most of the time, the chart should have many components, such as the axis,
+the mesh grid, etc. The <code>ChartContext</code> type is able to draw those component automatically.</p>
+<h2><a class="header" href="#adding-mesh-to-the-chart" id="adding-mesh-to-the-chart">Adding mesh to the chart</a></h2>
+<p>The following code demostrate how we can use <code>ChartContext::configure_mesh</code> to add a mesh
+to the chart.</p>
+<pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
+
+fn main() {
+	let root_drawing_area = BitMapBackend::new(&quot;images/2.2.png&quot;, (600, 400))
+		.into_drawing_area();
+
+	root_drawing_area.fill(&amp;WHITE).unwrap();
+
+	let mut ctx = ChartBuilder::on(&amp;root_drawing_area)
+		.build_ranged(0..100, 0..100)
+		.unwrap();
+
+	ctx.configure_mesh().draw().unwrap();
+
+}
+</code></pre></pre>
+<p>And this code should produce the following result.</p>
+<p><img src="basic/../../images/2.2.png" alt="example-2-2" /></p>
 <h1><a class="header" href="#basic-data-plotting" id="basic-data-plotting">Basic data plotting</a></h1>
 <ul>
 <li>Line chart</li>
