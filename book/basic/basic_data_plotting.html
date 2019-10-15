@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Basic data plotting - Plotter Developer's Guid</title>
+        <title>Basic data plotting - Plotter Developer's Guide</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -110,7 +110,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">Plotter Developer's Guid</h1>
+                        <h1 class="menu-title">Plotter Developer's Guide</h1>
 
                         <div class="right-buttons">
                             <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -146,16 +146,73 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#basic-data-plotting" id="basic-data-plotting">Basic data plotting</a></h1>
-<ul>
-<li>Line chart</li>
-<li>Plot chart</li>
-<li>Area chart</li>
-<li>Histogram</li>
-<li>Error bar</li>
-<li>Heatmap</li>
-<li>Customized series</li>
-<li>Legend</li>
-</ul>
+<p>In this section, let's use Plotters to produce different types of Plotting.
+Generally speaking, the API <code>ChartContext::draw_series</code> provides the functionality
+to draw any types of chart. In the following parts, let's dicuss how to use it to 
+render different types of plots.</p>
+<h2><a class="header" href="#line-series" id="line-series">Line series</a></h2>
+<p>The following code demostrate how to draw a line series with Plotters</p>
+<pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
+
+fn main() {
+	let root_area = BitMapBackend::new(&quot;images/2.5.png&quot;, (600, 400)).into_drawing_area();
+	root_area.fill(&amp;WHITE).unwrap();
+
+	let mut ctx = ChartBuilder::on(&amp;root_area)
+		.set_label_area_size(LabelAreaPosition::Left, 40)
+		.set_label_area_size(LabelAreaPosition::Bottom, 40)
+		.caption(&quot;Line Plot Demo&quot;, (&quot;Arial&quot;, 40))
+		.build_ranged(-10..10, 0..100)
+		.unwrap();
+
+	ctx.configure_mesh().draw().unwrap();
+
+	ctx.draw_series(
+		LineSeries::new((-10..=10).map(|x| (x, x* x)), &amp;GREEN)
+	).unwrap();
+}
+</code></pre></pre>
+<p>It should produce the following image</p>
+<p><img src="../../images/2.5.png" alt="2.5.png" /></p>
+<h2><a class="header" href="#scatter-plot" id="scatter-plot">Scatter Plot</a></h2>
+<p>The following code demostrate how we can crate a scatter plot and use different pointing elements.
+In the example, we use <code>Circle</code> and <code>TriagnleMarker</code> pointing element for two different series.</p>
+<p>In this example, we assume there are <code>DATA1</code> and <code>DATA2</code> defined. See the source for the details.</p>
+<pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
+
+fn main() {
+    let root_area = BitMapBackend::new(&quot;images/2.6.png&quot;, (600, 400)).into_drawing_area();
+    root_area.fill(&amp;WHITE).unwrap();
+
+    let mut ctx = ChartBuilder::on(&amp;root_area)
+        .set_label_area_size(LabelAreaPosition::Left, 40)
+        .set_label_area_size(LabelAreaPosition::Bottom, 40)
+        .caption(&quot;Scatter Demo&quot;, (&quot;Arial&quot;, 40))
+        .build_ranged(-10..50, -10..50)
+        .unwrap();
+
+    ctx.configure_mesh().draw().unwrap();
+
+    ctx.draw_series(
+        DATA1
+            .into_iter()
+            .map(|point| TriangleMarker::new(*point, 5, &amp;BLUE)),
+    )
+    .unwrap();
+
+    ctx.draw_series(DATA2.into_iter().map(|point| Circle::new(*point, 5, &amp;RED)))
+        .unwrap();
+}
+</code></pre></pre>
+<p>And this will produce the following image.</p>
+<p><img src="../../images/2.6.png" alt="2.6.png" /></p>
+<h2><a class="header" href="#area-chart" id="area-chart">Area chart</a></h2>
+<h2><a class="header" href="#histogram" id="histogram">Histogram</a></h2>
+<h2><a class="header" href="#error-bar" id="error-bar">Error bar</a></h2>
+<h2><a class="header" href="#heatmap" id="heatmap">Heatmap</a></h2>
+<h2><a class="header" href="#customized-series" id="customized-series">Customized series</a></h2>
+<h2><a class="header" href="#mutiple-data-series" id="mutiple-data-series">Mutiple Data Series</a></h2>
+<h2><a class="header" href="#legend" id="legend">Legend</a></h2>
 
                     </main>
 
