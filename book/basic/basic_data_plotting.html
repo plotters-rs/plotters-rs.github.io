@@ -301,10 +301,50 @@ fn main() {
 </code></pre></pre>
 <p>Result image:</p>
 <p><img src="../../images/2.9.png" alt="2.9.png" /></p>
+<p>For the second type of histogram, there's a <code>Histograma</code> series type is defined for this purpose.</p>
+<h2><a class="header" href="#time-series-chart" id="time-series-chart">Time Series Chart</a></h2>
 <h2><a class="header" href="#error-bar" id="error-bar">Error bar</a></h2>
 <h2><a class="header" href="#heatmap" id="heatmap">Heatmap</a></h2>
 <h2><a class="header" href="#customized-series" id="customized-series">Customized series</a></h2>
 <h2><a class="header" href="#mutiple-data-series" id="mutiple-data-series">Mutiple Data Series</a></h2>
+<p>By calling <code>draw_series</code> multiple time, Plotters is able to produce the multiple series plot. 
+Thus, we don't limit the developer's ability to put different types of plot series onto the same
+image. The following example shows plotting a histogram along with a line plot.</p>
+<pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
+
+fn main() {
+    let root_area = BitMapBackend::new(&quot;images/2.10.png&quot;, (600, 400)).into_drawing_area();
+    root_area.fill(&amp;WHITE).unwrap();
+
+    let mut ctx = ChartBuilder::on(&amp;root_area)
+        .set_label_area_size(LabelAreaPosition::Left, 40)
+        .set_label_area_size(LabelAreaPosition::Bottom, 40)
+        .caption(&quot;Histo + Line&quot;, (&quot;Arial&quot;, 40))
+        .build_ranged(0..10, 0..80)
+        .unwrap();
+
+    ctx.configure_mesh().draw().unwrap();
+
+    let data = [25, 37, 15, 32, 45, 33, 32, 10, 0, 21];
+
+    // Draw the histogram
+    ctx.draw_series((0..).zip(data.iter()).map(|(x, y)| {
+        let mut bar = Rectangle::new([(x, 0), (x + 1, *y)], GREEN.filled());
+        bar.set_margin(0, 0, 5, 5);
+        bar
+    }))
+    .unwrap();
+
+    // Draw the line series
+    ctx.draw_series(LineSeries::new(
+        (0..).zip(data.iter()).map(|(x, y)| (x, *y + 30)),
+        &amp;BLUE,
+    ))
+    .unwrap();
+}
+</code></pre></pre>
+<p>Result image:</p>
+<p><img src="../../images/2.10.png" alt="2.10.png" /></p>
 <h2><a class="header" href="#legend" id="legend">Legend</a></h2>
 
                     </main>
