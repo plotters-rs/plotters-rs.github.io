@@ -36,7 +36,7 @@
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -77,8 +77,8 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="../intro/introduction.html"><strong aria-hidden="true">1.</strong> Plotters Developer's Guide</a></li><li><ol class="section"><li><a href="../intro/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting started</a></li></ol></li><li><a href="../basic/overview.html"><strong aria-hidden="true">2.</strong> Basic plotting</a></li><li><ol class="section"><li><a href="../basic/chart_context.html"><strong aria-hidden="true">2.1.</strong> Define chart context</a></li><li><a href="../basic/chart_components.html"><strong aria-hidden="true">2.2.</strong> Draw figure components</a></li><li><a href="../basic/basic_data_plotting.html" class="active"><strong aria-hidden="true">2.3.</strong> Basic data plotting</a></li><li><a href="../basic/multipanel.html"><strong aria-hidden="true">2.4.</strong> Multipanel figures</a></li><li><a href="../basic/animate.html"><strong aria-hidden="true">2.5.</strong> Animation and realtime rendering</a></li></ol></li><li><a href="../tweak/overview.html"><strong aria-hidden="true">3.</strong> Tweaking the figure</a></li><li><ol class="section"><li><a href="../tweak/layout.html"><strong aria-hidden="true">3.1.</strong> Layout tweak</a></li><li><a href="../tweak/aixs_mesh_labels.html"><strong aria-hidden="true">3.2.</strong> Axis, mesh and label tweaks</a></li><li><a href="../tweak/relative_sizing.html"><strong aria-hidden="true">3.3.</strong> Relative sizing</a></li></ol></li><li><a href="../drawing/overview.html"><strong aria-hidden="true">4.</strong> Drawing APIs</a></li><li><ol class="section"><li><a href="../drawing/drawing_area.html"><strong aria-hidden="true">4.1.</strong> Drawing areas</a></li><li><a href="../drawing/coord_system.html"><strong aria-hidden="true">4.2.</strong> Coordinate systems</a></li><li><ol class="section"><li><a href="../drawing/coord_decorator.html"><strong aria-hidden="true">4.2.1.</strong> Coordinate decorators</a></li></ol></li><li><a href="../drawing/elements.html"><strong aria-hidden="true">4.3.</strong> Elements</a></li><li><a href="../drawing/backends.html"><strong aria-hidden="true">4.4.</strong> Drawing backends</a></li></ol></li><li><a href="../wasm/overview.html"><strong aria-hidden="true">5.</strong> Webassembly support</a></li><li><ol class="section"><li><a href="../wasm/canvas_backend.html"><strong aria-hidden="true">5.1.</strong> Canvas Drawing Backend</a></li></ol></li><li><a href="../extend/overview.html"><strong aria-hidden="true">6.</strong> Extend Plotters</a></li><li><ol class="section"><li><a href="../extend/coord.html"><strong aria-hidden="true">6.1.</strong> Adding coordinate type</a></li><li><a href="../extend/series.html"><strong aria-hidden="true">6.2.</strong> Adding series types</a></li><li><a href="../extend/backend.html"><strong aria-hidden="true">6.3.</strong> Support new backend</a></li></ol></li><li><a href="../appendix/index.html"><strong aria-hidden="true">7.</strong> Appendix</a></li><li><ol class="section"><li><a href="../appendix/built_in_backends.html"><strong aria-hidden="true">7.1.</strong> Built-in backends</a></li></ol></li></ol>
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="../intro/introduction.html"><strong aria-hidden="true">1.</strong> Plotters Developer's Guide</a></li><li><ol class="section"><li class="expanded "><a href="../intro/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting started</a></li></ol></li><li class="expanded "><a href="../basic/overview.html"><strong aria-hidden="true">2.</strong> Basic plotting</a></li><li><ol class="section"><li class="expanded "><a href="../basic/chart_context.html"><strong aria-hidden="true">2.1.</strong> Define chart context</a></li><li class="expanded "><a href="../basic/chart_components.html"><strong aria-hidden="true">2.2.</strong> Draw figure components</a></li><li class="expanded "><a href="../basic/basic_data_plotting.html" class="active"><strong aria-hidden="true">2.3.</strong> Basic data plotting</a></li><li class="expanded "><a href="../basic/multipanel.html"><strong aria-hidden="true">2.4.</strong> Multipanel figures</a></li><li class="expanded "><a href="../basic/animate.html"><strong aria-hidden="true">2.5.</strong> Animation and realtime rendering</a></li></ol></li><li class="expanded "><a href="../tweak/overview.html"><strong aria-hidden="true">3.</strong> Tweaking the figure</a></li><li><ol class="section"><li class="expanded "><a href="../tweak/layout.html"><strong aria-hidden="true">3.1.</strong> Layout tweak</a></li><li class="expanded "><a href="../tweak/aixs_mesh_labels.html"><strong aria-hidden="true">3.2.</strong> Axis, mesh and label tweaks</a></li><li class="expanded "><a href="../tweak/relative_sizing.html"><strong aria-hidden="true">3.3.</strong> Relative sizing</a></li></ol></li><li class="expanded "><a href="../drawing/overview.html"><strong aria-hidden="true">4.</strong> Drawing APIs</a></li><li><ol class="section"><li class="expanded "><a href="../drawing/drawing_area.html"><strong aria-hidden="true">4.1.</strong> Drawing areas</a></li><li class="expanded "><a href="../drawing/coord_system.html"><strong aria-hidden="true">4.2.</strong> Coordinate systems</a></li><li><ol class="section"><li class="expanded "><a href="../drawing/coord_decorator.html"><strong aria-hidden="true">4.2.1.</strong> Coordinate decorators</a></li></ol></li><li class="expanded "><a href="../drawing/elements.html"><strong aria-hidden="true">4.3.</strong> Elements</a></li><li class="expanded "><a href="../drawing/backends.html"><strong aria-hidden="true">4.4.</strong> Drawing backends</a></li></ol></li><li class="expanded "><a href="../wasm/overview.html"><strong aria-hidden="true">5.</strong> Webassembly support</a></li><li><ol class="section"><li class="expanded "><a href="../wasm/canvas_backend.html"><strong aria-hidden="true">5.1.</strong> Canvas Drawing Backend</a></li></ol></li><li class="expanded "><a href="../perf/overview.html"><strong aria-hidden="true">6.</strong> Performance</a></li><li><ol class="section"><li class="expanded "><a href="../perf/parallel_blit.html"><strong aria-hidden="true">6.1.</strong> Parallel Rendering with Bitmap Blit</a></li><li class="expanded "><a href="../perf/inplace_rendering.html"><strong aria-hidden="true">6.2.</strong> Inplace Parallel Rendering</a></li></ol></li><li class="expanded "><a href="../extend/overview.html"><strong aria-hidden="true">7.</strong> Extend Plotters</a></li><li><ol class="section"><li class="expanded "><a href="../extend/coord.html"><strong aria-hidden="true">7.1.</strong> Adding coordinate type</a></li><li class="expanded "><a href="../extend/series.html"><strong aria-hidden="true">7.2.</strong> Adding series types</a></li><li class="expanded "><a href="../extend/backend.html"><strong aria-hidden="true">7.3.</strong> Support new backend</a></li></ol></li><li class="expanded "><a href="../appendix/index.html"><strong aria-hidden="true">8.</strong> Appendix</a></li><li><ol class="section"><li class="expanded "><a href="../appendix/built_in_backends.html"><strong aria-hidden="true">8.1.</strong> Built-in backends</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -303,6 +303,49 @@ fn main() {
 <p><img src="../../images/2.9.png" alt="2.9.png" /></p>
 <p>For the second type of histogram, there's a <code>Histograma</code> series type is defined for this purpose.</p>
 <h2><a class="header" href="#time-series-chart" id="time-series-chart">Time Series Chart</a></h2>
+<p>In theory Plotters supports any data type to be axis. The only requirement is to implement the
+axis mapping traits. By default, Plotters has built-in implementation of axis traits for date and
+time types. To make a time series chart, you should first import the chrono crate and define a time
+range as axis.
+The following example shows how we can plot a time series data.</p>
+<pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
+use chrono::{Utc, TimeZone};
+
+fn main() {
+	let root_area = BitMapBackend::new(&quot;images/2.11.png&quot;, (600, 400)).into_drawing_area();
+	root_area.fill(&amp;WHITE).unwrap();
+
+	let start_date = Utc.ymd(2019, 10, 1);
+	let end_date = Utc.ymd(2019, 10, 18);
+
+    let mut ctx = ChartBuilder::on(&amp;root_area)
+        .set_label_area_size(LabelAreaPosition::Left, 40)
+        .set_label_area_size(LabelAreaPosition::Bottom, 40)
+        .caption(&quot;MSFT daily close price&quot;, (&quot;Arial&quot;, 40))
+        .build_ranged(start_date..end_date, 130.0..145.0)
+        .unwrap();
+    
+    ctx.configure_mesh().draw().unwrap();
+
+    ctx.draw_series(
+        LineSeries::new(
+            (0..).zip(DATA.iter()).map(|(idx, price)| {
+                let day = (idx / 5) * 7 + idx % 5 + 1;
+                let date = Utc.ymd(2019,10, day);
+                (date, *price)
+            }),
+            &amp;BLUE,
+        )
+    ).unwrap();
+
+}
+const DATA: [f64; 14] = [
+    137.24, 136.37, 138.43, 137.41, 139.69, 140.41, 141.58, 139.55, 139.68, 139.10, 138.24, 135.67,
+    137.12, 138.12
+];
+</code></pre></pre>
+<p>Result image:</p>
+<p><img src="../../images/2.11.png" alt="2.11.png" /></p>
 <h2><a class="header" href="#error-bar" id="error-bar">Error bar</a></h2>
 <h2><a class="header" href="#heatmap" id="heatmap">Heatmap</a></h2>
 <h2><a class="header" href="#customized-series" id="customized-series">Customized series</a></h2>
@@ -386,6 +429,14 @@ fn main() {
 
         
 
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
         
 
         
