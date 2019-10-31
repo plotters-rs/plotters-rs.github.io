@@ -147,12 +147,12 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#plotters-develvopers-guide" id="plotters-develvopers-guide">Plotters Develvoper's Guide</a></h1>
+                        <h1><a class="header" href="#plotters-developer-guide" id="plotters-developer-guide">Plotters Developer Guide</a></h1>
 <p>Plotters is a drawing library aimed to expedite the production of high-quality data visualization in Rust.</p>
 <p>Plotters supports various types of backend and provides a easy-to-use high level drawing API that
 makes data visualization easy. The Plotters API is designed to be highly flexible and extensible.</p>
-<p>Plotters is able to render the data visualization as a static image, a GIF animation and even realtime rendering
-backed on WASM, Piston Window or GTK/Cario. </p>
+<p>Plotters is able to render the data visualization as a static image, a GIF animation and even real-time rendering
+backed on WASM, Piston Window or GTK/Cairo. </p>
 <h2><a class="header" href="#source-code-in-this-book" id="source-code-in-this-book">Source code in this book</a></h2>
 <p>Please go to <a href="https://github.com/plotters-rs/guide">Github repository</a>. All the sample code is under <code>code</code>
 directory. 
@@ -161,15 +161,14 @@ To try it yourself, please clone the book repo and use the following command to 
 </code></pre>
 <h3><a class="header" href="#faq-list" id="faq-list">FAQ List</a></h3>
 <ol>
-<li>Why the example just exits without any figure poping up?</li>
+<li>Why the example just exits without any figure popping up?</li>
 </ol>
 <p>You should be table to find the output under <code>images</code> directory under the user's guide repository. 
-The filename for the output is the defined in the example code. </p>
+The filename for the output is the defined in the example code.</p>
 <h2><a class="header" href="#api-docs" id="api-docs">API Docs</a></h2>
 <p>This book is a developer's guide for Plotters. You may also want the API reference, please go to <a href="https://docs.rs/plotters">docs.rs</a>.</p>
 <h2><a class="header" href="#interactive-tutorial" id="interactive-tutorial">Interactive Tutorial</a></h2>
-<p>There's an interactive tutorial with Jupyter notebook + excvr availible, feel free to check the 
-<a href="https://plotters-rs.github.io/plotters-doc-data/evcxr-jupyter-integration.html">statically rendered notebook</a>
+<p>There's an interactive tutorial with Jupyter notebook + excvr availible, feel free to check the <a href="https://plotters-rs.github.io/plotters-doc-data/evcxr-jupyter-integration.html">statically rendered notebook</a>
 and follow the instruction to setup the interactive tutorial on your local.</p>
 <h2><a class="header" href="#license-and-source-code" id="license-and-source-code">License and Source Code</a></h2>
 <p>Plotters is a free and open source software under <a href="https://github.com/38/plotters/blob/master/LICENSE">MIT license</a>. </p>
@@ -177,9 +176,9 @@ and follow the instruction to setup the interactive tutorial on your local.</p>
 Currently Plotters is actively maintained and envolving very fast. Any involement, 
 including PR, suggestion, idea and issue is warmly welcomed.</p>
 <h1><a class="header" href="#getting-started" id="getting-started">Getting Started</a></h1>
-<p>Let's have a quick walkthrough on how to produce a data plot with Plotters.
+<p>Let's have a quick walk through on how to produce a data plot with Plotters.
 This is an example that plotting the graph of a simple equation <code>y = sin(x)</code> to a PNG file.</p>
-<h3><a class="header" href="#step-0---install-prerequisite-libraries-to-system" id="step-0---install-prerequisite-libraries-to-system">Step 0 - Install prerequisite libraries to system</a></h3>
+<h2><a class="header" href="#step-0---install-prerequisite-libraries-to-system" id="step-0---install-prerequisite-libraries-to-system">Step 0 - Install prerequisite libraries to system</a></h2>
 <p>Plotters may use some library installed on your system, depends on what operating system you are using.</p>
 <ul>
 <li>
@@ -192,7 +191,7 @@ command to install them.</p>
 <p>For Windows and OSX user: No prerequisite library is required.</p>
 </li>
 </ul>
-<h3><a class="header" href="#step-1---add-dependency-to-cargotoml" id="step-1---add-dependency-to-cargotoml">Step 1 - Add dependency to <code>cargo.toml</code></a></h3>
+<h2><a class="header" href="#step-1---add-dependency-to-cargotoml" id="step-1---add-dependency-to-cargotoml">Step 1 - Add dependency to <code>cargo.toml</code></a></h2>
 <p>In order to use Plotters, add the following line to your <code>cargo.tmol</code></p>
 <pre><code class="language-toml">[dependencies]
 plotters = &quot;0.2&quot;
@@ -222,7 +221,7 @@ fn main() {
 	)).unwrap();
 }
 </code></pre></pre>
-<h3><a class="header" href="#step-3---build-and-run" id="step-3---build-and-run">Step 3 - Build and run</a></h3>
+<h2><a class="header" href="#step-3---build-and-run" id="step-3---build-and-run">Step 3 - Build and run</a></h2>
 <p>Use the following command to build and run the example</p>
 <pre><code class="language-bash">cargo run
 </code></pre>
@@ -279,7 +278,7 @@ fn main() {
 <p>For most of the time, the chart should have many components, such as the axis,
 the mesh grid, etc. The <code>ChartContext</code> type is able to draw those component automatically.</p>
 <h2><a class="header" href="#mesh" id="mesh">Mesh</a></h2>
-<p>The following code demostrate how we can use <code>ChartContext::configure_mesh</code> to add a mesh
+<p>The following code demonstrate how we can use <code>ChartContext::configure_mesh</code> to add a mesh
 to the chart.</p>
 <pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
 
@@ -305,7 +304,7 @@ fn main() {
 <li>Define the label area size when the <code>ChartContext</code> is created.</li>
 <li>Use <code>configure_mesh</code> to draw the chart components.</li>
 </ol>
-<p>The following code demostrates how to add axes</p>
+<p>The following code demonstrates how to add axes</p>
 <pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
 
 fn main() {
@@ -356,10 +355,10 @@ fn main() {
 <h1><a class="header" href="#basic-data-plotting" id="basic-data-plotting">Basic data plotting</a></h1>
 <p>In this section, let's use Plotters to produce different types of Plotting.
 Generally speaking, the API <code>ChartContext::draw_series</code> provides the functionality
-to draw any types of chart. In the following parts, let's dicuss how to use it to 
+to draw any types of chart. In the following parts, let's discuss how to use it to 
 render different types of plots.</p>
 <h2><a class="header" href="#line-series" id="line-series">Line series</a></h2>
-<p>The following code demostrate how to draw a line series with Plotters</p>
+<p>The following code demonstrate how to draw a line series with Plotters</p>
 <pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
 
 fn main() {
@@ -384,8 +383,8 @@ fn main() {
 <p>It should produce the following image</p>
 <p><img src="basic/../../images/2.5.png" alt="2.5.png" /></p>
 <h2><a class="header" href="#scatter-plot" id="scatter-plot">Scatter Plot</a></h2>
-<p>The following code demostrate how we can crate a scatter plot and use different pointing elements.
-In the example, we use <code>Circle</code> and <code>TriagnleMarker</code> pointing element for two different series.</p>
+<p>The following code demonstrate how we can crate a scatter plot and use different pointing elements.
+In the example, we use <code>Circle</code> and <code>TriangleMarker</code> pointing element for two different series.</p>
 <p>In this example, we assume there are <code>DATA1</code> and <code>DATA2</code> defined. See the source for the details.</p>
 <pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
 
@@ -417,7 +416,7 @@ fn main() {
 <p>And this will produce the following image.</p>
 <p><img src="basic/../../images/2.6.png" alt="2.6.png" /></p>
 <h2><a class="header" href="#area-chart" id="area-chart">Area chart</a></h2>
-<p>The following demo demostrate how we can draw an area chart.</p>
+<p>The following demo demonstrate how we can draw an area chart.</p>
 <pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
 
 fn main() {
@@ -449,13 +448,13 @@ fn main() {
 <p>Result image:</p>
 <p><img src="basic/../../images/2.7.png" alt="2.7.png" /></p>
 <h2><a class="header" href="#histogram" id="histogram">Histogram</a></h2>
-<p>In practise, the histogram can be two things:</p>
+<p>In practice, the histogram can be two things:</p>
 <ol>
 <li>A bar plot</li>
 <li>Or a bar plot that shows the distribution of values</li>
 </ol>
 <p>For a bar plot, we can simply create with a iterator that yields a series of
-rectangle. The following code demostrates how. The function <code>Rectangle::margin</code> 
+rectangle. The following code demonstrates how. The function <code>Rectangle::margin</code> 
 is used to set a pixel based margin for the rectangle element.</p>
 <pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
 
@@ -485,7 +484,7 @@ fn main() {
 </code></pre></pre>
 <p>Result image:</p>
 <p><img src="basic/../../images/2.8.png" alt="2.8.png" /></p>
-<p>Similary, the following code draws a vertical bar chart.</p>
+<p>Similarly, the following code draws a vertical bar chart.</p>
 <pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
 
 fn main() {
@@ -514,7 +513,7 @@ fn main() {
 </code></pre></pre>
 <p>Result image:</p>
 <p><img src="basic/../../images/2.9.png" alt="2.9.png" /></p>
-<p>For the second type of histogram, there's a <code>Histograma</code> series type is defined for this purpose.</p>
+<p>For the second type of histogram, there's a <code>Histogram</code> series type is defined for this purpose.</p>
 <h2><a class="header" href="#time-series-chart" id="time-series-chart">Time Series Chart</a></h2>
 <p>In theory Plotters supports any data type to be axis. The only requirement is to implement the
 axis mapping traits. By default, Plotters has built-in implementation of axis traits for date and
@@ -561,11 +560,11 @@ const DATA: [f64; 14] = [
 <p>Result image:</p>
 <p><img src="basic/../../images/2.11.png" alt="2.11.png" /></p>
 <h2><a class="header" href="#customized-series" id="customized-series">Customized series</a></h2>
-<p>Plotters allows you draw abitrary types of series, even the one isn't built into the Plotters crate. 
+<p>Plotters allows you draw arbitrary types of series, even the one isn't built into the Plotters crate. 
 Plotters uses a really simple abstraction for a data series: An iterator of drawable elements. 
 Thus if you can make your own series an iterator of drawable element, it's a valid data series and can be
 draw on a figure.</p>
-<h2><a class="header" href="#mutiple-data-series" id="mutiple-data-series">Mutiple Data Series</a></h2>
+<h2><a class="header" href="#multiple-data-series" id="multiple-data-series">Multiple Data Series</a></h2>
 <p>By calling <code>draw_series</code> multiple time, Plotters is able to produce the multiple series plot. 
 Thus, we don't limit the developer's ability to put different types of plot series onto the same
 image. The following example shows plotting a histogram along with a line plot.</p>
@@ -610,7 +609,7 @@ fn main() {
 When you call <code>ChartContext::draw_series</code>, a result type that carries a handle to a series annotation 
 is returned and you can use it to add a series label to that.</p>
 <p>After you complete the data plotting, <code>ChartContext::configure_series_label</code> can be called to configure and draw
-the collections of series label. The following example demostrate how.</p>
+the collections of series label. The following example demonstrate how.</p>
 <pre><pre class="playpen"><code class="language-rust">use plotters::prelude::*;
 
 fn main() {
