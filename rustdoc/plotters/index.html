@@ -1,20 +1,25 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `plotters` crate."><meta name="keywords" content="rust, rustlang, rust-lang, plotters"><title>plotters - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../dark.css"><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script src="../storage.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="shortcut icon" href="../favicon.ico"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../plotters/index.html'><div class='logo-container'><img src='../rust-logo.png' alt='logo'></div></a><p class='location'>Crate plotters</p><div class="sidebar-elems"><a id='all-types' href='all.html'><p>See all plotters's items</p></a><div class="block items"><ul><li><a href="#reexports">Re-exports</a></li><li><a href="#modules">Modules</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'plotters', ty: 'mod', relpath: '../'};</script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/plotters/lib.rs.html#1-660' title='goto source code'>[src]</a></span><span class='in-band'>Crate <a class="mod" href=''>plotters</a></span></h1><div class='docblock'><h1 id="plotters---rust-drawing-library-for-visualization--" class="section-header"><a href="#plotters---rust-drawing-library-for-visualization--">Plotters - Rust Drawing Library for Visualization  🦀📈🚀</a></h1><a href="https://crates.io/crates/plotters">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="API documentation for the Rust `plotters` crate."><meta name="keywords" content="rust, rustlang, rust-lang, plotters"><title>plotters - Rust</title><link rel="stylesheet" type="text/css" href="../normalize.css"><link rel="stylesheet" type="text/css" href="../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../dark.css"><link rel="stylesheet" type="text/css" href="../light.css" id="themeStyle"><script src="../storage.js"></script><noscript><link rel="stylesheet" href="../noscript.css"></noscript><link rel="shortcut icon" href="../favicon.ico"><style type="text/css">#crate-search{background-image:url("../down-arrow.svg");}</style></head><body class="rustdoc mod"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../plotters/index.html'><div class='logo-container'><img src='../rust-logo.png' alt='logo'></div></a><p class='location'>Crate plotters</p><div class="sidebar-elems"><a id='all-types' href='all.html'><p>See all plotters's items</p></a><div class="block items"><ul><li><a href="#reexports">Re-exports</a></li><li><a href="#modules">Modules</a></li></ul></div><p class='location'></p><script>window.sidebarCurrent = {name: 'plotters', ty: 'mod', relpath: '../'};</script></div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../settings.html"><img src="../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><h1 class='fqn'><span class='out-of-band'><span id='render-detail'><a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">[<span class='inner'>&#x2212;</span>]</a></span><a class='srclink' href='../src/plotters/lib.rs.html#1-699' title='goto source code'>[src]</a></span><span class='in-band'>Crate <a class="mod" href=''>plotters</a></span></h1><div class='docblock'><h1 id="plotters---a-rust-drawing-library-focus-on-data-plotting-for-both-wasm-and-native-applications--" class="section-header"><a href="#plotters---a-rust-drawing-library-focus-on-data-plotting-for-both-wasm-and-native-applications--">Plotters - A Rust drawing library focus on data plotting for both WASM and native applications  🦀📈🚀</a></h1><a href="https://crates.io/crates/plotters">
     <img style="display: inline!important" src="https://img.shields.io/crates/v/plotters.svg"></img>
 </a>
 <a href="https://docs.rs/plotters">
     <img style="display: inline!important" src="https://docs.rs/plotters/badge.svg"></img>
 </a>
-<a href="https://plumberserver.com/plotters-docs/plotters">
+<a href="https://plotters-rs.github.io/rustdoc/plotters/">
     <img style="display: inline! important" src="https://img.shields.io/badge/docs-development-lightgrey.svg"></img>
 </a>
 <a href="https://travis-ci.org/38/plotters">
     <img style="display: inline! important" src="https://travis-ci.org/38/plotters.svg?branch=master"></img>
 </a>
-<p>Plotters is drawing library designed for rendering figures, plots, and charts, in pure rust. Plotters supports various types of backends,
-including bitmap, vector graph, piston window and WebAssembly.</p>
+<a href="https://codecov.io/gh/38/plotters">
+    <img style="display: inline! important" src="https://codecov.io/gh/38/plotters/branch/master/graph/badge.svg" />
+</a>
+<p>Plotters is drawing library designed for rendering figures, plots, and charts, in pure rust. Plotters supports various types of back-ends,
+including bitmap, vector graph, piston window, GTK/Cairo and WebAssembly.</p>
 <ul>
-<li>To try Plotters with inverative Jupyter notebook, or view <a href="https://plotters-rs.github.io/plotters-doc-data/evcxr-jupyter-integration.html">here</a> for the static HTML version.</li>
+<li>A new Plotters Developer's Guide is working in progress. The preview version is available at <a href="https://plotters-rs.github.io/book">here</a>.</li>
+<li>To try Plotters with interactive Jupyter notebook, or view <a href="https://plotters-rs.github.io/plotters-doc-data/evcxr-jupyter-integration.html">here</a> for the static HTML version.</li>
 <li>To view the WASM example, go to this <a href="https://plumberserver.com/plotters-wasm-demo/index.html">link</a></li>
+<li>Currently we have all the internal code ready for console plotting, but a console based backend is still not ready. See <a href="https://github.com/38/plotters/blob/master/examples/console.rs">this example</a> for how to plotting on Console with a customized backend.</li>
 </ul>
 <h2 id="gallery" class="section-header"><a href="#gallery">Gallery</a></h2><div class="galleryItem">
     <a href="https://plotters-rs.github.io/plotters-doc-data/sample.png">
@@ -52,6 +57,14 @@ including bitmap, vector graph, piston window and WebAssembly.</p>
     </div>
 </div>
 <div class="galleryItem">
+    <a href="https://plotters-rs.github.io/plotters-doc-data/console-2.png">
+        <img src="https://plotters-rs.github.io/plotters-doc-data/console-2.png" class="galleryItem"></img>
+    </a>
+    <div class="galleryText">
+        Plotting the Console
+    </div>
+</div>
+<div class="galleryItem">
     <a href="https://plotters-rs.github.io/plotters-doc-data/mandelbrot.png">
         <img src="https://plotters-rs.github.io/plotters-doc-data/mandelbrot.png" class="galleryItem"></img>
     </a>
@@ -73,7 +86,7 @@ including bitmap, vector graph, piston window and WebAssembly.</p>
         <img src="https://plotters-rs.github.io/plotters-doc-data/plotters-piston.gif" class="galleryItem"></img>
     </a>
     <div class="galleryText">
-        Realtime Rendering
+        Real-time Rendering
         <a href="https://github.com/38/plotters/tree/master/examples/piston-demo">[code]</a>
     </div>
 </div>
@@ -100,7 +113,7 @@ including bitmap, vector graph, piston window and WebAssembly.</p>
         <img src="https://plotters-rs.github.io/plotters-doc-data/matshow.png" class="galleryItem"></img>
     </a>
     <div class="galleryText">
-        The matplotlib Matshow Example
+        The Matplotlib Matshow Example
         <a href="https://github.com/38/plotters/blob/master/examples/matshow.rs">[code]</a>
     </div>
 </div>
@@ -118,7 +131,7 @@ including bitmap, vector graph, piston window and WebAssembly.</p>
         <img src="https://plotters-rs.github.io/plotters-doc-data/normal-dist2.png" class="galleryItem"></img>
     </a>
     <div class="galleryText">
-        The 1D Gussian Distribution
+        The 1D Gaussian Distribution
         <a href="https://github.com/38/plotters/blob/master/examples/nomal-dist2.rs">[code]</a>
     </div>
 </div>
@@ -127,7 +140,7 @@ including bitmap, vector graph, piston window and WebAssembly.</p>
         <img src="https://plotters-rs.github.io/plotters-doc-data/errorbar.png" class="galleryItem"></img>
     </a>
     <div class="galleryText">
-        The 1D Gussian Distribution
+        The 1D Gaussian Distribution
         <a href="https://github.com/38/plotters/blob/master/examples/errorbar.rs">[code]</a>
     </div>
 </div>
@@ -159,12 +172,30 @@ including bitmap, vector graph, piston window and WebAssembly.</p>
     </div>
 </div>
 <div class="galleryItem">
-    <a href="https://plotters-rs.github.io/plotters-doc-data/animation.png">
+    <a href="https://plotters-rs.github.io/plotters-doc-data/animation.gif">
         <img src="https://plotters-rs.github.io/plotters-doc-data/animation.gif" class="galleryItem"></img>
     </a>
     <div class="galleryText">
         Koch Snowflake Animation
         <a href="https://github.com/38/plotters/blob/master/examples/animation.rs">[code]</a>
+    </div>
+</div>
+<div class="galleryItem">
+    <a href="https://plotters-rs.github.io/plotters-doc-data/console.png">
+        <img src="https://plotters-rs.github.io/plotters-doc-data/console.png" class="galleryItem"></img>
+    </a>
+    <div class="galleryText">
+        Drawing on a Console
+        <a href="https://github.com/38/plotters/blob/master/examples/console.rs">[code]</a>
+    </div>
+</div>
+<div class="galleryItem">
+    <a href="https://plotters-rs.github.io/plotters-doc-data/blit-bitmap.png">
+        <img src="https://plotters-rs.github.io/plotters-doc-data/blit-bitmap.png" class="galleryItem"></img>
+    </a>
+    <div class="galleryText">
+        Drawing bitmap on chart
+        <a href="https://github.com/38/plotters/blob/master/examples/blit-bitmap.rs">[code]</a>
     </div>
 </div>
 <h2 id="table-of-contents" class="section-header"><a href="#table-of-contents">Table of Contents</a></h2>
@@ -178,7 +209,7 @@ including bitmap, vector graph, piston window and WebAssembly.</p>
 <li><a href="#what-types-of-figure-are-supported">What types of figure are supported?</a></li>
 <li><a href="#concepts-by-examples">Concepts by examples</a>
 <ul>
-<li><a href="#drawing-backends">Drawing Backends</a></li>
+<li><a href="#drawing-backends">Drawing Back-ends</a></li>
 <li><a href="#drawing-area">Drawing Area</a></li>
 <li><a href="#elements">Elements</a></li>
 <li><a href="#composable-elements">Composable Elements</a></li>
@@ -197,7 +228,7 @@ including bitmap, vector graph, piston window and WebAssembly.</p>
 <h2 id="quick-start" class="section-header"><a href="#quick-start">Quick Start</a></h2>
 <p>To use Plotters, you can simply add Plotters into your <code>Cargo.toml</code></p>
 <pre><code class="language-toml">[dependencies]
-plotters = &quot;^0.2.6&quot;
+plotters = &quot;^0.2.11&quot;
 </code></pre>
 <p>And the following code draws a quadratic function. <code>src/main.rs</code>,</p>
 
@@ -207,7 +238,7 @@ plotters = &quot;^0.2.6&quot;
     <span class="kw">let</span> <span class="ident">root</span> <span class="op">=</span> <span class="ident">BitMapBackend</span>::<span class="ident">new</span>(<span class="string">&quot;plotters-doc-data/0.png&quot;</span>, (<span class="number">640</span>, <span class="number">480</span>)).<span class="ident">into_drawing_area</span>();
     <span class="ident">root</span>.<span class="ident">fill</span>(<span class="kw-2">&amp;</span><span class="ident">WHITE</span>)<span class="question-mark">?</span>;
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">chart</span> <span class="op">=</span> <span class="ident">ChartBuilder</span>::<span class="ident">on</span>(<span class="kw-2">&amp;</span><span class="ident">root</span>)
-        .<span class="ident">caption</span>(<span class="string">&quot;y=x^2&quot;</span>, (<span class="string">&quot;Arial&quot;</span>, <span class="number">50</span>).<span class="ident">into_font</span>())
+        .<span class="ident">caption</span>(<span class="string">&quot;y=x^2&quot;</span>, (<span class="string">&quot;sans-serif&quot;</span>, <span class="number">50</span>).<span class="ident">into_font</span>())
         .<span class="ident">margin</span>(<span class="number">5</span>)
         .<span class="ident">x_label_area_size</span>(<span class="number">30</span>)
         .<span class="ident">y_label_area_size</span>(<span class="number">30</span>)
@@ -221,7 +252,7 @@ plotters = &quot;^0.2.6&quot;
             <span class="kw-2">&amp;</span><span class="ident">RED</span>,
         ))<span class="question-mark">?</span>
         .<span class="ident">label</span>(<span class="string">&quot;y = x^2&quot;</span>)
-        .<span class="ident">legend</span>(<span class="op">|</span>(<span class="ident">x</span>, <span class="ident">y</span>)<span class="op">|</span> <span class="ident">Path</span>::<span class="ident">new</span>(<span class="macro">vec</span><span class="macro">!</span>[(<span class="ident">x</span>, <span class="ident">y</span>), (<span class="ident">x</span> <span class="op">+</span> <span class="number">20</span>, <span class="ident">y</span>)], <span class="kw-2">&amp;</span><span class="ident">RED</span>));
+        .<span class="ident">legend</span>(<span class="op">|</span>(<span class="ident">x</span>, <span class="ident">y</span>)<span class="op">|</span> <span class="ident">PathElement</span>::<span class="ident">new</span>(<span class="macro">vec</span><span class="macro">!</span>[(<span class="ident">x</span>, <span class="ident">y</span>), (<span class="ident">x</span> <span class="op">+</span> <span class="number">20</span>, <span class="ident">y</span>)], <span class="kw-2">&amp;</span><span class="ident">RED</span>));
 
     <span class="ident">chart</span>
         .<span class="ident">configure_series_labels</span>()
@@ -256,7 +287,7 @@ let figure = evcxr_figure((640, 480), |root| {
         &amp;RED,
     )).unwrap()
         .label(&quot;y = x^2&quot;)
-        .legend(|(x,y)| Path::new(vec![(x,y), (x + 20,y)], &amp;RED));
+        .legend(|(x,y)| PathElement::new(vec![(x,y), (x + 20,y)], &amp;RED));
 
     chart.configure_series_labels()
         .background_style(&amp;WHITE.mix(0.8))
@@ -272,7 +303,7 @@ figure
 <p>Thanks to the evcxr, now we have an interactive tutorial for Plotters!
 To use the interactive notebook, you must have Jupyter and evcxr installed on your computer.
 Follow the instruction on <a href="https://github.com/google/evcxr/tree/master/evcxr_jupyter">this page</a> below to install it.</p>
-<p>After that, you should be able to start your Jupyer server locally and load the tutorial!</p>
+<p>After that, you should be able to start your Jupyter server locally and load the tutorial!</p>
 <pre><code class="language-bash">git clone https://github.com/38/plotters-doc-data
 cd plotteres-doc-data
 jupyter notebook
@@ -292,7 +323,7 @@ can be very easy to use.</p>
 <p><strong>Fast</strong> If you need rendering a figure with trillions of data points,
 Rust is a good choice. Rust's performance allows you to combine data processing step
 and rendering step into a single application. When plotting in high-level programming languages,
-e.g. Javascript or Python, data points must be downsampled before feeding into the plotting
+e.g. Javascript or Python, data points must be down-sampled before feeding into the plotting
 program because of the performance considerations. Rust is fast enough to do the data processing and visualization
 within a single program. You can also integrate the
 figure rendering code into your application handling a huge amount of data and visualize it in real-time.</p>
@@ -314,8 +345,8 @@ You can create your own types of figures easily with the Plotters API.</p>
 Currently, we support line series, point series, candlestick series, and histogram.
 And the library is designed to be able to render multiple figure into a single image.
 But Plotter is aimed to be a platform that is fully extendable to support any other types of figure.</p>
-<h2 id="concepts-by-examples" class="section-header"><a href="#concepts-by-examples">Concepts by examples</a></h2><h3 id="drawing-backends" class="section-header"><a href="#drawing-backends">Drawing Backends</a></h3>
-<p>Plotters can use different drawing backends, including SVG, BitMap, and even real-time rendering. For example, a bitmap drawing backend.</p>
+<h2 id="concepts-by-examples" class="section-header"><a href="#concepts-by-examples">Concepts by examples</a></h2><h3 id="drawing-back-ends" class="section-header"><a href="#drawing-back-ends">Drawing Back-ends</a></h3>
+<p>Plotters can use different drawing back-ends, including SVG, BitMap, and even real-time rendering. For example, a bitmap drawing backend.</p>
 
 <div class="example-wrap"><pre class="rust rust-example-rendered">
 <span class="kw">use</span> <span class="ident">plotters</span>::<span class="ident">prelude</span>::<span class="kw-2">*</span>;
@@ -395,7 +426,7 @@ coordinate which has the upper-left corner defined as <code>(0,0)</code> is used
             <span class="op">+</span> <span class="ident">Text</span>::<span class="ident">new</span>(
                 <span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;({:.2},{:.2})&quot;</span>, <span class="ident">x</span>, <span class="ident">y</span>),
                 (<span class="number">10</span>, <span class="number">0</span>),
-                (<span class="string">&quot;Arial&quot;</span>, <span class="number">15.0</span>).<span class="ident">into_font</span>(),
+                (<span class="string">&quot;sans-serif&quot;</span>, <span class="number">15.0</span>).<span class="ident">into_font</span>(),
             );
     };
 
@@ -420,7 +451,7 @@ of the chart context object.</p>
     <span class="comment">// After this point, we should be able to draw construct a chart context</span>
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">chart</span> <span class="op">=</span> <span class="ident">ChartBuilder</span>::<span class="ident">on</span>(<span class="kw-2">&amp;</span><span class="ident">root</span>)
         <span class="comment">// Set the caption of the chart</span>
-        .<span class="ident">caption</span>(<span class="string">&quot;This is our first plot&quot;</span>, (<span class="string">&quot;Arial&quot;</span>, <span class="number">40</span>).<span class="ident">into_font</span>())
+        .<span class="ident">caption</span>(<span class="string">&quot;This is our first plot&quot;</span>, (<span class="string">&quot;sans-serif&quot;</span>, <span class="number">40</span>).<span class="ident">into_font</span>())
         <span class="comment">// Set the size of the label region</span>
         .<span class="ident">x_label_area_size</span>(<span class="number">20</span>)
         .<span class="ident">y_label_area_size</span>(<span class="number">40</span>)
@@ -450,7 +481,7 @@ of the chart context object.</p>
         <span class="kw-2">&amp;</span><span class="op">|</span><span class="ident">c</span>, <span class="ident">s</span>, <span class="ident">st</span><span class="op">|</span> {
             <span class="kw">return</span> <span class="ident">EmptyElement</span>::<span class="ident">at</span>(<span class="ident">c</span>)    <span class="comment">// We want to construct a composed element on-the-fly</span>
             <span class="op">+</span> <span class="ident">Circle</span>::<span class="ident">new</span>((<span class="number">0</span>,<span class="number">0</span>),<span class="ident">s</span>,<span class="ident">st</span>.<span class="ident">filled</span>()) <span class="comment">// At this point, the new pixel coordinate is established</span>
-            <span class="op">+</span> <span class="ident">Text</span>::<span class="ident">new</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">c</span>), (<span class="number">10</span>, <span class="number">0</span>), (<span class="string">&quot;Arial&quot;</span>, <span class="number">10</span>).<span class="ident">into_font</span>());
+            <span class="op">+</span> <span class="ident">Text</span>::<span class="ident">new</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;{:?}&quot;</span>, <span class="ident">c</span>), (<span class="number">10</span>, <span class="number">0</span>), (<span class="string">&quot;sans-serif&quot;</span>, <span class="number">10</span>).<span class="ident">into_font</span>());
         },
     ))<span class="question-mark">?</span>;
     <span class="prelude-val">Ok</span>(())
@@ -463,7 +494,7 @@ plotters = { git = &quot;https://github.com/38/plotters.git&quot; }
 </code></pre>
 <h3 id="reducing-depending-libraries--turning-off-backends" class="section-header"><a href="#reducing-depending-libraries--turning-off-backends">Reducing Depending Libraries &amp;&amp; Turning Off Backends</a></h3>
 <p>Plotters now supports use features to control the backend dependencies. By default, <code>BitMapBackend</code> and <code>SVGBackend</code> are supported,
-use <code>default_features = false</code> in the dependency description in <code>Cargo.toml</code> and you can cherrypick the backend implementations.</p>
+use <code>default_features = false</code> in the dependency description in <code>Cargo.toml</code> and you can cherry-pick the backend implementations.</p>
 <ul>
 <li><code>svg</code> Enable the <code>SVGBackend</code></li>
 <li><code>bitmap</code> Enable the <code>BitMapBackend</code></li>
@@ -473,18 +504,18 @@ use <code>default_features = false</code> in the dependency description in <code
 plotters = { git = &quot;https://github.com/38/plotters.git&quot;, default_features = false, features = [&quot;svg&quot;] }
 </code></pre>
 <p>The library also allows consumers to make use of the <a href="https://crates.io/crates/palette/"><code>Palette</code></a> crate's color types by default.
-This behaviour can also be turned off by setting <code>default_features = false</code>.</p>
+This behavior can also be turned off by setting <code>default_features = false</code>.</p>
 <h3 id="list-of-features" class="section-header"><a href="#list-of-features">List of Features</a></h3>
-<p>This is the full list of features that is defined by <code>Plotters</code> crate. Use <code>default_features = false</code> to disable those default enabled features, and then you should be able to cherrypick what features you want to include into <code>Plotters</code> crate.</p>
-<table><thead><tr><th>Name</th><th>Description</th><th>Addional Dependency</th><th>Default?</th></tr></thead><tbody>
-<tr><td>bitmap</td><td>Enable <code>BitMapBackend</code> Support</td><td>image</td><td>Yes</td></tr>
+<p>This is the full list of features that is defined by <code>Plotters</code> crate. Use <code>default_features = false</code> to disable those default enabled features, and then you should be able to cherry-pick what features you want to include into <code>Plotters</code> crate.</p>
+<table><thead><tr><th>Name</th><th>Description</th><th>Additional Dependency</th><th>Default?</th></tr></thead><tbody>
+<tr><td>image_encoder</td><td>Allow <code>BitMapBackend</code> save the result to bitmap files</td><td>image</td><td>Yes</td></tr>
 <tr><td>svg</td><td>Enable <code>SVGBackend</code> Support</td><td>svg</td><td>Yes</td></tr>
 <tr><td>datetime</td><td>Enable Date and Time Coordinate Support</td><td>chrono</td><td>Yes</td></tr>
-<tr><td>gif_backend</td><td>Opt-in GIF animation Redendering support for <code>BitMapBackend</code>, implies <code>bitmap</code> enabled</td><td>gif</td><td>Yes</td></tr>
+<tr><td>gif_backend</td><td>Opt-in GIF animation Rendering support for <code>BitMapBackend</code>, implies <code>bitmap</code> enabled</td><td>gif</td><td>Yes</td></tr>
 <tr><td>piston</td><td>Enable <code>PistonWindowBackend</code></td><td>piston_window</td><td>No</td></tr>
+<tr><td>cairo</td><td>Enable <code>CairoBackend</code></td><td>cairo-rs</td><td>No</td></tr>
 <tr><td>palette_ext</td><td>Use crate <code>palette</code> for color expression</td><td>palette</td><td>Yes</td></tr>
-<tr><td>evcxr</td><td>Enable Evcxr support, which allows use <code>Plotters</code> in Jupyer Note Book</td><td>None</td><td>No</td></tr>
-<tr><td>make_partial_axis</td><td>Support for API <code>make_partial_axis</code>, which allows confguring partial axis from visible protion.</td><td>num-trait</td><td>Yes</td></tr>
+<tr><td>evcxr</td><td>Enable Evcxr support, which allows use <code>Plotters</code> in Jupyter Note Book</td><td>None</td><td>No</td></tr>
 </tbody></table>
 <h2 id="faq-list" class="section-header"><a href="#faq-list">FAQ List</a></h2>
 <ul>
@@ -521,8 +552,8 @@ Use <code>DrawingArea::draw</code> to draw any element on the drawing area.</p>
 <table><tr><td><code>pub use <a class="mod" href="https://docs.rs/palette/0.4.1/palette/palette/index.html" title="mod palette">palette</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table><tr class='module-item'><td><a class="mod" href="chart/index.html" title='plotters::chart mod'>chart</a></td><td class='docblock-short'><p>The high-level plotting abstractions.</p>
 </td></tr><tr class='module-item'><td><a class="mod" href="coord/index.html" title='plotters::coord mod'>coord</a></td><td class='docblock-short'><p>Coordinate system abstractions.</p>
-</td></tr><tr class='module-item'><td><a class="mod" href="data/index.html" title='plotters::data mod'>data</a></td><td class='docblock-short'><p>The data processing module, which implmements algorithm related to visualization of data.
-Such as, downsampling, etc.</p>
+</td></tr><tr class='module-item'><td><a class="mod" href="data/index.html" title='plotters::data mod'>data</a></td><td class='docblock-short'><p>The data processing module, which implements algorithm related to visualization of data.
+Such as, down-sampling, etc.</p>
 </td></tr><tr class='module-item'><td><a class="mod" href="drawing/index.html" title='plotters::drawing mod'>drawing</a></td><td class='docblock-short'><p>The drawing utils for Plotter. Which handles the both low-level and high-level
 drawing.</p>
 </td></tr><tr class='module-item'><td><a class="mod" href="element/index.html" title='plotters::element mod'>element</a></td><td class='docblock-short'><p>Defines the drawing elements, the high-level drawing unit in Plotters drawing system</p>
