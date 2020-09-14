@@ -822,6 +822,76 @@ fn main() {
 }
 </code></pre></pre>
 <p><img src="basic/../../images/3d-bar.png" alt="3d-env.png" /></p>
+<h2><a class="header" href="#3d-surface" id="3d-surface">3D Surface</a></h2>
+<p>We can draw 3d surface as well by drawing a series of polygon. Here's an example of how to draw a surface plot.</p>
+<pre><pre class="playground"><code class="language-rust">use plotters::prelude::*;
+fn main() {
+    let root = BitMapBackend::new(&quot;images/3d-surface.png&quot;, (640, 480)).into_drawing_area();
+
+    root.fill(&amp;WHITE).unwrap();
+
+    let mut chart = ChartBuilder::on(&amp;root)
+        .margin(20)
+        .caption(&quot;3D Surface&quot;, (&quot;sans-serif&quot;, 40))
+        .build_cartesian_3d(-3.0..3.0, -3.0..3.0, -3.0..3.0)
+        .unwrap();
+
+    chart.configure_axes().draw().unwrap();
+
+    let mut data = vec![];
+    
+    for x in (-25..25).map(|v| v as f64 / 10.0) {
+        let mut row = vec![];
+        for z in (-25..25).map(|v| v as f64 / 10.0) {
+            row.push((x, (x * x + z * z).cos(), z));
+        }
+        data.push(row);
+    }
+
+    chart.draw_series(
+        (0..49)
+            .map(|x| std::iter::repeat(x).zip(0..49))
+            .flatten()
+            .map(|(x,z)| {
+                Polygon::new(vec![
+                    data[x][z],
+                    data[x+1][z],
+                    data[x+1][z+1],
+                    data[x][z+1],
+                ], &amp;BLUE.mix(0.3))
+            })
+    ).unwrap();
+
+}
+</code></pre></pre>
+<p><img src="basic/../../images/3d-surface.png" alt="surface" /></p>
+<h3><a class="header" href="#drawing-with-surface-series" id="drawing-with-surface-series">Drawing with surface series</a></h3>
+<p><strong>Note: This feature is only avaiable in development version</strong></p>
+<pre><pre class="playground"><code class="language-rust">use plotters_nightly::prelude::*;
+fn main() {
+    let root = BitMapBackend::new(&quot;images/3d-surface-series.png&quot;, (640, 480)).into_drawing_area();
+
+    root.fill(&amp;WHITE).unwrap();
+
+    let mut chart = ChartBuilder::on(&amp;root)
+        .margin(20)
+        .caption(&quot;3D Surface&quot;, (&quot;sans-serif&quot;, 40))
+        .build_cartesian_3d(-3.0..3.0, -3.0..3.0, -3.0..3.0)
+        .unwrap();
+
+    chart.configure_axes().draw().unwrap();
+    
+    chart.draw_series(SurfaceSeries::xoz(
+        (-25..25).map(|v| v as f64 / 10.0), 
+        (-25..25).map(|v| v as f64 / 10.0), 
+        |x:f64,z:f64|(x * x + z * z).cos()).style(&amp;BLUE.mix(0.2))
+    ).unwrap();
+
+}
+</code></pre></pre>
+<p><img src="basic/../../images/3d-surface-series.png" alt="surface" /></p>
+<h2><a class="header" href="#customize-perspective-matrix" id="customize-perspective-matrix">Customize perspective matrix</a></h2>
+<p>Plotters also allows user override the default prespective matrix</p>
 <h1><a class="header" href="#animation-and-realtime-rendering" id="animation-and-realtime-rendering">Animation and realtime rendering</a></h1>
 <h1><a class="header" href="#tweaking-the-figure" id="tweaking-the-figure">Tweaking the figure</a></h1>
 <h1><a class="header" href="#layout-tweaks" id="layout-tweaks">Layout Tweaks</a></h1>
