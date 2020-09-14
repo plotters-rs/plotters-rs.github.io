@@ -1,17 +1,28 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Appendix - Plotter Developer's Guide</title>
+        <title>Appendix - Plotter Developer&#x27;s Guide</title>
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
         <link rel="shortcut icon" href="../favicon.png">
+        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
@@ -19,8 +30,9 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -32,11 +44,11 @@
 
         
     </head>
-    <body class="light">
+    <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -60,8 +72,11 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -77,8 +92,8 @@
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
-                <ol class="chapter"><li class="expanded "><a href="../intro/introduction.html"><strong aria-hidden="true">1.</strong> Plotters Developer's Guide</a></li><li><ol class="section"><li class="expanded "><a href="../intro/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting started</a></li></ol></li><li class="expanded "><a href="../basic/overview.html"><strong aria-hidden="true">2.</strong> Basic plotting</a></li><li><ol class="section"><li class="expanded "><a href="../basic/chart_context.html"><strong aria-hidden="true">2.1.</strong> Define chart context</a></li><li class="expanded "><a href="../basic/chart_components.html"><strong aria-hidden="true">2.2.</strong> Draw figure components</a></li><li class="expanded "><a href="../basic/basic_data_plotting.html"><strong aria-hidden="true">2.3.</strong> Basic data plotting</a></li><li class="expanded "><a href="../basic/multipanel.html"><strong aria-hidden="true">2.4.</strong> Multipanel figures</a></li><li class="expanded "><a href="../basic/animate.html"><strong aria-hidden="true">2.5.</strong> Animation and realtime rendering</a></li></ol></li><li class="expanded "><a href="../tweak/overview.html"><strong aria-hidden="true">3.</strong> Tweaking the figure</a></li><li><ol class="section"><li class="expanded "><a href="../tweak/layout.html"><strong aria-hidden="true">3.1.</strong> Layout tweak</a></li><li class="expanded "><a href="../tweak/font_color_style.html"><strong aria-hidden="true">3.2.</strong> Font, color and styles</a></li><li class="expanded "><a href="../tweak/aixs_mesh_labels.html"><strong aria-hidden="true">3.3.</strong> Axis, mesh and label tweaks</a></li><li class="expanded "><a href="../tweak/relative_sizing.html"><strong aria-hidden="true">3.4.</strong> Relative sizing</a></li></ol></li><li class="expanded "><a href="../drawing/overview.html"><strong aria-hidden="true">4.</strong> Drawing APIs</a></li><li><ol class="section"><li class="expanded "><a href="../drawing/drawing_area.html"><strong aria-hidden="true">4.1.</strong> Drawing areas</a></li><li class="expanded "><a href="../drawing/coord_system.html"><strong aria-hidden="true">4.2.</strong> Coordinate systems</a></li><li><ol class="section"><li class="expanded "><a href="../drawing/coord_decorator.html"><strong aria-hidden="true">4.2.1.</strong> Coordinate decorators</a></li></ol></li><li class="expanded "><a href="../drawing/elements.html"><strong aria-hidden="true">4.3.</strong> Elements</a></li><li class="expanded "><a href="../drawing/backends.html"><strong aria-hidden="true">4.4.</strong> Drawing backends</a></li></ol></li><li class="expanded "><a href="../backends/overview.html"><strong aria-hidden="true">5.</strong> Targeting different backends</a></li><li><ol class="section"><li class="expanded "><a href="../backends/canvas_backend.html"><strong aria-hidden="true">5.1.</strong> HTML5 Canvas</a></li><li class="expanded "><a href="../backends/fb.html"><strong aria-hidden="true">5.2.</strong> Framebuffer</a></li></ol></li><li class="expanded "><a href="../perf/overview.html"><strong aria-hidden="true">6.</strong> Performance</a></li><li><ol class="section"><li class="expanded "><a href="../perf/parallel_blit.html"><strong aria-hidden="true">6.1.</strong> Parallel Rendering with Bitmap Blit</a></li><li class="expanded "><a href="../perf/inplace_rendering.html"><strong aria-hidden="true">6.2.</strong> Inplace Parallel Rendering</a></li><li class="expanded "><a href="../perf/incremental_rendering.html"><strong aria-hidden="true">6.3.</strong> Incremental Rendering</a></li></ol></li><li class="expanded "><a href="../extend/overview.html"><strong aria-hidden="true">7.</strong> Extend Plotters</a></li><li><ol class="section"><li class="expanded "><a href="../extend/coord.html"><strong aria-hidden="true">7.1.</strong> Adding coordinate type</a></li><li class="expanded "><a href="../extend/series.html"><strong aria-hidden="true">7.2.</strong> Adding series types</a></li><li class="expanded "><a href="../extend/backend.html"><strong aria-hidden="true">7.3.</strong> Support new backend</a></li></ol></li><li class="expanded "><a href="../appendix/index.html" class="active"><strong aria-hidden="true">8.</strong> Appendix</a></li><li><ol class="section"><li class="expanded "><a href="../appendix/built_in_backends.html"><strong aria-hidden="true">8.1.</strong> Built-in backends</a></li></ol></li></ol>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../intro/introduction.html"><strong aria-hidden="true">1.</strong> Plotters Developer's Guide</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../intro/getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting started</a></li></ol></li><li class="chapter-item expanded "><a href="../basic/overview.html"><strong aria-hidden="true">2.</strong> Basic plotting</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basic/chart_context.html"><strong aria-hidden="true">2.1.</strong> Define chart context</a></li><li class="chapter-item expanded "><a href="../basic/chart_components.html"><strong aria-hidden="true">2.2.</strong> Draw figure components</a></li><li class="chapter-item expanded "><a href="../basic/basic_data_plotting.html"><strong aria-hidden="true">2.3.</strong> Basic data plotting</a></li><li class="chapter-item expanded "><a href="../basic/multipanel.html"><strong aria-hidden="true">2.4.</strong> Multipanel figures</a></li><li class="chapter-item expanded "><a href="../basic/draw_3d_plots.html"><strong aria-hidden="true">2.5.</strong> Draw 3D plots</a></li><li class="chapter-item expanded "><a href="../basic/animate.html"><strong aria-hidden="true">2.6.</strong> Animation and realtime rendering</a></li></ol></li><li class="chapter-item expanded "><a href="../tweak/overview.html"><strong aria-hidden="true">3.</strong> Tweaking the figure</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../tweak/layout.html"><strong aria-hidden="true">3.1.</strong> Layout tweak</a></li><li class="chapter-item expanded "><a href="../tweak/font_color_style.html"><strong aria-hidden="true">3.2.</strong> Font, color and styles</a></li><li class="chapter-item expanded "><a href="../tweak/aixs_mesh_labels.html"><strong aria-hidden="true">3.3.</strong> Axis, mesh and label tweaks</a></li><li class="chapter-item expanded "><a href="../tweak/relative_sizing.html"><strong aria-hidden="true">3.4.</strong> Relative sizing</a></li></ol></li><li class="chapter-item expanded "><a href="../drawing/overview.html"><strong aria-hidden="true">4.</strong> Drawing APIs</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../drawing/drawing_area.html"><strong aria-hidden="true">4.1.</strong> Drawing areas</a></li><li class="chapter-item expanded "><a href="../drawing/coord_system.html"><strong aria-hidden="true">4.2.</strong> Coordinate systems</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../drawing/coord_decorator.html"><strong aria-hidden="true">4.2.1.</strong> Coordinate decorators</a></li></ol></li><li class="chapter-item expanded "><a href="../drawing/elements.html"><strong aria-hidden="true">4.3.</strong> Elements</a></li><li class="chapter-item expanded "><a href="../drawing/backends.html"><strong aria-hidden="true">4.4.</strong> Drawing backends</a></li></ol></li><li class="chapter-item expanded "><a href="../backends/overview.html"><strong aria-hidden="true">5.</strong> Targeting different backends</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../backends/canvas_backend.html"><strong aria-hidden="true">5.1.</strong> HTML5 Canvas</a></li><li class="chapter-item expanded "><a href="../backends/fb.html"><strong aria-hidden="true">5.2.</strong> Framebuffer</a></li></ol></li><li class="chapter-item expanded "><a href="../perf/overview.html"><strong aria-hidden="true">6.</strong> Performance</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../perf/parallel_blit.html"><strong aria-hidden="true">6.1.</strong> Parallel Rendering with Bitmap Blit</a></li><li class="chapter-item expanded "><a href="../perf/inplace_rendering.html"><strong aria-hidden="true">6.2.</strong> Inplace Parallel Rendering</a></li><li class="chapter-item expanded "><a href="../perf/incremental_rendering.html"><strong aria-hidden="true">6.3.</strong> Incremental Rendering</a></li></ol></li><li class="chapter-item expanded "><a href="../extend/overview.html"><strong aria-hidden="true">7.</strong> Extend Plotters</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../extend/coord.html"><strong aria-hidden="true">7.1.</strong> Adding coordinate type</a></li><li class="chapter-item expanded "><a href="../extend/series.html"><strong aria-hidden="true">7.2.</strong> Adding series types</a></li><li class="chapter-item expanded "><a href="../extend/backend.html"><strong aria-hidden="true">7.3.</strong> Support new backend</a></li></ol></li><li class="chapter-item expanded "><a href="../appendix/index.html" class="active"><strong aria-hidden="true">8.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../appendix/built_in_backends.html"><strong aria-hidden="true">8.1.</strong> Built-in backends</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -87,37 +102,36 @@
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">Plotter Developer's Guide</h1>
+                    <h1 class="menu-title">Plotter Developer&#x27;s Guide</h1>
 
-                        <div class="right-buttons">
-                            <a href="../print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                            
-                        </div>
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
                     </div>
                 </div>
 
@@ -170,13 +184,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../extend/backend.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../extend/backend.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../appendix/built_in_backends.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../appendix/built_in_backends.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -189,10 +203,10 @@
         
 
         
-        
+
         
         <script type="text/javascript">
-            window.playpen_copyable = true;
+            window.playground_copyable = true;
         </script>
         
 
